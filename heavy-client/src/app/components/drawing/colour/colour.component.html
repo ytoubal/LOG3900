@@ -1,0 +1,3 @@
+<app-colour-palette #palette id="sections" [hue]="hue" (color)="color = $event"></app-colour-palette>
+<app-colour-slider id="sections" (sendColour)="palette.sendColour()" (color)="hue=$event" style="margin-left:16px"></app-colour-slider>
+<app-opacity-slider id="sections" (color)="hue=$event" style="margin-left:16px"></app-opacity-slider>

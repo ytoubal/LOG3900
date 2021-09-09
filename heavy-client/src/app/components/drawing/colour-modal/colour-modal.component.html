@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>{{ "attrib-panel.color.modal.label" | translate }}</h1>
+
+<app-colour (mousedown)="setInput(false)" id="colourDiv"></app-colour>
+
+<div id="boxDiv">
+  <svg [style.backgroundColor]="currentColour"></svg>
+</div>
+
+<div mat-dialog-actions class="label" (mousedown)="setInput(true)">
+  <label class="label"
+    >R:
+    <input
+      class="colour"
+      oninput="this.value = this.value.toUpperCase()"
+      (keypress)="disableShortcuts($event)"
+      [(ngModel)]="colour.r"
+      size="1"
+      maxlength="2"
+  /></label>
+  <br />
+  <label class="label"
+    >V:
+    <input
+      class="colour"
+      oninput="this.value = this.value.toUpperCase()"
+      (keypress)="disableShortcuts($event)"
+      [(ngModel)]="colour.g"
+      size="1"
+      maxlength="2"
+  /></label>
+  <br />
+  <label class="label"
+    >B:
+    <input
+      class="colour"
+      oninput="this.value = this.value.toUpperCase()"
+      (keypress)="disableShortcuts($event)"
+      [(ngModel)]="colour.b"
+      size="1"
+      maxlength="2"
+  /></label>
+  <br />
+  <label class="label"># {{ colour.r + colour.g + colour.b }}</label>
+  <br />
+</div>
+<br />
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">{{ "cancel" | translate }}</button>
+  <button mat-button (click)="accept()">
+    {{ "attrib-panel.color.modal.accept" | translate }}
+  </button>
+</div>

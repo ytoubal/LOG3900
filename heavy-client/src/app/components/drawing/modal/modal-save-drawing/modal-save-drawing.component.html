@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Sauvegarder un nouveau dessin</h1>
+<img [src]= "getImgContent()"/>
+
+<label mat-dialog-actions>
+  <label>Nom</label>
+  <input (keypress)="disableShortcuts($event)" [(ngModel)]="saveDrawingService.name" size="6" maxlength="20" type="string">
+  <label class = 'obligatoire'>*Champ obligatoire</label>
+</label>
+<label mat-dialog-actions>
+  <label>Tag</label>
+  <input (keypress)="disableShortcuts($event)" [(ngModel)]="currentTag" size="6" maxlength="20" type="string">
+  <button *ngIf = "validTag(); else elseBlock" class = 'btnTag valid' (click) = "createTag()">+</button>
+  <ng-template #elseBlock>  
+    <button class = 'btnTag' disabled>+</button>
+  </ng-template>
+  <label class = 'obligatoire'>*Doit commencer par un #, pas d'espace (20 char. max)</label>
+  <div *ngFor = "let tag of exampleTags" [ngClass] = "(isSelected(tag))? 'tag selected':'tag'" (click) = "selectTag(tag)">
+    {{tag}}
+  </div>
+</label>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Annuler</button>  
+  <button mat-button (click)="save()">Sauvegarder</button>
+</div>

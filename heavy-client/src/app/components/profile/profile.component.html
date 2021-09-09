@@ -1,0 +1,346 @@
+<ng-container *ngIf="loadProfile">
+  <div class="background" [ngClass]="themeService.theme">
+    <app-toolbar></app-toolbar>
+    <div class="whole" [ngClass]="themeService.theme">
+      <div class="container" [ngClass]="themeService.theme">
+        <div class="top">
+          <div class="profile-banner"></div>
+          <div class="pp">
+            <img
+              class="pp-img"
+              *ngIf="profileService.currentUser"
+              [src]="profileService.findAvatar(authService.avatar)"
+            />
+          </div>
+          <ng-container *ngIf="profileService.border">
+            <img class="border-img" [src]="profileService.findBorder()" />
+          </ng-container>
+          <div
+            [ngClass]="
+              profileService.border
+                ? '' + themeService.theme
+                : 'info' + themeService.theme
+            "
+          >
+            <div class="level">{{ this.profileService.level }}</div>
+            <div class="bio" [ngClass]="themeService.theme">
+              <div class="username">
+                <ng-container
+                  *ngIf="
+                    this.profileService.title &&
+                    this.profileService.title !== 'none'
+                  "
+                >
+                  <h2>{{ profileService.title }}&thinsp;</h2>
+                </ng-container>
+                <h2>{{ this.authService.username }}</h2>
+              </div>
+              <p>
+                {{ this.authService.fName }}&ensp;{{ this.authService.lName }}
+              </p>
+            </div>
+            <div class="progress" [ngClass]="themeService.theme">
+              <mat-progress-bar
+                [ngClass]="themeService.theme"
+                mode="determinate"
+                [value]="profileService.pointsProgress"
+              ></mat-progress-bar>
+            </div>
+            <div class="progress-text">
+              {{ profileService.pointsXP }}&ensp;/&ensp;{{
+                profileService.maxXP
+              }}&ensp;XP
+            </div>
+            <button
+              mat-icon-button
+              [ngClass]="themeService.theme"
+              class="edit"
+              matTooltip="{{ 'profile.edit' | translate }}"
+              matTooltipPosition="right"
+              (click)="openEdit()"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="bottom" [ngClass]="themeService.theme">
+          <div class="tabs" [ngClass]="themeService.theme">
+            <mat-tab-group
+              animationDuration="0ms"
+              [ngClass]="themeService.theme"
+            >
+              <mat-tab [ngClass]="themeService.theme">
+                <ng-template mat-tab-label>
+                  <span [ngClass]="themeService.theme">{{
+                    "profile.activity" | translate
+                  }}</span>
+                </ng-template>
+                <div class="activities" [ngClass]="themeService.theme">
+                  <ng-container *ngFor="let game of profileService.games">
+                    <div class="indiv-activity">
+                      <div class="other-infos">
+                        <div class="details">
+                          <div>{{ game.date }}</div>
+                          <div>{{ game.difficulty }}</div>
+                          <div>{{ convertTime(game.time, "min") }}</div>
+                        </div>
+                        <div class="score">
+                          <ng-container
+                            *ngIf="
+                              gameOutcome(game) &&
+                              game.scoreClassic[0] !== game.scoreClassic[1]
+                            "
+                          >
+                            {{ "profile.win" | translate }}
+                          </ng-container>
+                          <ng-container
+                            *ngIf="
+                              !gameOutcome(game) &&
+                              game.scoreClassic[0] !== game.scoreClassic[1]
+                            "
+                          >
+                            {{ "profile.lost" | translate }}
+                          </ng-container>
+                          <ng-container
+                            *ngIf="
+                              game.scoreClassic[0] === game.scoreClassic[1]
+                            "
+                          >
+                            {{ "profile.tie" | translate }}
+                          </ng-container>
+
+                          <div>
+                            {{ game.scoreClassic[0] }} -
+                            {{ game.scoreClassic[1] }}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="players">
+                        <div class="team">
+                          <div class="team-num">
+                            {{ "waitingRoom.team1" | translate }}
+                          </div>
+                          <ng-container
+                            *ngFor="
+                              let player of game.usersPlayedWith.slice(0, 2)
+                            "
+                          >
+                            <div class="indiv-player">
+                              <img
+                                class="hist-avatar"
+                                [src]="profileService.findAvatar(player.avatar)"
+                              />
+                              {{ player.username }}
+                            </div>
+                          </ng-container>
+                        </div>
+                        <div class="team">
+                          <div class="team-num">
+                            {{ "waitingRoom.team2" | translate }}
+                          </div>
+                          <ng-container
+                            *ngFor="
+                              let player of game.usersPlayedWith.slice(2, 4)
+                            "
+                          >
+                            <div class="indiv-player">
+                              <img
+                                class="hist-avatar"
+                                [src]="profileService.findAvatar(player.avatar)"
+                              />
+                              {{ player.username }}
+                            </div>
+                          </ng-container>
+                        </div>
+
+                        <!-- <ng-container
+                          *ngFor="let player of game.usersPlayedWith"
+                        >
+                          <div class="indiv-player">
+                            <img
+                              class="hist-avatar"
+                              [src]="profileService.findAvatar(player.avatar)"
+                            />
+                            {{ player.username }}
+                          </div>
+                        </ng-container> -->
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-tab>
+              <mat-tab [ngClass]="themeService.theme">
+                <ng-template mat-tab-label>
+                  <span [ngClass]="themeService.theme">{{
+                    "gallery" | translate
+                  }}</span>
+                </ng-template>
+                <!-- <div [ngClass]="themeService.theme"> -->
+                <div
+                  [ngClass]="
+                    profileService.imageNum === 0 ? 'empty' : 'gallery'
+                  "
+                >
+                  <ng-container *ngIf="!isLoaded">
+                    <div
+                      [ngClass]="themeService.theme"
+                      class="loading-container"
+                    >
+                      <p>{{ "fetching" | translate }}</p>
+                      <div class="loading" [ngClass]="themeService.theme"></div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="isLoaded">
+                    <ng-container *ngIf="profileService.imageNum === 0">
+                      <div class="empty-gallery" [ngClass]="themeService.theme">
+                        <i>{{ "leaderboard.no.drawing" | translate }}</i>
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="profileService.imageNum !== 0">
+                      <div class="gal-images" [ngClass]="themeService.theme">
+                        <ng-container
+                          *ngFor="let drawing of displayedDrawings; index as i"
+                        >
+                          <div
+                            class="indiv-drawing"
+                            [ngClass]="themeService.theme"
+                          >
+                            <img
+                              class="gal-img"
+                              [src]="
+                                sanitizer.bypassSecurityTrustUrl(drawing.src)
+                              "
+                            />
+                            <div
+                              class="button-container"
+                              [ngClass]="themeService.theme"
+                            >
+                              <div>{{ drawing.word }}</div>
+                              <button
+                                mat-icon-button
+                                class="img-button"
+                                (click)="deleteDrawing(drawing, i)"
+                              >
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <mat-paginator
+                        [length]="profileService.imageNum"
+                        pageSize="10"
+                        hidePageSize="true"
+                        (page)="changePage($event)"
+                        [ngClass]="themeService.theme"
+                      >
+                      </mat-paginator>
+                    </ng-container>
+                  </ng-container>
+                </div>
+                <!-- </div> -->
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <span [ngClass]="themeService.theme">{{
+                    "profile.connection.label" | translate
+                  }}</span>
+                </ng-template>
+                <div class="history" [ngClass]="themeService.theme">
+                  <ng-container *ngFor="let c of profileService.connections">
+                    <div class="indiv-hist">
+                      <div class="connection">
+                        {{ "profile.connection" | translate }}: {{ c[0] }}
+                      </div>
+                      <div class="disconnection">
+                        {{ "profile.disconnection" | translate }}: {{ c[1] }}
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+
+          <div class="stats">
+            <div class="general-stats">
+              <mat-tab-group animationDuration="0ms" class="gen-stats">
+                <mat-tab label="{{ 'profile.classic' | translate }}">
+                  <div class="row">
+                    <div class="stat">
+                      <div class="stat-circle">
+                        <div class="stat-circle-text">
+                          {{ profileService.gamesPlayed }}
+                        </div>
+                      </div>
+                      <mat-progress-spinner
+                        [ngClass]="themeService.theme"
+                        [value]="100"
+                        [diameter]="80"
+                      >
+                      </mat-progress-spinner>
+                      <div class="stat-label">
+                        {{ "profile.played" | translate }}
+                      </div>
+                    </div>
+                    <div class="stat">
+                      <div class="stat-circle">
+                        <div class="stat-circle-win">
+                          {{ profileService.gamesWinrate }} %
+                        </div>
+                      </div>
+                      <mat-progress-spinner
+                        [ngClass]="themeService.theme"
+                        [value]="profileService.gamesWinrate"
+                        [diameter]="80"
+                      >
+                      </mat-progress-spinner>
+                      <div class="stat-label">
+                        {{ "profile.winrate" | translate }}
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+            <div class="time-stats">
+              <mat-tab-group animationDuration="0ms" class="gen-stats">
+                <mat-tab label="Game Stats">
+                  <div class="game-stats">
+                    <div class="g-stat">
+                      <div>{{ "profile.avg.time" | translate }}:</div>
+                      <div class="time">
+                        {{ convertTime(profileService.averageTime, "hrs") }}
+                      </div>
+                    </div>
+                    <div class="g-stat">
+                      <div>{{ "profile.tot.time" | translate }}:</div>
+                      <div class="time">
+                        {{ convertTime(profileService.totalTime, "hrs") }}
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+
+            <!-- <div class="specs">
+          <div class="indiv-spec">
+            <mat-icon>grade</mat-icon>
+            <span style="display: inline-block; width: 10px"></span>
+            <p>Best score:</p>
+          </div>
+          <div class="indiv-spec">
+            <mat-icon>access_time</mat-icon>
+            <span style="display: inline-block; width: 10px"></span>
+            <p>Average time:</p>
+          </div>
+        </div> -->
+          </div>
+        </div>
+      </div>
+      <app-message-list></app-message-list>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,2 @@
+com/example/light_prototype/BuildConfig.java
+ com.example.light_prototype.BuildConfig

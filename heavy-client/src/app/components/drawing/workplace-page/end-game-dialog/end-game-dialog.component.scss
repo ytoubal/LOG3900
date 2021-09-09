@@ -1,0 +1,126 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
+
+  .title {
+    color: #212e5b;
+    font-size: larger;
+    font-weight: 500;
+    height: 5%;
+    &.dark {
+      color: white;
+    }
+    &.red {
+      color: white;
+    }
+    &.christmas {
+      color: white;
+    }
+    &.halloween {
+      color: white;
+    }
+    &.valentine {
+      color: white;
+    }
+  }
+}
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  &.dark {
+    color: white;
+  }
+  &.red {
+    color: white;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: white;
+  }
+  &.valentine {
+    color: white;
+  }
+}
+
+.drawings {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+
+  .indiv-drawing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+}
+
+.button {
+  // width: 71%;
+  background-color: #212e5b;
+  color: white;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid black;
+  margin-bottom: 8px;
+}
+
+::ng-deep .mat-dialog-container {
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+
+::ng-deep .mat-dialog-title {
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #961f1f;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+::ng-deep .mat-flat-button.mat-primary {
+  &.dark,
+  &.light,
+  &.red,
+  &.christmas,
+  &.halloween,
+  &.valentine {
+    background: #212e5b !important;
+    color: white;
+  }
+}

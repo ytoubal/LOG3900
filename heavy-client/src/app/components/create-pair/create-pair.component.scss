@@ -1,0 +1,403 @@
+body {
+  background: #e5cfe6;
+
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+
+  .toolbar {
+    height: 80px;
+    background: #f2e7f3;
+    display: flex;
+    align-items: center;
+    padding-right: 4vw;
+  }
+
+  .whole {
+    height: calc(100vh - 75px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .container {
+      height: 570px;
+      justify-content: space-evenly;
+      display: flex;
+      flex-direction: column;
+      margin-left: 40px;
+
+      .options {
+        width: 26%;
+        padding: 38px 20px 0px 20px;
+        /* margin-bottom: 0px; */
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        border-radius: 14px;
+
+        // justify-content: center;
+        // align-items: center;
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          height: 90%;
+
+          .word {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+          }
+
+          .hints {
+            overflow-y: auto;
+            height: 50%;
+
+            .indiv-hint {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              align-items: center;
+
+              &.dark {
+                color: #1e2235;
+              }
+              &.halloween {
+                color: rgb(255, 136, 0);
+              }
+              &.red {
+                color: #ce1515;
+              }
+              &.christmas {
+                color: green;
+              }
+              &.valentine {
+                color: #eec0da;
+              }
+            }
+          }
+        }
+      }
+
+      .drawing {
+        width: 780px;
+        display: flex;
+        height: 91.4%;
+        justify-content: center;
+        background: #f2e7f3;
+        margin-top: 1%;
+
+        &.dark {
+          background: #8f919a;
+        }
+        &.red {
+          background: #e78a8a;
+        }
+        &.halloween {
+          background-color: #ffc480;
+        }
+        &.valentine {
+          background: #f7e0ed;
+        }
+        &.christmas {
+          background: #db1212d8;
+        }
+
+        .drawing-options {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .drawing-buttons {
+            display: flex;
+            justify-content: space-evenly;
+          }
+        }
+      }
+
+      .upload {
+        flex-grow: 100;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .potrace-preview {
+          display: flex;
+
+          .potrace-config {
+            width: 160px;
+            height: 194px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+          }
+        }
+
+        .upload-box {
+          border-style: dotted;
+          width: 410px;
+          height: 163px;
+          border-radius: 14px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .browse-button {
+            margin-top: 10px;
+          }
+        }
+
+        .upload-box.active {
+          border-style: solid;
+        }
+      }
+
+      #workspace {
+        flex-grow: 100;
+        width: 0;
+        display: flex;
+        // margin-left: 20px;
+        // border: solid black;
+
+        .canvas {
+          display: flex;
+          justify-content: center;
+          flex-grow: 100;
+        }
+      }
+
+      .create-button {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.render-options {
+  display: flex;
+  justify-content: space-between;
+  width: 41%;
+
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+  &.halloween,
+  &.red,
+  &.christmas {
+    color: white;
+  }
+}
+
+.tolerance {
+  display: flex;
+}
+
+.color {
+  display: flex;
+  align-items: center;
+
+  .color-div {
+    margin-right: 10px;
+  }
+
+  .color-svg {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+}
+
+.potrace-svg {
+  background: white;
+  margin: 10px;
+}
+
+.back {
+  height: 36px;
+  // position: relative;
+  // left: -795px;
+  // top: 462px;
+  // width: 0;
+}
+
+.option-btn {
+  color: white;
+  background: #212e5b;
+
+  &.dark {
+    background: #f1e5f1;
+    color: #212e5b;
+  }
+  &.red {
+    background: #ff5a5a;
+    color: white;
+  }
+  &.christmas {
+    background: green;
+    color: white;
+  }
+  &.halloween {
+    background: black;
+    color: white;
+  }
+  &.valentine {
+    background: #9b0f2e;
+    color: white;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  // padding-top: 10px;
+}
+
+app-message-list {
+  width: 27%;
+  height: 87.3vh;
+  margin-left: 7px;
+  margin-top: -5px;
+}
+
+.disable {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  color: rgba(0, 0, 0, 0.26) !important;
+  cursor: not-allowed;
+}
+
+.initial {
+  margin-top: -47px;
+}
+
+.configs {
+  width: 854px;
+  display: flex;
+  /* justify-content: center; */
+  background: #f2e7f3;
+  &.dark {
+    background: #8f919a;
+  }
+  &.red {
+    background: #e78a8a;
+  }
+  &.halloween {
+    background-color: #ffc480;
+  }
+  &.valentine {
+    background: #f7e0ed;
+  }
+  &.christmas {
+    background: #db1212d8;
+  }
+}
+
+.preview {
+  width: 76%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .preview-canvas {
+    height: 520px;
+    width: 552.8px;
+    flex-grow: 100;
+    display: flex;
+    flex-direction: row-reverse;
+    background: white;
+  }
+
+  .preview-canvas:hover {
+    cursor: no-drop;
+  }
+}
+#panel {
+  /* height: 100%; */
+  width: 16%;
+  background-color: #f2e7f3;
+  padding-right: 1%;
+  // margin-right: 17px;
+  float: left;
+}
+#panel.dark {
+  background: #8f919a;
+}
+#panel.red {
+  background: #e78a8a;
+}
+#panel.halloween {
+  background-color: #ffc480;
+}
+#panel.valentine {
+  background: #f7e0ed;
+}
+#panel.christmas {
+  background: #db1212d8;
+}
+
+.text-color {
+  color: #212e5b;
+
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #a00606;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+// ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+//   color: #212e5b !important;
+// }
+
+:host ::ng-deep .mat-form-field-underline {
+  bottom: 1em;
+  width: 96%;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: 165px;
+}
+
+#toolbar {
+  width: 112px;
+
+  .flex-container {
+    margin-top: 9%;
+  }
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  width: 135px;
+}

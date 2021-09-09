@@ -1,0 +1,238 @@
+{
+  "create": "Créer",
+  "create.lobby": "Créer lobby",
+  "refresh.lobby": "Rafraichir les lobbies",
+  "refresh.room": "Rafraichir les canaux",
+  "new.room": "Nouveau canal",
+  "search.room": "Chercher canal",
+  "cancel": "Annuler",
+  "history": "Historique",
+  "save": "Sauvegarder",
+  "fName": "Prénom",
+  "lName": "Nom de famille",
+  "search": "Chercher",
+  "leave": "Quitter",
+  "continue": "Continuer",
+  "gallery": "Album",
+  "fetching": "Veuillez patienter",
+  "color": "Couleur",
+  "size": "Taille",
+  "back": "Retour",
+  "next": "Suivant",
+  "tolerance": "Tolérance",
+  "generate": "Générer",
+  "preview": "Aperçu",
+  "any": "Tout",
+  "delete": "Supprimer",
+  "close": "Fermer",
+  "yes": "Oui",
+  "of_label": "de",
+
+  "edit": {
+    "avatar": "Sélectionnez un avatar",
+    "border": "Sélectionnez une bordure",
+    "title": "Sélectionnez un titre",
+    "no.title": "Aucun titre"
+  },
+
+  "levelup": {
+    "label": "Niveau",
+    "unlock": "Vous avez débloqué",
+    "title": "Un titre",
+    "border": "Une bordure"
+  },
+
+  "tutorial": {
+    "welcome.msg": "Bienvenue au tutoriel!",
+    "subtitle.msg": "Ici, vous apprendrez les bases d'un jeu."
+  },
+
+  "login": {
+    "signin": "Se connecter",
+    "username": "Nom d'utilisateur",
+    "username.charError": "Nom d'utilisateur doit contenir moins de 10 caractères",
+    "username.reqError": "Veuillez entrer votre nom d'utilisateur",
+    "username.invalid": "Veuillez entrer un nom d'utilisateur valide",
+    "name.invalid": "Veuillez entrer un nom valide",
+    "pw.invalid": "Veuillez entrer un mot de passe valide",
+    "pw": "Mot de passe",
+    "pw.reqError": "Veuillez entrer votre mot de passe",
+    "pw.charError": "Mot de passe doit contenir au moins 5 caractères",
+    "login": "Se connecter",
+    "createAcc": "Vous êtes nouveau?",
+    "signup": "Inscrivez-vous"
+  },
+
+  "signup": {
+    "acc.details": "Détails de votre compte",
+    "acc.avatar": "Choisir avatar",
+    "form.confPw": "Confirmez mot de passe",
+    "form.pwError": "Les mots de passe ne sont pas pareils",
+    "form.create": "Créer compte",
+    "acc.exists": "Déjà un membre"
+  },
+
+  "toolbar": {
+    "pairWI": "Création paire mot-image",
+    "leaderboard": "Classement",
+    "profile": "Profil d'utilisateur",
+    "tutorial": "Tutoriel",
+    "QA": "FAQ",
+    "logout": "Se déconnecter",
+    "settings": "Paramètres",
+    "back": "Retour au menu"
+  },
+
+  "lobby": {
+    "placeholder": "Nom du lobby",
+    "diff.label": "Difficulté",
+    "drawing": "Dessin",
+    "diffs": [
+      { "name": "Facile" },
+      { "name": "Moyen" },
+      { "name": "Difficile" }
+    ],
+    "form.title": "Créer un jeu",
+    "form.rounds": "Nombre de parties"
+  },
+
+  "settings": {
+    "theme": "Thème de navigation",
+    "tooltip.light": "Clair",
+    "tooltip.dark": "Sombre",
+    "tooltip.red": "Rouge",
+    "tooltip.christ": "Noël",
+    "tooltip.hall": "Halloween",
+    "tooltip.val": "Saint-Valentin",
+    "lang": "Langages",
+    "lang.options": [
+      { "name": "Anglais - EN", "value": "en" },
+      { "name": "Français - FR", "value": "fr" },
+      { "name": "Allemand - DE", "value": "de" }
+    ]
+  },
+
+  "rooms": {
+    "title": "Canaux",
+    "joined": "Rejoint",
+    "quit": "Quitter",
+    "noRoom": "Aucune salle à afficher",
+    "type": "Écrivez votre message",
+    "create.title": "Créer un canal",
+    "create.placeholder": "Nom du canal",
+    "create.reqError": "Veuillez entre un nom",
+    "create.charError": "Le nom doit contenir moins de 10 caractères"
+  },
+
+  "profile": {
+    "win": "Victoire",
+    "lost": "Défaite",
+    "tie": "Égalité",
+    "activity": "Historique de jeux",
+    "played": "Jouées",
+    "winrate": "% victoire",
+    "classic": "Classique",
+    "edit": "Modifier profil",
+    "connection.label": "Historique de connexions",
+    "connection": "Connexion",
+    "disconnection": "Déconnexion",
+    "avg.time": "Temps moyen par jeu",
+    "tot.time": "Temps total joué"
+  },
+
+  "leaderboard": {
+    "title": "Classement",
+    "level": "Niveau",
+    "no.drawing": "L'album est vide."
+  },
+
+  "waitingRoom": {
+    "team1": "Équipe 1",
+    "team2": "Équipe 2",
+    "loadingMsg": "En attente de joueurs...",
+    "start": "Débuter"
+  },
+
+  "game": {
+    "word.draw.label": "Mot à dessiner",
+    "word.draw.guess": "Mot à deviner",
+    "times": "TEMPS ÉCOULÉ!",
+    "noGuesses": "IL NE VOUS RESTE PLUS D'ESSAIS! C'EST AU TOUR À L'ÉQUIPE ADVERSE.",
+    "guess.success": "l'a deviné",
+    "guesses.msg": "essais restants",
+    "ask.hint": "Indice",
+    "hint.none": "Plus d'indices",
+    "left": "restant",
+    "guessesLeft": "À RÉPLIQUER",
+    "opp.playing": "SPECTATEUR DE L'ÉQUIPE ADVERSE",
+    "round": "Partie",
+    "of": "de",
+    "win.msg": "Félicitations! Vous avez gagné.",
+    "lose.msg": "Meilleure chance la prochaine fois!",
+    "tie.msg": "C'est une égalité!",
+    "score.label": "Score: ",
+    "reply": "UN ESSAI POUR RÉPLIQUER",
+    "points": "point(s)",
+    "point.s": "point",
+    "point.p": "points",
+    "exit": "Menu",
+    "save": "Sauvegarder"
+  },
+
+  "wordImg": {
+    "word.label": "Mot/Expression",
+    "word.placeholder": "ex. chien",
+    "mode.label": "Mode",
+    "modes": [
+      "Conventionnel",
+      "Panoramique gauche à droit",
+      "Panoramique droite à gauche",
+      "Panoramique bas à haut",
+      "Panoramique haut à bas",
+      "Centré intérieur vers extérieur",
+      "Centré extérieur vers intérieur",
+      "Aléatoire"
+    ],
+    "modesSliced": [
+      "Aléatoire",
+      "Panoramique gauche à droit",
+      "Panoramique droite à gauche",
+      "Panoramique bas à haut",
+      "Panoramique haut à bas",
+      "Centré intérieur vers extérieur",
+      "Centré extérieur vers intérieur"
+    ],
+    "hints.label": "Indices",
+    "hint": "Indice",
+    "hint.placeholder": "ex. c'est un fruit",
+    "create.pair": "Créer paire",
+    "drawing.options": "Sélectionner une option de dessin",
+    "opt.draw": "Dessiner",
+    "opt.upload": "Importer",
+    "upload.drag": "Déposer votre image ici",
+    "upload.or": "OU",
+    "upload.browse": "Parcourir"
+  },
+
+  "attrib-panel": {
+    "color.prim": "Couleur primaire",
+    "color.sec": "Couleur secondaire",
+    "color.switch": "Échanger couleurs",
+    "color.modal.label": "Choisir la couleur",
+    "color.modal.accept": "Accepter",
+    "color.backgnd": "Changer couleur de fond",
+    "opacity": "Opacité",
+    "show.grid": "Montrer grille"
+  },
+
+  "warning": {
+    "leave.lobby.main": "Voulez-vous vraiment quitter le lobby?",
+    "leave.lobby.sub": "Le lobby sera détruit.",
+    "leave.tutorial.main": "Voulez-vous vraiment quitter le tutoriel?",
+    "leave.tutorial.sub": "Vous perdrez votre progression.",
+    "delete.room.main": "Voulez-vous vraiment supprimer la salle?",
+    "back.draw.main": "Êtes-vous certain de retourner?",
+    "leave.draw.main": "Êtes-vous certain de quitter?",
+    "draw.sub": "Votre dessin ne sera pas sauvegardé."
+  }
+}

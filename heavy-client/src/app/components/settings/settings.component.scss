@@ -1,0 +1,188 @@
+.background {
+  min-height: 100%;
+  background-size: cover;
+  background-image: url("~src/assets/images/mountains.jpg");
+
+  overflow-y: hidden !important; /* Hide vertical scrollbar */
+  overflow-x: hidden !important; /* Hide horizontal scrollbar */
+
+  &.dark {
+    background-image: url("~src/assets/images/dark_mountains.png");
+  }
+  &.red {
+    background-image: url("~src/assets/images/red_mountains.png");
+  }
+  &.christmas {
+    background-image: url("~src/assets/images/xmas_mountains.png");
+  }
+  &.halloween {
+    background-image: url("~src/assets/images/spooky_mountains.png");
+  }
+  &.valentine {
+    background-image: url("~src/assets/images/valentine_mountains.png");
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  .chat-wrapper {
+    width: 30%;
+    height: 87.3vh;
+  }
+  .wrapper {
+    height: 74vh;
+    margin-top: 3.7%;
+    justify-content: space-between;
+    width: 77.8%;
+    .container {
+      border-radius: 20px;
+      background: rgba(236, 236, 236, 0.58);
+      justify-content: center;
+      display: flex;
+      width: 90%;
+      padding: 1%;
+
+      &.dark {
+        background: #0000008f;
+      }
+      &.red {
+        background: #ff00009e;
+      }
+      &.christmas {
+        background: rgb(210 0 0 / 78%);
+      }
+      &.halloween {
+        background: rgb(255 137 53 / 58%);
+      }
+      &.valentine {
+        background: #ffe0f28a;
+      }
+    }
+    .theme-option {
+      flex-direction: column;
+      height: 51%;
+
+      .preview-wrapper {
+        height: 85%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        .preview {
+          :hover {
+            cursor: pointer;
+            border: 2px solid #212e5b;
+            &.dark {
+              border: 2px solid #e5cfe6;
+            }
+            &.red {
+              border: 2px solid white;
+            }
+            &.christmas {
+              border: 2px solid #bb0606;
+            }
+            &.halloween {
+              border: 2px solid black;
+            }
+            &.valentine {
+              border: 2px solid #9b0f2e;
+            }
+          }
+          .image {
+            width: 180px;
+          }
+        }
+      }
+    }
+    .language {
+      height: 33%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .title {
+      height: 15%;
+      color: #212e5b;
+      font: 500 18px/32px Roboto, "Helvetica Neue", sans-serif;
+      &.dark {
+        color: #e5cfe6;
+      }
+      &.red {
+        color: #ffffff;
+      }
+      &.christmas {
+        color: white;
+      }
+      &.halloween {
+        color: black;
+      }
+      &.valentine {
+        color: #9b0f2e;
+      }
+    }
+    .row {
+      flex-direction: row;
+    }
+  }
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-radio-button {
+  margin: 10px;
+  &.dark {
+    color: #e5cfe6 !important;
+  }
+  &.red {
+    color: #ffffff !important;
+  }
+  &.christmas {
+    color: white !important;
+  }
+  &.halloween {
+    color: rgb(0 0 0) !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+  }
+
+}
+
+::ng-deep .mat-radio-outer-circle {
+  &.dark {
+    border-color: #e5cfe6 !important;
+  }
+  &.red {
+    border-color: #ffffff !important;
+  }
+  &.christmas {
+    border-color: white !important;
+  }
+  &.halloween {
+    border-color: rgb(0 0 0) !important;
+  }
+  &.valentine {
+    border-color: #9b0f2e !important;
+  }
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+  &.dark {
+    background: #e5cfe6 !important;
+  }
+  &.red, &.christmas {
+    background-color: #ffffff !important;
+  }
+  &.halloween {
+    background-color: rgb(0 0 0) !important;
+  }
+  &.valentine {
+    background-color: #9b0f2e !important;
+  }
+}

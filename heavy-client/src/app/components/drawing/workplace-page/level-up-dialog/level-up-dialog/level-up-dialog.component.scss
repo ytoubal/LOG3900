@@ -1,0 +1,188 @@
+::ng-deep .mat-dialog-container {
+  z-index: 1;
+  position: relative;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  height: 254px;
+}
+
+.title {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #961f1f;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+.color {
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: white;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+.star {
+  height: 190px;
+}
+
+.level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -26px;
+}
+
+.lvl {
+  position: relative;
+  z-index: 10;
+  font-family: "Raleway", sans-serif;
+  top: -125px;
+  font-size: 40px;
+  left: -1px;
+  color: white;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.achievements {
+  display: flex;
+  justify-content: space-around;
+
+  .indiv {
+    width: 100px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .achievement {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+    }
+  }
+}
+
+.border {
+  height: 80px;
+}
+
+button {
+  color: white;
+  background: #212e5b;
+  width: 100px;
+  margin-right: 10px;
+}
+
+::ng-deep .mat-dialog-content {
+  overflow: unset;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #f5ecec;
+}
+
+::ng-deep .mat-progress-bar {
+  width: 70%;
+}
+
+// tire de https://codepen.io/team/css-tricks/pen/mVZGKa
+.ribbon {
+  font-size: 16px !important;
+
+  width: 50%;
+
+  position: relative;
+  background: #ba89b6;
+  color: #fff;
+  text-align: center;
+  padding: 1em 2em;
+  margin: 2em auto 3em;
+}
+
+.ribbon:before,
+.ribbon:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -1em;
+  border: 1.5em solid #986794;
+  z-index: -1;
+}
+.ribbon:before {
+  left: -2em;
+  border-right-width: 1.5em;
+  border-left-color: transparent;
+}
+.ribbon:after {
+  right: -2em;
+  border-left-width: 1.5em;
+  border-right-color: transparent;
+}
+.ribbon .ribbon-content:before,
+.ribbon .ribbon-content:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-style: solid;
+  border-color: #804f7c transparent transparent transparent;
+  bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+  left: 0;
+  border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+  right: 0;
+  border-width: 1em 1em 0 0;
+}
+
+::ng-deep .mat-dialog-container {
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}

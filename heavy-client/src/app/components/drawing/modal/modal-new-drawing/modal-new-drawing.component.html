@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Créer un nouveau dessin</h1>
+
+<app-colour (mousedown)="setInput(false)" id="colourDiv"></app-colour>
+
+<div id="boxDiv">
+  <svg   [style.backgroundColor]="info.colour.r + info.colour.g + info.colour.b">
+  </svg>
+</div>
+
+<div mat-dialog-actions class="label" (mousedown)="setInput(true)">
+  <label class="label">R: <input class="colour" oninput="this.value = this.value.toUpperCase()" (keypress)="disableShortcuts($event)" [(ngModel)]="info.colour.r" size="1" maxlength="2"></label>
+  <br>
+  <label class="label">V: <input class="colour" oninput="this.value = this.value.toUpperCase()" (keypress)="disableShortcuts($event)" [(ngModel)]="info.colour.g" size="1" maxlength="2"></label>
+  <br>
+  <label class="label">B: <input class="colour" oninput="this.value = this.value.toUpperCase()" (keypress)="disableShortcuts($event)" [(ngModel)]="info.colour.b" size="1" maxlength="2"></label>
+  <br>
+  <label class="label"># {{info.colour.r + info.colour.g + info.colour.b}}</label>
+  <br>
+</div>
+<br>
+
+<div display="inline-block">
+  <label mat-dialog-actions>
+    <label>Hauteur</label>
+    <input (keypress)="disableShortcuts($event)" [(ngModel)]="info.dim.h" size="6" maxlength="6" type="number">
+  </label>
+  <label mat-dialog-actions>
+    <label>Largeur</label>
+    <input (keypress)="disableShortcuts($event)" [(ngModel)]="info.dim.w" size="6" maxlength="6" type="number">
+  </label>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Annuler</button>  
+  <button mat-button (click)="create()">Créer</button>
+</div>
+

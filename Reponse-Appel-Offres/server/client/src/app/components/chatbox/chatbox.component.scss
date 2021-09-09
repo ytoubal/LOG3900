@@ -1,0 +1,26 @@
+.outline {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-image: url("~src/assets/images/mountains.jpg");
+}
+
+.box {
+  margin-top: 10px;
+  min-height: 90vh;
+  width: 80vh;
+}
+
+// app-message-input {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+// }
+
+mat-card-header {
+  border-bottom: 1px solid rgb(165, 165, 165); // for example to remove the margin
+  margin-bottom: 10px;
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.TutorialFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimaryVariant"
+        android:orientation="horizontal">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/game_fragment_tutorial"
+            android:layout_width="825dp"
+            android:layout_height="match_parent">
+
+        </androidx.fragment.app.FragmentContainerView>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/chat_fragment_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.fragment.app.FragmentContainerView>
+
+    </LinearLayout>
+
+    <view
+        android:id="@+id/tutorial_filter"
+        class="com.example.thin_client.fragment.TutorialFragment$TutorialFilterView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/text_info_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="200dp">
+
+        <TextView
+            android:id="@+id/text_info_bar"
+            android:layout_width="450dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/black"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="30dp"
+            android:text="This top bar indicates what you are supposed to do throughout the game"
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp" />
+
+        <ProgressBar
+            android:id="@+id/simpleProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:max="100"
+            android:progress="0"
+            android:progressBackgroundTint="@color/pale_white"
+            android:progressTint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/tutorial_arrow_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/white"
+            android:src="@drawable/ic_arrow_forward" />
+
+        <Button
+            android:id="@+id/finish_tutorial_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="5dp"
+            android:text="@string/finish" />
+
+        <ImageButton
+            android:id="@+id/tutorial_arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/white"
+            android:src="@drawable/ic_back" />
+    </FrameLayout>
+
+</FrameLayout>

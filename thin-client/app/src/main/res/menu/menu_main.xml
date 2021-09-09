@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.thin_client.MainActivity">
+
+    <item
+        android:id="@+id/step_1_dest"
+        android:title="@string/step1_register" />
+
+    <item
+        android:id="@+id/step_2_dest"
+        android:title="@string/step2_register" />
+
+</menu>

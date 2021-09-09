@@ -1,0 +1,388 @@
+<body>
+  <app-toolbar></app-toolbar>
+  <div class="whole">
+    <div class="container">
+      <!-- <div class="create-button">
+            <button mat-flat-button (click)="potraceUpload()" disabled>
+              Potrace
+            </button>
+            <button mat-flat-button (click)="download_test()" disabled>
+              Download-Test
+            </button>
+            <button mat-flat-button (click)="preview_old()">Preview</button>
+            <button mat-flat-button (click)="create()" disabled>
+              {{ "wordImg.create.pair" | translate }}
+            </button>
+          </div>
+        </div> -->
+
+      <div
+        [ngClass]="
+          createPairService.isSourceChosen ? 'drawing' : 'drawing initial'
+        "
+      >
+        <!-- to uncomment at the end -->
+        <ng-container *ngIf="!createPairService.isSourceChosen">
+          <div class="drawing-options">
+            <h2 [ngClass]="themeService.theme" class="text-color">
+              {{ "wordImg.drawing.options" | translate }}
+            </h2>
+            <div class="drawing-buttons">
+              <button
+                [ngClass]="themeService.theme"
+                class="option-btn"
+                mat-flat-button
+                (click)="chooseDrawingSource('draw')"
+              >
+                {{ "wordImg.opt.draw" | translate }}
+              </button>
+              <button
+                [ngClass]="themeService.theme"
+                class="option-btn"
+                mat-flat-button
+                (click)="chooseDrawingSource('upload')"
+              >
+                {{ "wordImg.opt.upload" | translate }}
+              </button>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="createPairService.isDraw">
+          <div id="workspace" #workspace oncontextmenu="return false;">
+            <div #toolbar id="toolbar">
+              <div class="flex-container">
+                <app-tools [panel]="panel"></app-tools>
+              </div>
+            </div>
+            <div id="panel" [ngClass]="themeService.theme" #panel>
+              <app-attributs-panel></app-attributs-panel>
+            </div>
+            <!-- <div
+              id="panel"
+              [ngClass]="themeService.theme"
+              #panel
+              [style.height.px]="innerHeight"
+            >
+              <div>
+                <app-tools [panel]="panel"></app-tools>
+              </div>
+              <app-attributs-panel></app-attributs-panel>
+            </div> -->
+
+            <div class="canvas">
+              <app-preview-canvas
+                [workspace]="workspace"
+                [panel]="panel"
+                [toolbar]="toolbar"
+              ></app-preview-canvas>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="createPairService.isUpload">
+          <div class="upload">
+            <div
+              [ngClass]="themeService.theme"
+              class="upload-box text-color"
+              #upload
+              (dragover)="dragCallback($event)"
+              (dragleave)="dragLeaveCallback()"
+              (drop)="dropCallback($event)"
+            >
+              <h3>{{ "wordImg.upload.drag" | translate }}</h3>
+              <span>{{ "wordImg.upload.or" | translate }}</span>
+              <button
+                [ngClass]="themeService.theme"
+                class="browse-button option-btn"
+                mat-flat-button
+                (click)="openFileWindow()"
+              >
+                {{ "wordImg.upload.browse" | translate }}
+              </button>
+              <input
+                #input
+                type="file"
+                hidden
+                (change)="onFileSelected($event.target.files)"
+              />
+            </div>
+            <!-- <div class="potrace-preview" *ngIf="showPotConfigs">
+              <div class="potrace-config">
+                <h3>Rendering Options</h3>
+                <div class="color">
+                  <p class="color-div">Color</p>
+                  <svg
+                    class="color-svg"
+                    (click)="openColourModal(true)"
+                    [style.backgroundColor]="primaryColour"
+                  ></svg>
+                </div>
+                <div class="tolerance">
+                  <p>Tolerance: {{ currentTolerance }}</p>
+                  <input
+                    [(ngModel)]="currentTolerance"
+                    type="range"
+                    min="1"
+                    max="100"
+                  />
+                </div>
+              </div>
+              <svg class="potrace-svg"></svg> -->
+            <!-- </div> -->
+          </div>
+        </ng-container>
+        <ng-container *ngIf="createPairService.showConfigs">
+          <div class="configs" [ngClass]="themeService.theme">
+            <div class="options">
+              <div class="form text-color" [ngClass]="themeService.theme">
+                <div>{{ "wordImg.word.label" | translate }}</div>
+                <div class="word">
+                  <mat-form-field appearance="standard">
+                    <mat-label>Word</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="chosenWord"
+                      placeholder="{{ 'wordImg.word.placeholder' | translate }}"
+                      required
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>{{ "lobby.diff.label" | translate }}</mat-label>
+                    <mat-select [(ngModel)]="currentDiff">
+                      <mat-option
+                        *ngFor="let diff of 'lobby.diffs' | translate"
+                        [value]="diff.name"
+                      >
+                        {{ diff.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ "wordImg.mode.label" | translate }}</mat-label>
+                  <mat-select [(ngModel)]="currentMode">
+                    <ng-container *ngIf="createPairService.showPotConfigs">
+                      <mat-option
+                        *ngFor="let mode of 'wordImg.modesSliced' | translate"
+                        [value]="mode"
+                      >
+                        {{ mode }}
+                      </mat-option>
+                    </ng-container>
+                    <ng-container *ngIf="!createPairService.showPotConfigs">
+                      <mat-option
+                        *ngFor="let mode of 'wordImg.modes' | translate"
+                        [value]="mode"
+                      >
+                        {{ mode }}
+                      </mat-option>
+                    </ng-container>
+                  </mat-select>
+                </mat-form-field>
+
+                <div>{{ "wordImg.hints.label" | translate }}</div>
+                <div>
+                  <mat-form-field appearance="standard">
+                    <mat-label>Hint</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="currentHint"
+                      placeholder="{{ 'wordImg.hint.placeholder' | translate }}"
+                      [required]="allHints.length === 0"
+                    />
+                    <button
+                      mat-icon-button
+                      [disabled]="!currentHint.trim().length"
+                      (click)="addHint(currentHint)"
+                      matSuffix
+                    >
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </div>
+                <div class="hints">
+                  <mat-list>
+                    <ng-container *ngFor="let hint of allHints; let i = index">
+                      <mat-list-item>
+                        <div class="indiv-hint">
+                          <p>
+                            {{ "wordImg.hint" | translate }} {{ i + 1 }}:
+                            {{ hint }}
+                          </p>
+                          <button mat-icon-button (click)="removeHint(i)">
+                            <mat-icon>block</mat-icon>
+                          </button>
+                        </div>
+                      </mat-list-item>
+                    </ng-container>
+                  </mat-list>
+                </div>
+              </div>
+            </div>
+            <div class="preview">
+              <svg id="drawingboard" #drawingboard class="preview-canvas"></svg>
+            </div>
+
+            <!-- <canvas class="preview-canvas"></canvas> -->
+          </div>
+        </ng-container>
+      </div>
+      <!-- <button class="back" mat-icon-button (click)="back()">
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button> -->
+      <!-- <ng-container *ngIf="isSourceChosen">
+        <button class="back" mat-flat-button>Back</button>
+        <button class="next" mat-flat-button>Next</button>
+      </ng-container> -->
+
+      <!-- <div id="workspace" #workspace oncontextmenu="return false;">
+        <div #toolbar id="toolbar">
+          <div class="flex-container">
+            <app-tools [panel]="panel"></app-tools>
+          </div>
+        </div>
+        <div id="panel" #panel>
+          <app-attributs-panel></app-attributs-panel>
+        </div>
+        <div class="canvas">
+          <app-canvas
+            [workspace]="workspace"
+            [panel]="panel"
+            [toolbar]="toolbar"
+          ></app-canvas>
+        </div>
+      </div> -->
+      <ng-container *ngIf="createPairService.isDraw">
+        <div class="buttons">
+          <button
+            [ngClass]="themeService.theme"
+            class="back"
+            mat-flat-button
+            (click)="back('init')"
+          >
+            {{ "back" | translate }}
+          </button>
+          <div class="right-buttons">
+            <button
+              [ngClass]="themeService.theme"
+              class="next"
+              mat-flat-button
+              (click)="next('config')"
+              [disabled]="isEmpty()"
+              [class.disable]="isEmpty()"
+            >
+              {{ "next" | translate }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="createPairService.isUpload">
+        <div class="buttons">
+          <button
+            [ngClass]="themeService.theme"
+            class="back"
+            mat-flat-button
+            (click)="back('init')"
+          >
+            {{ "back" | translate }}
+          </button>
+          <!-- <div class="right-buttons" *ngIf="showPotConfigs">
+            <button class="next" mat-flat-button (click)="next('config')">
+              Next
+            </button>
+          </div> -->
+        </div>
+      </ng-container>
+      <ng-container *ngIf="createPairService.showConfigs">
+        <div class="buttons">
+          <button
+            [ngClass]="themeService.theme"
+            *ngIf="!createPairService.showPotConfigs"
+            class="back"
+            mat-flat-button
+            (click)="back('draw')"
+          >
+            {{ "back" | translate }}
+          </button>
+          <button
+            [ngClass]="themeService.theme"
+            *ngIf="createPairService.showPotConfigs"
+            class="back"
+            mat-flat-button
+            (click)="back('upload')"
+          >
+            {{ "back" | translate }}
+          </button>
+          <div
+            [ngClass]="themeService.theme"
+            class="render-options"
+            *ngIf="createPairService.showPotConfigs"
+          >
+            <div class="color">
+              <p>{{ "color" | translate }}</p>
+              <svg
+                class="color-svg"
+                (click)="openColourModal(true)"
+                [style.backgroundColor]="primaryColour"
+              ></svg>
+            </div>
+            <div class="tolerance">
+              <p>{{ "tolerance" | translate }}: {{ currentTolerance }}</p>
+              <input
+                [(ngModel)]="currentTolerance"
+                type="range"
+                min="1"
+                max="100"
+              />
+            </div>
+            <!-- <div class="potrace-preview" *ngIf="showPotConfigs">
+              <div class="potrace-config">
+                <h3>Rendering Options</h3>
+                <div class="color">
+                  <p class="color-div">Color</p>
+                  <svg
+                    class="color-svg"
+                    (click)="openColourModal(true)"
+                    [style.backgroundColor]="primaryColour"
+                  ></svg>
+                </div>
+                <div class="tolerance">
+                  <p>Tolerance: {{ currentTolerance }}</p>
+                  <input
+                    [(ngModel)]="currentTolerance"
+                    type="range"
+                    min="1"
+                    max="100"
+                  />
+                </div>
+              </div>
+            -->
+          </div>
+          <div class="right-buttons">
+            <button
+              [ngClass]="themeService.theme"
+              class="pairword-btn"
+              mat-flat-button
+              (click)="preview()"
+            >
+              {{ "preview" | translate }}
+            </button>
+
+            <button
+              [ngClass]="themeService.theme"
+              class="pairword-btn"
+              mat-flat-button
+              (click)="create()"
+              [disabled]="isPairIncomplete()"
+              [class.disable]="isPairIncomplete()"
+            >
+              {{ "create" | translate }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <app-message-list></app-message-list>
+  </div>
+</body>

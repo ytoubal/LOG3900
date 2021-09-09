@@ -1,0 +1,136 @@
+.container {
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #961f1f;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+::ng-deep .mat-dialog-container {
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+
+:host .mat-form-field-wrapper.valentine {
+  color: #d2ced2 !important;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #212e5b !important;
+}
+
+.create {
+  background-color: #212e5b;
+  color: white;
+}
+
+::ng-deep .mat-dialog-title {
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #961f1f;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+::ng-deep .mat-flat-button.mat-primary {
+  &.dark {
+    background: #f1e5f1 !important;
+  }
+  &.red {
+    background: #961f1f !important;
+  }
+  &.christmas {
+    background: #fff !important;
+  }
+  &.halloween {
+    background: #ff8800 !important;
+  }
+  &.valentine {
+    background: #eec0da !important;
+  }
+}
+
+::ng-deep .mat-flat-button[disabled][disabled] {
+  &.halloween {
+    color: rgb(255 255 255 / 26%);
+    background-color: rgb(255 255 255 / 12%) !important;
+  }
+}
+
+::ng-deep .mat-select-value {
+  &.dark,
+  &.halloween,
+  &.christmas {
+    color: white !important;
+  }
+  &.valentine {
+    color: rgb(255 255 255 / 87%) !important;
+  }
+}
+
+::ng-deep .mat-form-field-placeholder {
+  &.halloween {
+    color: #b48c5e !important;
+  }
+}
+
+::ng-deep .mat-focused .mat-form-field-placeholder {
+  &.halloween {
+    color: #b48c5e !important;
+  }
+}
+
+::ng-deep .mat-focused .placeholder {
+  color: #b48c5e !important;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .action-button {
+    width: 47%;
+  }
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//   color: rgb(253 253 253);
+// }

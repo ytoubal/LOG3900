@@ -1,0 +1,351 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$heavy-client-primary: mat-palette($mat-purple, 100);
+$heavy-client-accent: mat-palette($mat-purple, 200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$heavy-client-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$heavy-client-theme: mat-light-theme(
+  $heavy-client-primary,
+  $heavy-client-accent,
+  $heavy-client-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($heavy-client-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d8d8d8c5; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(140 140 140 / 89%);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.733); 
+  border-radius: 10px;
+}
+
+.mat-dialog-container, mat-progress-bar-primary.mat-progress-bar-fill.mat-progress-bar-element::after {
+  // background: #343e61;
+  &.dark {
+    background: #343e61 !important;
+  }
+  &.red {
+    background:#ff5a5a !important;
+  }
+  &.christmas {
+    background: #a00606 !important;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0) !important;
+  }
+  &.valentine {
+    background: #9b0f2e !important;
+  }
+}
+// .mat-select-arrow {
+//   color: rgb(241 229 241); , mat-select-value
+// }
+mat-toolbar-row, mat-card  {
+  &.dark {
+    color: #e5cfe6 !important;
+  }
+  &.red {
+    color: #ffffff !important;
+  }
+  &.christmas {
+    color: white !important;
+  }
+  &.halloween {
+    color: black !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+  }
+}
+
+mat-select-arrow {
+  &.dark {
+    color: #e5cfe6 !important;
+  }
+  &.red {
+    color: #ffffff !important;
+  }
+  &.christmas {
+    color: white !important;
+  }
+  &.halloween {
+    color: black !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+  }
+}
+
+.lobby {
+  &.dark {
+    color: #e5cfe6 !important;
+  }
+  &.red {
+    color: #ffffff !important;
+  }
+  &.christmas {
+    color: #ffffff !important;
+  }
+  &.halloween {
+    color: black !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+  }
+}
+
+mat-list-item, .options-container, .container-msg {
+  &.light {
+    border-bottom: 1px solid #ccc !important;
+  }
+  &.dark {
+    color: #e5cfe6 !important;
+    border-bottom: 1px solid #f1e5f161!important;;
+  }
+  &.red {
+    color: #ffffff !important;
+  }
+  &.christmas {
+    color: #ffffff !important;
+  }
+  &.halloween {
+    color: black !important;
+    border-bottom: 1px solid #00000066 !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+    border-bottom: 1px solid #ad848d !important;
+  }
+}
+
+mat-option {
+  // .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  //   &.dark {
+  //     color: #e5cfe6 !important;
+  //   }
+  //   &.halloween {
+  //     color: rgb(0 0 0);
+  //   }
+  // }
+
+  &.dark {
+    background: #343e61;
+    color: white;
+  }
+  &.red {
+    background:#ff5a5a;
+    color: white;
+  }
+  &.christmas {
+    background: #a00606;
+    color: white;
+  }
+  &.halloween {
+    background: black;
+    color: white;
+  }
+  &.valentine {
+    background: #9b0f2e;
+    color: white;
+  }
+}
+
+.back, .next, .pairword-btn {
+  color: white !important;
+  background: #212e5b !important;
+  &.dark {
+    background: #f1e5f1 !important;
+    color: #212e5b !important;
+  }
+  &.red {
+    background: #ce1515 !important;
+    color: white !important;
+  }
+  &.christmas {
+    background: green !important;
+    color:black !important;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0) !important;
+    color: white !important;
+  }
+  &.valentine {
+    background: #eec0da !important;
+    color: #9b0f2e !important;
+  }
+}
+
+.room-buttons {
+  color: white !important;
+  background: #212e5b !important;
+
+  &.dark {
+    background: #f1e5f1 !important;
+    color: #212e5b !important;
+  }
+  &.red {
+    background: #ff5a5a !important;
+    color: white !important;
+  }
+  &.christmas {
+    background: rgb(204, 0, 0) !important;
+    color: white !important;
+  }
+  &.halloween {
+    background: black !important;
+    color: white !important;
+  }
+  &.valentine {
+    background: #9b0f2e !important;
+    color: white !important;
+  }
+}
+
+.game-title {
+  &.dark {
+    color: #212e5b !important;
+  }
+  &.red {
+    color: #cc0000 !important;
+  }
+  &.christmas {
+      color: #cc0000 !important;
+  }
+  &.halloween {
+      color: black !important;
+  }
+  &.valentine {
+      color: #9b0f2e !important;
+  }
+}
+
+.send-btn, .room-title, .text-color, .toolButton, .loading-container {
+  color: #212e5b !important;
+  &.dark {
+    color: #f1e5f1 !important;
+  }
+  &.christmas, &.red {
+    color: white !important;
+  }
+  &.halloween {
+    color: black !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+  }
+}
+
+.chat-list .current-user-message .current-user-text,
+.start-button {
+  &.dark {
+    background: #f1e5f1 !important;
+    color: #212e5b !important;
+    box-shadow: none !important;
+  }
+  &.red {
+    background:#ff5a5a !important;
+    color: white !important;
+    box-shadow: none !important;
+  }
+  &.christmas {
+    background: rgb(204, 0, 0) !important;
+    color: white !important;
+    box-shadow: none !important;
+  }
+  &.halloween {
+    background: black !important;
+    color: white !important;
+    box-shadow: none !important;
+  }
+  &.valentine {
+    background: #9b0f2e !important;
+    color: white !important;
+    box-shadow: none !important;
+  }
+}
+
+.chat-list .current-user-message .timeDiv, .other-user-message .timeDiv {
+  &.dark {
+    color: #f1e5f1da !important;
+  }
+  &.christmas, &.red {
+    color: #c1c1c1 !important;
+  }
+  &.halloween {
+    color: #353535 !important;
+  }
+  &.valentine {
+    color: #5f1c2be5 !important;
+  }
+}
+
+// ::ng-deep .mat-select-value {
+//   &.dark,  &.halloween, &.christmas{
+//     color:white !important;
+//   }
+//   &.valentine {
+//     color: rgb(255 255 255 / 87%) !important;
+//   }
+
+// }
+
+// ::ng-deep .mat-progress-bar-primary.mat-progress-bar-fill::after {
+//   &.halloween {
+//     background-color: orange !important;
+//   }
+//   &.halloween {
+//     background-color: orange !important;
+//   }
+//   &.red {
+//     color: #000000 !important;
+//   }
+// }
+// ::ng-deep .mat-progress-bar-fill::after {
+//   &.red {
+//     color: #000000 !important;
+//   }
+// }

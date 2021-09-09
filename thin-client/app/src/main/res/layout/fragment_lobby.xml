@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="60dp"
+    tools:context=".fragment.LobbyFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="290dp"
+        android:layout_height="641dp"
+        android:layout_marginStart="160dp"
+        android:background="?attr/colorOnPrimary"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/team1_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="@string/team_1_game"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="35dp" />
+
+            <Button
+                android:id="@+id/team1_add_bot_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:foregroundGravity="top"
+                android:text="Add Bot" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/joinTeam1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lobby_join_team1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/team1player1_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/team1player1_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/team1player2_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/team1player2_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/team2_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="@string/team_2_game"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="35dp" />
+
+            <Button
+                android:id="@+id/team2_add_bot_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Add Bot" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/joinTeam2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lobby_join_team2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/team2player1_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/team2player1_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/team2player2_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/team2player2_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_game_lobby"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout10"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="281dp"
+        android:layout_height="481dp"
+        android:background="?attr/colorOnPrimary"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421">
+
+        <TextView
+            android:id="@+id/players_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/players_lobby"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="40dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/player1_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/player1_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="TextView"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/player2_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/player2_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="TextView"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/player3_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/player3_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="TextView"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/player4_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/placeholder_logo" />
+
+            <TextView
+                android:id="@+id/player4_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="TextView"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

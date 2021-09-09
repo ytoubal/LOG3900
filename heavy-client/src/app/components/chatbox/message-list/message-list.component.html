@@ -1,0 +1,315 @@
+<mat-card
+  [ngClass]="
+    router.url === '/workspace' || router.url === '/tutorial'
+      ? 'chatbox in-game ' + themeService.theme
+      : 'chatbox ' + themeService.theme
+  "
+>
+  <div *ngIf="!showRoom" class="chat-wrapper">
+    <div class="options-container" [ngClass]="themeService.theme">
+      <button
+        mat-flat-button
+        *ngIf="!(router.url === '/workspace' || router.url === '/tutorial')"
+        class="room-buttons"
+        [ngClass]="themeService.theme"
+        (click)="showRooms()"
+      >
+        {{ "rooms.title" | translate }}
+      </button>
+      <button
+        mat-flat-button
+        *ngIf="router.url === '/workspace' || router.url === '/tutorial'"
+        class="room-buttons in-game"
+        [ngClass]="themeService.theme"
+        (click)="showRooms()"
+      >
+        {{ "rooms.title" | translate }}
+      </button>
+      <div class="room-title" [ngClass]="themeService.theme">
+        {{ currentRoom }}
+      </div>
+      <button
+        [ngClass]="themeService.theme"
+        mat-icon-button
+        class="menu-option"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [ngClass]="themeService.theme">
+        <button
+        [disabled]="clickHist"
+          mat-menu-item
+          [ngClass]="themeService.theme"
+          (click)="showHistory(currentRoom)"
+        >
+          <mat-icon class="color"             
+          [ngClass]="
+          clickHist
+            ? 'disable-icon ' + themeService.theme
+            : 'color ' + themeService.theme"
+            >history</mat-icon
+          >
+          <span class="color"           
+          [ngClass]="
+          clickHist
+            ? 'disable-icon ' + themeService.theme
+            : 'color ' + themeService.theme"
+            >
+            {{"history" | translate}}
+        </span>
+        </button>
+        <button
+          [disabled]="currentRoom === 'General' || isAdmin(currentRoomAdmin)"
+          mat-menu-item
+          [ngClass]="themeService.theme"
+          (click)="quitChatRoom(currentRoom)"
+        >
+          <!-- [ngClass]="profileService.border ? '' + themeService.theme: 'info' + themeService.theme" -->
+
+          <mat-icon
+            [ngClass]="
+              currentRoom === 'General' || isAdmin(currentRoomAdmin)
+                ? 'disable-icon ' + themeService.theme
+                : 'color ' + themeService.theme
+            "
+          >
+            meeting_room
+          </mat-icon>
+          <span
+            [ngClass]="
+              currentRoom === 'General' || isAdmin(currentRoomAdmin)
+                ? 'disable-icon ' + themeService.theme
+                : 'color ' + themeService.theme
+            "
+            >{{ "rooms.quit" | translate }}</span
+          >
+        </button>
+      </mat-menu>
+
+      <!-- <button
+        mat-flat-button
+        class="room-buttons"
+        [ngClass]="themeService.theme"
+        (click)="getHistory(currentRoom)" 
+      >
+        {{ "history" | translate }}
+      </button>
+      <div *ngIf="currentRoom != 'General' && !isAdmin(currentRoomAdmin)">
+        <button
+          mat-flat-button
+          class="room-buttons" [ngClass]="themeService.theme"
+          (click)="quitChatRoom(currentRoom)"
+        >
+          {{ "rooms.quit" | translate }}
+        </button> -->
+    </div>
+    <div
+      #container
+      [ngClass]="
+        router.url === '/workspace' || router.url === '/tutorial'
+          ? 'container-msg in-game ' + themeService.theme
+          : 'container-msg ' + themeService.theme
+      "
+    >
+      <div
+        #currentUserMessage
+        class="chat-list"
+        [ngClass]="themeService.theme"
+      ></div>
+      <ng-container *ngIf="!isLoaded">
+        <div class="loading-container" [ngClass]="themeService.theme">
+          <div class="loading" [ngClass]="themeService.theme"></div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="input-container">
+      <mat-form-field
+        class="chat-input"
+        [ngClass]="themeService.theme"
+        appearance="outline"
+      >
+        <!-- [readonly]="this.gameService.isDrawing"  -->
+        <input
+          #chatInput
+          matInput
+          class="height"
+          type="text"
+          placeholder="{{ 'rooms.type' | translate }}"
+          [(ngModel)]="sentMessage"
+          (keyup.enter)="sendMessage()"
+          autofocus
+        />
+        <button
+          [ngClass]="themeService.theme"
+          class="send-btn"
+          matSuffix
+          mat-icon-button
+          (click)="sendMessage()"
+        >
+          <mat-icon>send</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngIf="showRoom" class="room-wrapper">
+    <mat-toolbar class="roomEdit" [class.hidden]="toggleSearch">
+      <mat-toolbar-row
+        [ngClass]="
+          router.url === '/workspace' || router.url === '/tutorial'
+            ? 'bar-wrapper in-game ' + themeService.theme
+            : 'bar-wrapper ' + themeService.theme
+        "
+      >
+        <div>
+          <button
+            matTooltip="{{ 'new.room' | translate }}"
+            [ngClass]="
+              router.url === '/tutorial' || router.url === '/workspace'
+                ? 'game-btn'
+                : ''
+            "
+            mat-icon-button
+            (click)="openNewRoom()"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+          <button
+            matTooltip="{{ 'refresh.room' | translate }}"
+            [ngClass]="
+              router.url === '/tutorial' || router.url === '/workspace'
+                ? 'game-btn'
+                : ''
+            "
+            mat-icon-button
+            (click)="refreshRooms()"
+          >
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <span> {{ "rooms.title" | translate }} </span>
+        <div>
+          <button
+            matTooltip="{{ 'search.room' | translate }}"
+            [ngClass]="
+              router.url === '/tutorial' || router.url === '/workspace'
+                ? 'game-btn'
+                : ''
+            "
+            mat-icon-button
+            (click)="openSearch()"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-nav-list
+      [ngClass]="
+        router.url === '/tutorial' || router.url === '/workspace'
+          ? 'rooms in-game'
+          : 'rooms'
+      "
+      *ngIf="!toggleSearch"
+    >
+      <div *ngFor="let room of roomService.roomList">
+        <mat-list-item
+          class="roomList"
+          (click)="enterRoom(room.name, room.admin)"
+          [ngClass]="themeService.theme"
+        >
+          <span class="roomName" matLine>
+            {{ room.name }}
+          </span>
+          <div
+            *ngIf="connectedUser.rooms.includes(room.name)"
+            [ngClass]="
+              router.url === '/workspace' || router.url === '/tutorial'
+                ? 'join-indication in-game ' + themeService.theme
+                : 'join-indication ' + themeService.theme
+            "
+          >
+            {{ "rooms.joined" | translate }}
+          </div>
+          <button
+            mat-icon-button
+            [disabled]="!isAdmin(room.admin)"
+            (click)="openWarning(room.name)"
+          >
+            <!-- (click)="deleteRoom(room)" -->
+            <mat-icon> delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </div>
+    </mat-nav-list>
+
+    <mat-toolbar
+      class="search-block mat-elevation-z4"
+      [class.active]="toggleSearch"
+      [class.in-game]="
+        router.url === '/workspace' || router.url === '/tutorial'
+      "
+    >
+      <mat-toolbar-row
+        class="search-wrap"
+        [class.in-game]="
+          router.url === '/workspace' || router.url === '/tutorial'
+        "
+      >
+        <button mat-icon-button class="search-icon">
+          <mat-icon>search</mat-icon>
+        </button>
+        <input
+          [ngClass]="
+            router.url === '/workspace' || router.url === '/tutorial'
+              ? 'search-control in-game '
+              : 'search-control '
+          "
+          type="text"
+          placeholder="{{ 'search' | translate }}"
+          [(ngModel)]="searchText"
+          #searchbar
+          (keyup)="search(searchbar.value)"
+        />
+        <button mat-button mat-icon-button (click)="closeSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-nav-list
+      [ngClass]="
+        router.url === '/tutorial' || router.url === '/workspace'
+          ? 'rooms in-game'
+          : 'rooms'
+      "
+      *ngIf="toggleSearch"
+    >
+      <div *ngFor="let room of searchList">
+        <mat-list-item
+          [ngClass]="themeService.theme"
+          class="roomList"
+          (click)="enterRoom(room.name, room.admin)"
+        >
+          <span class="roomName" matLine>
+            {{ room.name }}
+            <div
+              *ngIf="connectedUser.rooms.includes(room.name)"
+              class="join-indication"
+            >
+              {{ "rooms.joined" | translate }}
+            </div>
+          </span>
+          <button mat-icon-button [disabled]="!isAdmin(room.admin)">
+            <!-- (click)="deleteRoom(room)" -->
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </div>
+      <mat-list-item *ngIf="roomService.roomList.length === 0">
+        <div mat-line>{{ "rooms.noRoom" | translate }}</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+</mat-card>

@@ -1,0 +1,88 @@
+.whole {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  color: #212e5b;
+  font-size: larger;
+  font-weight: 500;
+
+  &.dark {
+    color: white;
+  }
+  &.red {
+    color: white;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: rgb(255, 136, 0);
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+.color {
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: white;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  button:not([disabled]) {
+    width: 47%;
+    background-color: #212e5b;
+    color: white;
+  }
+}
+
+::ng-deep .mat-dialog-container {
+  // background: #343e61;
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+::ng-deep .mat-flat-button.mat-primary {
+  &.dark,
+  &.light,
+  &.red,
+  &.christmas,
+  &.halloween,
+  &.valentine {
+    background: #212e5b !important;
+    color: white;
+  }
+}

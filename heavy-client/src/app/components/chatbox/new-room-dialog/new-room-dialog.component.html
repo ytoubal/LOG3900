@@ -1,0 +1,36 @@
+<h2 class="title">{{ "rooms.create.title" | translate }}</h2>
+<mat-form-field class="room-name" appearance="outline">
+  <input
+    matInput
+    [formControl]="formControl"
+    placeholder="{{ 'rooms.create.placeholder' | translate }}"
+    [(ngModel)]="roomName"
+  />
+  <!-- <mat-placeholder [ngClass]="themeService.theme">{{ 'rooms.create.placeholder' | translate }}</mat-placeholder> -->
+  <mat-error *ngIf="formControl.hasError('maxlength')">
+    {{ "rooms.create.charError" | translate }}
+  </mat-error>
+  <mat-error
+    *ngIf="
+      formControl.hasError('required') || formControl.hasError('whitespace')
+    "
+  >
+    {{ "rooms.create.reqError" | translate }}
+  </mat-error>
+</mat-form-field>
+
+<div class="button-container">
+  <button
+    mat-flat-button
+    class="button"
+    (click)="createChatRoom()"
+    [disabled]="
+      formControl.hasError('whitespace') || formControl.hasError('maxlength')
+    "
+  >
+    {{ "create" | translate }}
+  </button>
+  <button style="background:#f44336;" mat-flat-button class="button" (click)="onCancel()">
+    {{ "cancel" | translate }}
+  </button>
+</div>

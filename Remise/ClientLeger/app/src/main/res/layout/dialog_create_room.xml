@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryVariant"
+    android:gravity="center"
+    android:minWidth="500dp"
+    android:minHeight="300dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/create_room_title"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/create_room_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:ems="10"
+        android:hint="@string/search_room_text"
+        android:inputType="textPersonName"
+        android:textColor="?attr/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/create_room_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_lobby" />
+
+        <Button
+            android:id="@+id/cancel_room_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#f44336"
+            android:layout_marginLeft="15dp"
+            android:text="@string/cancel" />
+
+    </LinearLayout>
+
+</LinearLayout>

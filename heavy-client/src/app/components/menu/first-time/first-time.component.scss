@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    .text-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font: 450 16px/32px Roboto, "Helvetica Neue", sans-serif;
+        .intro {
+            font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+            .painseau {
+                color: #212e5b;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .btn-container {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 55%;
+        button {
+            padding: 0px 5.5px 0px 5.5px;
+            height: 32px;
+            color: white;
+            background-color: #212e5b;
+        }
+    }
+}
+

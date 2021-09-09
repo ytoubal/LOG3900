@@ -1,0 +1,100 @@
+{
+    "name": "server",
+    "description": "Projet de base pour le cours de LOG2990",
+    "version": "1.1.0",
+    "private": true,
+    "engines": {
+        "node": "12.14.1",
+        "npm": "6.14.11"
+    },
+    "nodemonConfig": {
+        "watch": [
+            "app"
+        ],
+        "ext": "ts",
+        "ignore": [
+            "app/**/*.spec.ts"
+        ],
+        "exec": "ts-node ./app/www.ts"
+    },
+    "scripts": {
+        "start": "nodemon",
+        "build": "tsc --project tsconfig.json",
+        "format": "prettier --config ../.prettierrc.yaml --write \"app/**/*\"",
+        "lint": "tslint --project tsconfig.json \"./app/**/*.ts\" --format stylish",
+        "test": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' mocha --config=test/.mocharc.json --node-env=test",
+        "coverage": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' nyc mocha --config=test/.mocharc.json --node-env=test --exit"
+    },
+    "nyc": {
+        "check-coverage": true,
+        "per-file": true,
+        "include": [
+            "app/**/*.ts"
+        ],
+        "extension": [
+            ".ts"
+        ],
+        "exclude": [
+            "**/*.spec.ts",
+            "app/inversify.config.ts",
+            "app/www.ts",
+            "app/types.ts",
+            "app/server.ts",
+            "app/app.ts"
+        ],
+        "require": [
+            "ts-node/register",
+            "tsconfig-paths/register"
+        ],
+        "reporter": [
+            "html",
+            "text",
+            "cobertura"
+        ],
+        "all": true,
+        "cache": true,
+        "sourceMap": true,
+        "instrument": true
+    },
+    "dependencies": {
+        "@types/cookie-parser": "^1.4.2",
+        "@types/mongodb": "^3.6.8",
+        "@types/morgan": "^1.9.2",
+        "axios": "^0.21.1",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "1.4.5",
+        "cors": "^2.8.5",
+        "debug": "^4.1.1",
+        "express": "~4.17.1",
+        "firebase": "^8.3.2",
+        "inversify": "^5.0.1",
+        "mongodb": "^3.6.4",
+        "morgan": "^1.10.0",
+        "prettier": "^2.0.5",
+        "reflect-metadata": "^0.1.13",
+        "serve-favicon": "~2.5.0",
+        "socket.io": "^3.1.1",
+        "socket.io-client": "^3.1.1",
+        "swagger-jsdoc": "^6.0.0-rc.5",
+        "swagger-ui-express": "^4.1.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+    },
+    "devDependencies": {
+        "chai": "~4.2.0",
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.2",
+        "mocha": "^8.1.1",
+        "nodemon": "^2.0.7",
+        "nyc": "^15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "^9.0.3",
+        "supertest": "^4.0.2",
+        "tsconfig-paths": "^3.9.0",
+        "tslint": "~6.1.3",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-eslint-rules": "5.4.0",
+        "tslint-microsoft-contrib": "6.2.0",
+        "tslint-plugin-prettier": "^2.3.0"
+    }
+}

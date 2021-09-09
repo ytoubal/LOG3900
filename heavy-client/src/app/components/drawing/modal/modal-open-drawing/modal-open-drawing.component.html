@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Ouvrir un dessin</h1>
+
+<div mat-dialog-actions>
+  <div *ngIf = "arrayIndex">
+    <div *ngFor="let number of arrayIndex">
+      <div *ngIf = "arraySVG[number]" class = "element">
+        <div class = "container">
+          <img *ngIf = "arrayId[number]" [src]= "getImgContent(arraySVG[number])" (click) = "selectionDrawing(arrayId[number])" [ngClass] = "(arrayId[number] == id)? 'dessin selected':'dessin'"/>
+          
+          <button (click) = "deleteDrawing(arrayId[number])">x</button>
+        </div>
+        <figcaption class = "caption">Nom : {{arrayName[number]}}</figcaption>
+        <div *ngIf = "drawingTags[number]" class = "caption">Tags : 
+          <figcaption class = "caption tags" *ngFor = "let tag of drawingTags[number]">{{tag}}</figcaption>
+        </div>
+        <div *ngIf = "drawingTagsExtra[number].length > 3" class = "extraTags tags only">+ {{drawingTagsExtra[number].length - 3}}
+          <div class = "extraTagsText">
+            <div *ngFor = "let tag of drawingTagsExtra[number]">
+              <div class = "spaced">{{tag}}</div>
+            </div>
+          </div>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+
+  <div class = "col1">
+    <label class = "caption">Filtrage par étiquettes (cliquez sur le +) 
+      <input (keypress)="disableShortcuts($event)" [(ngModel)]="currentTag" size="6" maxlength="20" type="string">
+      <button *ngIf = "validTag(); else elseBlock" class = 'btnTag valid' (click) = "createTag()">+</button>
+      <ng-template #elseBlock>  
+        <button class = 'btnTag' disabled>+</button>
+      </ng-template>
+    </label> <br> <br>
+    <div *ngFor = "let tag of allCurrentTags" [ngClass] = "(isSelected(tag))? 'tag selected':'tag'" (click) = "selectTag(tag)">
+      {{tag}}
+    </div>
+    <button (click) = 'searchTag()'> Chercher</button>
+  </div>
+
+  <div class = "col2">
+    <button mat-button (click)="cancel()">Annuler</button>  
+    <button mat-button (click)="open()">Ouvrir</button>
+  </div>
+</div>

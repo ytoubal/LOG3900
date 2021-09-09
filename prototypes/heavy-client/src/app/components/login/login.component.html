@@ -1,0 +1,66 @@
+<div class="background center">
+  <div class="container">
+    <h1 style="height: 8%">PAINseau</h1>
+    <div class="form-container center">
+      <mat-card class="form-width">
+        <mat-card-title>
+          <h4 class="m-0">Sign in</h4>
+        </mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="loginForm">
+            <p>
+              <mat-form-field class="max-width">
+                <mat-label> Username </mat-label>
+                <input
+                  matInput
+                  placeholder="Username"
+                  type="username"
+                  [formControl]="usernameControl"
+                />
+                <mat-error *ngIf="usernameControl.hasError('maxlength')">
+                  Username must be under 12 characters
+                </mat-error>
+                <mat-error *ngIf="usernameControl.hasError('required')">
+                  Please enter a username</mat-error
+                >
+              </mat-form-field>
+            </p>
+
+            <!-- not needed for prototype -->
+            <!-- <p class="mb-15px">
+                        <mat-form-field class="max-width">
+                            <mat-label> Password </mat-label>
+                            <input matInput placeholder="Password" type='password'>
+                        </mat-form-field>
+                    </p>
+                    <div class='forgot-psw right'> <a class="link" href="https://www.linkedin.com/in/nu-chan-nhien-ton-95b776192/">Forgot password?</a></div> -->
+
+            <div class="right">
+              <button
+                type="button"
+                (click)="login()"
+                class="login-button max-width"
+                mat-button
+                [disabled]="loginForm.invalid"
+              >
+                Login A
+              </button>
+              <button
+                type="button"
+                (click)="loginB()"
+                class="login-button max-width"
+                mat-button
+                [disabled]="loginForm.invalid"
+              >
+                Login B
+              </button>
+            </div>
+            <!-- <br>
+                    <br>
+                    <div>Don't have an account? <a href="/signup">Sign up!</a></div>         -->
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

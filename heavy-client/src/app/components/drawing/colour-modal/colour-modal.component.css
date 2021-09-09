@@ -1,0 +1,28 @@
+.label {
+  float: right;
+  text-align: right;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+input[type=number]{
+  width: 45px;
+} 
+
+.colour {
+width: 20px;
+height: 20px;
+}
+
+#boxDiv{
+display: inline-flex;
+border: 1px solid black;
+width: 100px;
+height: 100px;
+background-image:  url("../../../../assets/tools/checkered.jpg");
+background-size: 200%;  
+}
+
+#colourDiv{
+display: inline;
+}

@@ -1,0 +1,208 @@
+<div class="background center">
+  <div class="container">
+    <h1 style="height: 8%">PAINseau</h1>
+    <div class="form-container center">
+      <mat-card class="form-width">
+        <mat-card-title>
+          <h4 class="m-0">{{ "login.signup" | translate }}</h4>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-horizontal-stepper [linear]="true" labelPosition="bottom">
+            <ng-template matStepperIcon="edit">
+              <mat-icon>done</mat-icon>
+            </ng-template>
+            <mat-step [stepControl]="registrationForm">
+              <form [formGroup]="registrationForm">
+                <ng-template matStepLabel>{{
+                  "signup.acc.details" | translate
+                }}</ng-template>
+
+                <mat-form-field class="max-width">
+                  <mat-label>
+                    {{ "login.username" | translate }}
+                  </mat-label>
+                  <input
+                    matInput
+                    placeholder="{{ 'login.username' | translate }}"
+                    formControlName="username"
+                    required
+                    [(ngModel)]="this.username"
+                  />
+                  <mat-error
+                    *ngIf="
+                      registrationForm.get('username').hasError('maxlength')
+                    "
+                  >
+                    {{ "login.username.charError" | translate }}
+                  </mat-error>
+                  <mat-error
+                    *ngIf="
+                      registrationForm.get('username').hasError('whitespace')
+                    "
+                  >
+                    {{ "login.username.invalid" | translate }}
+                  </mat-error>
+                  <!-- add ngError if username is taken-->
+                </mat-form-field>
+                <div class="row">
+                  <mat-form-field>
+                    <mat-label>{{ "fName" | translate }}</mat-label>
+                    <input
+                      matInput
+                      placeholder="{{ 'fName' | translate }}"
+                      formControlName="fName"
+                      required
+                      [(ngModel)]="this.firstName"
+                    />
+                    <mat-error
+                      *ngIf="
+                        registrationForm.get('fName').hasError('whitespace')
+                      "
+                    >
+                      {{ "login.name.invalid" | translate }}
+                    </mat-error>
+                  </mat-form-field>
+                  <div class="gap"></div>
+
+                  <mat-form-field>
+                    <mat-label>{{ "lName" | translate }}</mat-label>
+                    <input
+                      matInput
+                      placeholder="{{ 'lName' | translate }}"
+                      formControlName="lName"
+                      required
+                      [(ngModel)]="this.lastName"
+                    />
+                    <mat-error
+                      *ngIf="
+                        registrationForm.get('username').hasError('whitespace')
+                      "
+                    >
+                      {{ "login.name.invalid" | translate }}
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </form>
+              <form [formGroup]="passwordForm" class="pw-form">
+                <div class="row">
+                  <p class="mb-15px">
+                    <mat-form-field class="max-width">
+                      <mat-label>{{ "login.pw" | translate }}</mat-label>
+                      <input
+                        matInput
+                        placeholder="{{ 'login.pw' | translate }}"
+                        formControlName="pw"
+                        type="password"
+                        required
+                        [(ngModel)]="this.password"
+                      />
+                      <mat-error
+                        *ngIf="passwordForm.get('pw').hasError('whitespace')"
+                      >
+                        {{ "login.pw.invalid" | translate }}
+                      </mat-error>
+                      <mat-error
+                        *ngIf="passwordForm.get('pw').hasError('minlength')"
+                      >
+                        {{ "login.pw.charError" | translate }}
+                      </mat-error>
+                      <!-- <button
+                        mat-icon-button
+                        matSuffix
+                        (click)="hidePw = !hidePw"
+                      >
+                        <mat-icon>{{
+                          hidePw ? "visibility_off" : "visibility"
+                        }}</mat-icon>
+                      </button> -->
+                    </mat-form-field>
+                  </p>
+                  <p class="mb-15px">
+                    <mat-form-field class="max-width">
+                      <mat-label>{{
+                        "signup.form.confPw" | translate
+                      }}</mat-label>
+                      <input
+                        matInput
+                        placeholder="{{ 'signup.form.confPw' | translate }}"
+                        required
+                        type="password"
+                        formControlName="confirmPw"
+                        [errorStateMatcher]="matcher"
+                      />
+                      <mat-error *ngIf="passwordForm.hasError('notSame')">
+                        {{ "signup.form.pwError" | translate }}
+                      </mat-error>
+                    </mat-form-field>
+                  </p>
+                </div>
+
+                <div class="right">
+                  <button
+                    matStepperNext
+                    mat-button
+                    class="action-button"
+                    [disabled]="
+                      registrationForm.invalid || passwordForm.invalid
+                    "
+                  >
+                    <mat-icon>arrow_forward</mat-icon>
+                  </button>
+                </div>
+                <br />
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>{{
+                "signup.acc.avatar" | translate
+              }}</ng-template>
+              <div class="second-step">
+                <div class="images">
+                  <div>
+                    <img
+                      class="current-pfp"
+                      #currentPfp
+                      src="assets/images/anon_icon.jpg"
+                    />
+                  </div>
+                  <div class="options">
+                    <ng-container *ngFor="let pfp of pfpOptions">
+                      <img
+                        class="other-pfps"
+                        src="{{ pfp.src }}"
+                        (click)="changeCurrentPfp(pfp)"
+                      />
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="left">
+                    <button mat-button matStepperPrevious class="action-button">
+                      <mat-icon>arrow_back</mat-icon>
+                    </button>
+                  </div>
+                  <div class="right">
+                    <button
+                      matStepperNext
+                      mat-button
+                      class="action-button"
+                      (click)="register()"
+                      [disabled]="avatarName === 'anonymous'"
+                    >
+                      {{ "signup.form.create" | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="separation"></div>
+            </mat-step>
+          </mat-horizontal-stepper>
+          <div>
+            {{ "signup.acc.exists" | translate }}?
+            <a (click)="goSignIn()">{{ "login.signin" | translate }}</a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

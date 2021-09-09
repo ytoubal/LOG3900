@@ -1,0 +1,13 @@
+<mat-form-field class="chat-input" appearance="outline">
+  <!-- add a key enter event that calls sendMessage as well -->
+  <input
+    matInput
+    type="text"
+    placeholder="Enter your message"
+    [(ngModel)]="sentMessage"
+    (keyup.enter)="sendMessage()"
+  />
+  <button matSuffix mat-icon-button (click)="sendMessage()">
+    <mat-icon>send</mat-icon>
+  </button>
+</mat-form-field>

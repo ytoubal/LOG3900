@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.LoginFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_title"
+        android:textColor="#83769A"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.589" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="626dp"
+        android:layout_height="621dp"
+        android:layout_marginBottom="408dp"
+        android:background="#77FFFFFF"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="255dp"
+            android:layout_height="110dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/login_username"
+            android:inputType="textPersonName"
+            android:textSize="30sp"
+            android:importantForAutofill="no" />
+
+        <Button
+            android:id="@+id/button_first"
+            android:layout_width="129dp"
+            android:layout_height="136dp"
+            android:layout_marginBottom="336dp"
+            android:background="#FFFFFF"
+            android:text="@string/join"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

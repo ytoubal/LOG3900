@@ -1,0 +1,381 @@
+app-chat {
+  height: 100%;
+  width: 100%;
+}
+
+app-message-list {
+  height: 100%;
+  width: 28%;
+  padding-bottom: 18px;
+}
+
+.back-button {
+  margin-left: 10px;
+}
+
+.toolbar {
+  height: 70px;
+  background: #f2e7f3;
+  display: flex;
+  align-items: center;
+  padding-right: 4vw;
+
+  &.dark {
+    background: #1e2235;
+  }
+  &.red {
+    background: #ce1515;
+  }
+  &.christmas {
+    background: green;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0);
+  }
+  &.valentine {
+    background: #eec0da;
+  }
+
+  .present-members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 100;
+
+    .waiting-members {
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      &.dark {
+        color: #e5cfe6 !important;
+      }
+      &.red {
+        color: #ffffff !important;
+      }
+      &.christmas {
+        color: #ffffff !important;
+      }
+      &.halloween {
+        color: black !important;
+      }
+      &.valentine {
+        color: #9b0f2e !important;
+      }
+
+      .sgle-member {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+h3 {
+  color: #212e5b;
+
+  &.dark {
+    color: #dccee7;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #b30000;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+mat-icon {
+  color: #212e5b;
+  &.dark {
+    color: #dccee7;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #b30000;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.remove {
+  position: absolute;
+  right: 0;
+}
+
+.container {
+  height: calc(100vh - 70px);
+  background-color: #e5cfe6;
+  display: flex;
+
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: rgb(204, 0, 0);
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+
+.teams {
+  // height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.indiv-team {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+.card {
+  background: rgb(255 255 255 / 50%);
+  border-radius: 14px;
+  box-shadow: none;
+  padding: 0px;
+  width: 75%;
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  margin: 3.5% 28px 0 28px;
+
+  &.dark {
+    background: #1e2235;
+  }
+  &.red {
+    background: #ce1515;
+  }
+  &.christmas {
+    background: green;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0);
+  }
+  &.valentine {
+    background: #eec0da;
+  }
+}
+
+.left {
+  width: 25%;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right {
+  background-image: url("~src/assets/images/mountains.jpg");
+  flex-grow: 100;
+
+  height: auto;
+  width: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.dark {
+    background-image: url("~src/assets/images/dark_mountains.png");
+  }
+  &.red {
+    background-image: url("~src/assets/images/red_mountains.png");
+  }
+  &.christmas {
+    background-image: url("~src/assets/images/xmas_mountains.png");
+  }
+  &.halloween {
+    background-image: url("~src/assets/images/spooky_mountains.png");
+  }
+  &.valentine {
+    background-image: url("~src/assets/images/valentine_mountains.png");
+  }
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty {
+  height: 46.97px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.pp {
+  border-radius: 50%;
+  width: 7vh;
+  height: 7vh;
+  margin-right: 10px;
+}
+
+.action {
+  height: 80px;
+  margin: -6% auto;
+}
+
+.start-button {
+  width: 100px !important;
+  min-width: unset !important;
+
+  background: #212e5b;
+  color: white;
+}
+
+.waiting-icon {
+  background: #dedede;
+  border-radius: 50%;
+  width: 7vh;
+  height: 7vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// tiré de https://github.com/MatejKustec/SpinThatShit
+@mixin falling(
+  $size: $loader-size,
+  $color: $loader-color,
+  $duration: $loader-animation-duration,
+  $gap: $loader-gap,
+  $align: null
+) {
+  $unique-name: unique-id();
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  box-shadow: 0 $size * 2 0 $color;
+  position: relative;
+  animation: #{"loader11-"}#{$unique-name} $duration ease-in-out alternate infinite;
+  animation-delay: ($duration / 5) * 2;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    box-shadow: 0 $size * 2 0 $color;
+    animation: #{"loader11-"}#{$unique-name} $duration ease-in-out alternate infinite;
+  }
+
+  &::before {
+    left: -($size + $gap);
+    animation-delay: ($duration / 5) * 3;
+  }
+
+  &::after {
+    right: -($size + $gap);
+    animation-delay: ($duration / 5) * 1;
+  }
+
+  @if ($align == center) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @if ($align == middle) {
+    top: 50%;
+    margin: -($size * 2 + $size / 2) auto 0;
+  } @else {
+    top: -$size * 2;
+  }
+  @keyframes #{'loader11-'}#{$unique-name} {
+    0% {
+      box-shadow: 0 $size * 2 0 $color;
+    }
+
+    100% {
+      box-shadow: 0 $size 0 $color;
+    }
+  }
+}
+
+.dot-falling {
+  @include falling(7px, #bdbdbd, 0.8s, 8px, null);
+}
+
+.loading {
+  flex-grow: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: #212e5b;
+  &.dark {
+    color: #dccee7;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #cc0000;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+.loading-animation {
+  border-radius: 40%;
+  height: 60px;
+  width: 70px;
+  margin-top: -12px;
+}
+
+// .waiting-message {
+//   margin-right: 30px;
+// }
+
+.waiting-img {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+}

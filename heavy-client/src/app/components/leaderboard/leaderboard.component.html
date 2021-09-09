@@ -1,0 +1,196 @@
+<div class="background">
+  <app-toolbar style="width: 100%"></app-toolbar>
+  <div class="whole">
+    <div class="row">
+      <div [ngClass]="showProfile ? 'container narrow' : 'container'">
+        <div class="content-wrapper">
+          <div class="big-title text-color">
+            {{ "leaderboard.title" | translate }}
+          </div>
+          <div class="result-wrapper">
+            <div class="table-wrapper">
+              <mat-nav-list
+                class="results-table"
+                *ngFor="let player of players; let i = index"
+              >
+                <mat-list-item
+                  [ngClass]="
+                    player.username === authService.username
+                      ? 'player-list current-player'
+                      : 'player-list'
+                  "
+                  (click)="seeProfile(player)"
+                >
+                  <div class="left">
+                    <span
+                      *ngIf="player.username !== authService.username"
+                      class="player-rank text-color"
+                      [ngClass]="themeService.theme"
+                    >
+                      {{ i + 1 }}
+                    </span>
+                    <span
+                      *ngIf="player.username === authService.username"
+                      class="player-rank text-color"
+                      [ngClass]="themeService.theme"
+                    >
+                      {{ rankIndex + 1 }}
+                    </span>
+                    <span
+                      class="player-name text-color"
+                      [ngClass]="themeService.theme"
+                    >
+                      <div class="icons">
+                        <img
+                          class="avatar"
+                          [src]="profileService.findAvatar(player.avatar)"
+                        />
+                        <img
+                          [ngClass]="
+                            player.border !== 'border4'
+                              ? 'tiny-border'
+                              : 'tiny-border_4'
+                          "
+                          [src]="findBorder(player.border)"
+                        />
+                      </div>
+                      <div class="titles">
+                        <ng-container *ngIf="player.title !== 'none'">
+                          <i class="title">{{ player.title }}</i>
+                        </ng-container>
+                        <span>{{ player.username }}</span>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="right">
+                    <span
+                      class="player-xp text-color"
+                      [ngClass]="themeService.theme"
+                      >{{ player.pointsXP }} XP</span
+                    >
+                    <span
+                      class="player-level text-color"
+                      [ngClass]="themeService.theme"
+                      >{{ "leaderboard.level" | translate }}
+                      {{ getLevel(player.pointsXP) }}</span
+                    >
+                  </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-nav-list>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="showProfile"
+        class="container profile-container"
+        [ngClass]="themeService.theme"
+      >
+        <div class="close">
+          <button mat-icon-button class="close-btn" (click)="closeProfile()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <div class="player-display">
+          <img
+            class="avatar-profile"
+            [src]="profileService.findAvatar(selectedPlayer.avatar)"
+          />
+          <ng-container *ngIf="selectedPlayer.border">
+            <img
+              [ngClass]="
+                selectedPlayer.border !== 'border1' ? 'border' : 'border_1'
+              "
+              [src]="findBorder(selectedPlayer.border)"
+            />
+          </ng-container>
+          <div
+            [ngClass]="
+              selectedPlayer.border ? 'public-info-border' : 'public-info'
+            "
+          >
+            <!-- <div
+            [ngClass]="[
+              selectedPlayer.border ? 'public-info-border' : 'public-info',
+              selectedPlayer.border === 'border1'
+                ? 'public-info-blank'
+                : 'public-info'
+            ]"
+          > -->
+            <div class="level">{{ level }}</div>
+            <div class="username-container">
+              <ng-container *ngIf="selectedPlayer.title !== undefined">
+                <span
+                  [ngClass]="themeService.theme"
+                  class="big-title title-color username"
+                  *ngIf="selectedPlayer.title !== 'none'"
+                  >{{ selectedPlayer.title }}&thinsp;</span
+                >
+              </ng-container>
+              <span
+                class="big-title text-color username"
+                [ngClass]="themeService.theme"
+                >{{ selectedPlayer.username }}</span
+              >
+            </div>
+            <div class="progress" [ngClass]="themeService.theme">
+              <mat-progress-bar
+                [ngClass]="themeService.theme"
+                mode="determinate"
+                [value]="pointsProgress"
+              ></mat-progress-bar>
+              <div class="progress-bar" [ngClass]="themeService.theme">
+                {{ selectedPlayer.pointsXP }}
+                <ng-container *ngIf="level !== 10">/ {{ maxXP }} </ng-container>
+                <span>&thinsp;XP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-info">
+          <div class="gallery text-color" [ngClass]="themeService.theme">
+            {{ "gallery" | translate }}
+          </div>
+          <mat-divider></mat-divider>
+          <ng-container *ngIf="!isLoaded">
+            <div class="loading-container" [ngClass]="themeService.theme">
+              <p>{{ "fetching" | translate }}</p>
+              <div class="loading"></div>
+            </div>
+          </ng-container>
+          <div class="gal-images" [ngClass]="themeService.theme">
+            <ng-container *ngIf="isLoaded">
+              <ng-container *ngIf="displayedDrawings.length === 0">
+                <i
+                  ><p>{{ "leaderboard.no.drawing" | translate }}</p></i
+                >
+              </ng-container>
+              <ng-container *ngIf="displayedDrawings.length !== 0">
+                <ng-container *ngFor="let img of displayedDrawings">
+                  <div class="indiv-img">
+                    <img class="pic" [src]="img.src" />
+                    {{ img.word }}
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </div>
+          <ng-container *ngIf="isLoaded && displayedDrawings.length !== 0">
+            <mat-paginator
+              [ngClass]="themeService.theme"
+              [length]="getAlbumLength()"
+              pageSize="10"
+              hidePageSize="true"
+              (page)="changePage($event)"
+            >
+            </mat-paginator>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="chat-wrapper">
+      <app-message-list></app-message-list>
+    </div>
+  </div>
+</div>

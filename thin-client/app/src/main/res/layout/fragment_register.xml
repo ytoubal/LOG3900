@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:background="#77FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.441">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="Sign Up"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp">
+
+            <com.aceinteract.android.stepper.StepperNavigationView
+                android:id="@+id/stepper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTintMode="src_in"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="16dp"
+                app:stepperIconSize="28sp"
+                app:stepperItems="@menu/menu_main"
+                app:stepperTextColor="@android:color/primary_text_light"
+                app:stepperTextSize="28sp"
+                app:stepperType="@string/stepper_type_tab_numbered"
+                app:stepperWidgetColor="?attr/colorPrimaryVariant" />
+        </androidx.cardview.widget.CardView>
+
+        <fragment
+            android:id="@+id/frame_stepper"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:navGraph="@navigation/nav_registration_stepper">
+
+        </fragment>
+
+        <ImageView
+            android:id="@+id/navigate_register_next"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_margin="30dp"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10px"
+            android:src="@drawable/ic_baseline_arrow_forward_40" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/navigate_register_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="700dp"
+                android:clickable="true"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10px"
+                android:src="@drawable/ic_baseline_arrow_back_40" />
+
+            <Button
+                android:id="@+id/create_account_button"
+                android:layout_width="196dp"
+                android:layout_height="74dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_account" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/register_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/sign_up_string"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/sign_in_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in_link"
+                android:textColor="#1a0dab"
+                android:textSize="28sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

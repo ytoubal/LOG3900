@@ -1,0 +1,81 @@
+<mat-toolbar class="toolbar" [ngClass]="themeService.theme">
+  <span [ngClass]="themeService.theme"
+  style="
+  width: 60px;
+  justify-content: space-between;
+  display: flex;"> 
+    <button [ngClass]="themeService.theme"
+    *ngIf="isMenu()"
+    (click)="logout()"
+    mat-icon-button
+    class="button"
+    matTooltip="{{ 'toolbar.logout' | translate }}"
+  >
+      <mat-icon class="icon" svgIcon="logout"></mat-icon>
+    </button>
+    <button [ngClass]="themeService.theme"
+    *ngIf="!isMenu()"
+    (click)="goHome()"
+    mat-icon-button
+    class="button"
+    matTooltip="{{ 'toolbar.back' | translate }}"
+  >
+      <mat-icon class="icon" svgIcon="back"></mat-icon>
+    </button>
+  </span>
+
+  <button class="logo-button" [ngClass]="themeService.theme" (click)="goHome()">
+    <div class="middle">
+      <img class="logo" src="assets/images/painseau.png" />
+    </div>
+    <div class="animated middle" [ngClass]="themeService.theme">PAINseau</div>
+  </button>
+
+  <span [ngClass]="themeService.theme"
+  style="
+  width: 225px;
+  display: flex;
+  justify-content: space-between;">
+
+    <button [ngClass]="themeService.theme"
+    mat-icon-button
+    class="button"
+    matTooltip="{{ 'toolbar.pairWI' | translate }}"
+    (click)="goCreatePair()"
+  >
+    <mat-icon class="icon" svgIcon="pairword"></mat-icon>
+  </button>
+  <button [ngClass]="themeService.theme"
+    mat-icon-button
+    class="button"
+    matTooltip="{{ 'toolbar.leaderboard' | translate }}"
+    (click)="goLeaderboard()"
+  >
+    <mat-icon class="icon" svgIcon="podium"></mat-icon>
+  </button>
+  <button [ngClass]="themeService.theme"
+    mat-icon-button
+    class="button"
+    matTooltip="{{ 'toolbar.profile' | translate }}"
+    (click)="goProfile()"
+  >
+    <mat-icon class="icon" svgIcon="profile"></mat-icon>
+  </button>
+  <button [ngClass]="themeService.theme"
+    mat-icon-button
+    class="button"
+    (click)="goTutorial()"
+    matTooltip="{{ 'toolbar.tutorial' | translate }}"
+  >
+    <mat-icon class="icon" svgIcon="school"></mat-icon>
+  </button>
+    <button [ngClass]="themeService.theme"
+      mat-icon-button
+      class="button"
+      matTooltip="{{ 'toolbar.settings' | translate }}"
+      (click)="goSettings()"
+    >
+      <mat-icon class="icon" svgIcon="settings"></mat-icon>
+    </button> 
+  </span>
+</mat-toolbar>

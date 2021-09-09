@@ -1,0 +1,53 @@
+stages:
+  - build-server
+  - build-heavy-client
+  - build-light-client
+
+variables:
+
+  ANDROID_COMPILE_SDK: "30"
+  ANDROID_BUILD_TOOLS: "30.0.3"
+  ANDROID_SDK_TOOLS: "6858069"
+
+build-server:
+  image: node:12.14.1
+  stage: build-server
+  before_script:
+  - cd Remise/Serveur
+  - npm install
+  script:
+    - npm run build
+
+build-heavy-client:
+  image: node:12.14.1
+  stage: build-heavy-client
+  before_script:
+  - cd heavy-client
+  - npm install
+  script:
+    - npm run build
+
+build-lint-light-client:
+  image: openjdk:8-jdk
+  stage: build-light-client
+  before_script:
+    - apt-get --quiet update --yes
+    - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
+    - export ANDROID_HOME="${PWD}/android-home"
+    - install -d $ANDROID_HOME
+    - wget --output-document=$ANDROID_HOME/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
+    - unzip $ANDROID_HOME/cmdline-tools.zip -d $ANDROID_HOME/cmdline-tools 
+    
+    - $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --version
+    - yes | $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses || true
+    - $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platforms;android-${ANDROID_COMPILE_SDK}"
+    - $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platform-tools"
+    - $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "build-tools;${ANDROID_BUILD_TOOLS}"
+
+    - cd Remise/ClientLeger
+    - chmod +x ./gradlew
+  script:
+    - ./gradlew assembleDebug
+    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+
+

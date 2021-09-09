@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/lobby_name"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="LobbyName"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/lobby_difficulty"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="Medium"
+        android:textSize="15sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/lobby_avatar1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/placeholder_logo" />
+
+    <TextView
+        android:id="@+id/lobby_player1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="123456789999"
+        android:textSize="15sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/lobby_avatar2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/placeholder_logo" />
+
+    <TextView
+        android:id="@+id/lobby_player2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="player2"
+        android:textSize="15sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/lobby_avatar3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/placeholder_logo" />
+
+    <TextView
+        android:id="@+id/lobby_player3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="player3"
+        android:textSize="15sp" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/lobby_avatar4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/placeholder_logo" />
+
+    <TextView
+        android:id="@+id/lobby_player4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="player4"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/joinLobbyButton"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:text="@string/join_lobby"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,181 @@
+<mat-grid-list cols="2" rowHeight="40px">
+  <ng-container *ngFor="let tool of tools">
+    <mat-grid-tile
+      *ngIf="tool.name === 'Pencil' || tool.name === 'Undo'"
+      [ngClass]="themeService.theme"
+    >
+      <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+        <button
+          #toolBtn
+          mat-icon-button
+          (click)="showAttributsPanel(tool)"
+          matTooltip="{{ tool.name }}"
+          id="{{ tool.name }}"
+          [ngClass]="
+            tool.isActive && tool.name !== 'Undo' && tool.name !== 'Redo'
+              ? 'toolButton isActive ' + themeService.theme
+              : 'toolButton ' + themeService.theme
+          "
+        >
+          <mat-icon [ngClass]="themeService.theme">{{
+            getImage(tool)
+          }}</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="translate.currentLang.toString() === 'fr'">
+        <button
+          #toolBtn
+          mat-icon-button
+          (click)="showAttributsPanel(tool)"
+          matTooltip="{{ tool.nameFR }}"
+          id="{{ tool.name }}"
+          [ngClass]="
+            tool.isActive && tool.name !== 'Undo' && tool.name !== 'Redo'
+              ? 'toolButton isActive ' + themeService.theme
+              : 'toolButton ' + themeService.theme
+          "
+        >
+          <mat-icon [ngClass]="themeService.theme">{{
+            getImage(tool)
+          }}</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="translate.currentLang.toString() === 'de'">
+        <button
+          #toolBtn
+          mat-icon-button
+          (click)="showAttributsPanel(tool)"
+          matTooltip="{{ tool.nameDE }}"
+          id="{{ tool.name }}"
+          [ngClass]="
+            tool.isActive && tool.name !== 'Undo' && tool.name !== 'Redo'
+              ? 'toolButton isActive ' + themeService.theme
+              : 'toolButton ' + themeService.theme
+          "
+        >
+          <mat-icon [ngClass]="themeService.theme">{{
+            getImage(tool)
+          }}</mat-icon>
+        </button>
+      </ng-container>
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="tool.name === 'Eraser' || tool.name === 'Redo'">
+      <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+        <button
+          #toolBtn
+          mat-icon-button
+          (click)="showAttributsPanel(tool)"
+          matTooltip="{{ tool.name }}"
+          id="{{ tool.name }}"
+          [ngClass]="
+            tool.isActive && tool.name !== 'Undo' && tool.name !== 'Redo'
+              ? 'toolButton isActive ' + themeService.theme
+              : 'toolButton ' + themeService.theme
+          "
+        >
+          <mat-icon>{{ getImage(tool) }}</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="translate.currentLang.toString() === 'fr'">
+        <button
+          #toolBtn
+          mat-icon-button
+          (click)="showAttributsPanel(tool)"
+          matTooltip="{{ tool.nameFR }}"
+          id="{{ tool.name }}"
+          [ngClass]="
+            tool.isActive
+              ? 'toolButton isActive ' + themeService.theme
+              : 'toolButton ' + themeService.theme
+          "
+        >
+          <mat-icon [ngClass]="themeService.theme">{{
+            getImage(tool)
+          }}</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="translate.currentLang.toString() === 'de'">
+        <button
+          #toolBtn
+          mat-icon-button
+          (click)="showAttributsPanel(tool)"
+          matTooltip="{{ tool.nameDE }}"
+          id="{{ tool.name }}"
+          [ngClass]="
+            tool.isActive
+              ? 'toolButton isActive ' + themeService.theme
+              : 'toolButton ' + themeService.theme
+          "
+        >
+          <mat-icon [ngClass]="themeService.theme">{{
+            getImage(tool)
+          }}</mat-icon>
+        </button>
+      </ng-container>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
+
+<div style="text-align: center">
+  <button
+    #toolBtn
+    mat-icon-button
+    (click)="showAttributsPanel(tools[4])"
+    matTooltip="{{ tools[4].name }}"
+    class="toolButton"
+    [ngClass]="
+      tools[4].isActive && tools[4].name !== 'Undo' && tools[4].name !== 'Redo'
+        ? 'toolButton isActive ' + themeService.theme
+        : 'toolButton ' + themeService.theme
+    "
+    id="{{ tools[4].name }}"
+  >
+    <mat-icon [ngClass]="themeService.theme">{{ getImage(tools[4]) }}</mat-icon>
+  </button>
+</div>
+
+<!-- <div *ngFor="let tool of tools;"> -->
+<!-- Empty space between eyedropper tool and redo action -->
+<!-- <div *ngIf="tool.name == 'Undo'" id="empty"></div>
+
+  <button #toolBtn mat-icon-button (click)="showAttributsPanel(tool);" matTooltip={{tool.nameFR}}
+  id={{tool.name}} [ngClass]="(tool.isActive && tool.name !== 'Undo' && tool.name !== 'Redo') ? 'toolButton isActive':'toolButton'">
+    <mat-icon>{{getImage(tool)}}</mat-icon>
+  </button>
+</div> -->
+
+<!-- Modal Components -->
+<!-- <div class="toolButton" (click)="openDrawing()">
+  <img
+    src="../../../../assets/tools/open.png"
+    class="icon"
+    width="16"
+    height="16"
+  />
+  <span class="tooltip">Galerie (Ctrl+G)</span>
+</div> -->
+<!-- <div class="toolButton" (click)="saveDrawing()">
+  <img
+    src="../../../../assets/tools/save.png"
+    class="icon"
+    width="16"
+    height="16"
+  />
+  <span class="tooltip">Enregistrer (Ctrl+S)</span>
+</div> -->
+<!-- <div class="toolButton" (click)="exportDrawing()">
+  <img
+    src="../../../../assets/tools/export.png"
+    class="icon"
+    width="16"
+    height="16"
+  />
+  <span class="tooltip">Exporter (Ctrl+E)</span>
+</div> -->
+
+<!-- Keyboard shortcuts -->
+<!-- <div (document:keydown.control.o)="createNewDrawing($event)"></div>
+<div (document:keydown.control.s)="saveDrawing($event)"></div>
+<div (document:keydown.control.g)="openDrawing($event)"></div>
+<div (document:keydown.control.e)="exportDrawing($event)"></div> -->

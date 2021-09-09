@@ -1,0 +1,214 @@
+.whole {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.mat-card {
+  height: 80%;
+  width: 80%;
+}
+
+.chat-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbox {
+  margin-top: 10px;
+  height: 96%;
+  width: 91%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px 5px 10px;
+  background: rgb(255 255 255 / 50%);
+  box-shadow: none;
+  border-radius: 14px;
+
+    .options-container {
+      display: flex;
+      justify-content: space-between;
+      height: 8%;
+      align-items: center;
+      border-bottom: 1px solid #ccc!important;
+      margin-bottom: 0;
+      .game-title {
+        width: 100%;
+        color: #212e5b;
+        font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+      }
+      // .guess-count {
+      //   width: 45%;
+      //   text-align: right;
+      //   color: #212e5b;
+      //   font: 500 16px/32px Roboto, "Helvetica Neue", sans-serif;
+      // }
+    }
+    .container-msg {
+      width: auto;
+      overflow-y: auto;
+      height: 78%;
+      padding: 2% 2% 0 2%
+      
+    }
+    .input-container {
+      height: 14%;
+      
+      .chat-input {
+        width: 94%;
+        height: 15%;
+        margin-top: -5px;
+
+      }
+    }
+  
+}
+
+.msg-input {
+  display: flex;
+  justify-content: center;
+}
+
+.chat-input {
+  width: 95%;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  &.in-game {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .username {
+    font-size: small;
+  }
+}
+
+.current-user-message {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+
+  .current-user-text {
+    background: #212e5b;;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px #bdccd7;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 460px;
+    width: auto;
+    min-width: 100px;
+    margin-right: 10px;
+    height: auto;
+    overflow-wrap: break-word;
+    &.in-game {
+      min-width: 80px !important;
+      padding: 5px;
+      font-size: 12px;
+      white-space: pre-wrap;
+      margin-right: 3px;
+    }
+  }
+  .current-guesser-text {
+    background: #920808;;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px #bdccd7;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 460px;
+    width: auto;
+    min-width: 80px;
+    margin-right: 3px;
+    height: auto;
+    overflow-wrap: break-word;
+  }
+  .timeDiv {
+    font-size: 12px;
+    color: #7d7d7d;
+    margin: 5px 5px 0 0;
+    &.in-game {
+      font-size: 11px;
+      color: #7d7d7d;
+      margin: 0;
+    }
+  }
+}
+
+.divider {
+  height: 10px;
+}
+
+.other-user-message {
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+  margin-bottom: 10px;
+
+  .other-user-text {
+    background: #fff;
+    color: #2d313f;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px #bdccd7;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 21px;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    max-width: 460px;
+    width: auto;
+    min-width: 100px;
+    margin-left: 10px;
+    height: auto;
+    overflow-wrap: break-word;
+    &.in-game {
+      min-width: 75px !important;
+      padding: 5px;
+      font-size: 12px;
+      white-space: pre-wrap;
+      margin-left: 3px;
+    }
+  }
+  .timeDiv {
+    font-size: 12px;
+    color: #7d7d7d;
+    margin: 5px 0 0 5px;
+    width: 63px;
+    white-space: pre-wrap;
+    &.in-game {
+      font-size: 11px;
+      color: #7d7d7d;
+      margin: 0;
+    }
+  }
+}
+
+
+mat-form-field {
+  margin-top: 35px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border: 0px !important;
+}

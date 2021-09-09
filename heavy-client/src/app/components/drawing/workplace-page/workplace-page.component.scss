@@ -1,0 +1,387 @@
+.color {
+    color: #212e5b;
+
+    &.dark {
+        color: white;
+    }
+    &.red {
+        color: white;
+    }
+    &.christmas {
+        color: white;
+    }
+    &.halloween {
+        color: black;
+    }
+    &.valentine {
+        color: #9b0f2e;
+    }
+}
+#workspace{
+    background-color: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 80%;
+    height: 100%;
+}
+#toolbar{
+    height:100%;
+    width: 20%;
+    background-color: #e5cfe6;
+    margin:0;
+    float:left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.dark {
+        background: #1e2235;
+        border: solid #1e2235;
+        color: white;
+      }
+      &.red {
+        background: #ce1515;
+        border: solid #ce1515;
+        color: white;
+      }
+      &.christmas {
+        background: green;
+        border: solid green;
+        color: white;
+      }
+      &.halloween {
+        background: rgb(255, 136, 0);
+        border: solid rgb(255, 136, 0);
+        color: black;
+      }
+      &.valentine {
+        background: #eec0da;
+        border: solid #eec0da;
+        color: #9b0f2e;
+      }
+    .team-wrapper {
+        margin-top: 2%;
+        width: 92%;
+        height: 51%;
+        border-radius: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .team-content {
+            width: 95%;
+            height: 96%;
+            padding: 0 5% 0px 5%;
+            .title {
+                font: 500 19px/32px Roboto, "Helvetica Neue", sans-serif;
+                padding: 4% 0 4% 0;
+                height: 10%;
+
+            }
+            .team-diviser {
+                height: 45%;
+                font: 500 16px/32px Roboto, "Helvetica Neue", sans-serif;
+                
+                .player-wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    height: 35%;
+                    .username {
+                        margin-left: 4%;
+                    }
+                }
+            }
+        }
+    }
+    .flex-container {
+        width: 92%;
+        height: 45%;
+        margin-top: 3%;
+        border-radius: 13px;
+    }
+}
+#panel{
+    /* height: 100%; */
+    width: 10%;
+    background-color: #f2e7f3;
+    margin: 0px;
+    float: left;
+    display : block;
+}
+#panel.dark {
+  background: #8f919a;
+}
+#panel.red {
+  background: #e78a8a;
+}
+#panel.halloween {
+  background-color: #ffc480;
+}
+#panel.valentine {
+  background: #f7e0ed;
+}
+#panel.christmas {
+  background: #db1212d8;
+}
+
+.avatar {
+    width: 40px;
+    border-radius: 23px;
+}
+.container-color {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.top-wrapper {
+    background-color: #e1bee7;
+    height: 8%;
+    display: flex;
+    align-items: left;
+
+    &.dark {
+        background: #272c44;
+        color: white;
+      }
+      &.red {
+        background: #af0303;
+        color: white;
+      }
+      &.christmas {
+        background: rgb(129, 24, 20);
+        color: white;
+      }
+      &.halloween {
+        background: rgb(241, 121, 9);
+      }
+      &.valentine {
+        background: #ff99c9;
+        color: #9b0f2e;
+      }
+      // .leave {
+      //   width: 20%;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: flex-end;
+      //   padding-right: 2%;
+      //   position: absolute;
+      //   top: 1.5%;
+      //   left: 78%;
+
+      //   &.not-active {
+      //     background-color: #212e5b;
+      //     width: 9%;
+      //     margin-left: 12%;
+      //     &.dark {
+      //       background: #131520;
+      //     }
+      //     &.red {
+      //       background: #ff5a5a;
+      //     }
+      //     &.christmas {
+      //       background: rgb(13, 83, 13);
+      //     }
+      //     &.halloween {
+      //       background: #ffc37f;
+      //     }
+      //     &.valentine {
+      //       background: #eec0da;
+      //     }
+      //   }
+      //   .leave-btn {
+      //     padding: 0px 5.5px 0px 5.5px;
+      //     height: 32px;
+      //     color: white;
+      //     background-color: #212e5b;
+      //     &.not-active {
+      //       color: #292929;
+      //       background-color: #e5cfe6;
+      //       &.dark {
+      //         background: #f1e5f1 !important;
+      //         color: #212e5b !important;
+      //       }
+      //       &.red {
+      //         background: #ce1515  !important;
+      //         color: white !important;
+      //       }
+      //       &.christmas {
+      //         background: rgb(204, 0, 0) !important;
+      //         color: white !important;
+      //       }
+      //       &.halloween {
+      //         background: black !important;
+      //         color: white !important;
+      //       }
+      //       &.valentine {
+      //         background: #9b0f2e !important;
+      //         color: white !important;
+      //       }
+      //     }
+      //     &.dark {
+      //       background: #f1e5f1 !important;
+      //       color: #212e5b !important;
+      //     }
+      //     &.red {
+      //       background: #ff5a5a !important;
+      //       color: white !important;
+      //     }
+      //     &.christmas {
+      //       background: rgb(204, 0, 0) !important;
+      //       color: white !important;
+      //     }
+      //     &.halloween {
+      //       background: black !important;
+      //       color: white !important;
+      //     }
+      //     &.valentine {
+      //       background: #9b0f2e !important;
+      //       color: white !important;
+      //     }
+      // }
+      // }
+
+    .game-info {
+        display: flex;
+        // margin-left: 2%;
+        width: 100%;
+        // justify-content: space-between;
+
+        .time-container {
+            width: 20%;
+            margin-left: 2%;
+            display: flex;
+            align-items: center;
+        }
+        .indication {
+            width: 54%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+    .times-up {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #212e5b;
+        color: white;
+        &.dark {
+            background: #131520;
+            color: white;
+          }
+          &.red {
+            background: #ff5a5a;
+            color: white;
+          }
+          &.christmas {
+            background: rgb(13, 83, 13);
+            color: white;
+          }
+          &.halloween {
+            background: #ffc37f;
+            color: black;
+          }
+          &.valentine {
+            background: #eec0da;
+            color: #9b0f2e;
+          }
+    }
+}
+.draw-wrapper {
+    display: flex;
+    height: 92%;
+    .right-wrapper {
+        background-color: #e5cfe6;
+        width: 20%;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        &.dark {
+            background: #1e2235;
+            border: solid #1e2235;
+            color: #f1e5f1;;
+          }
+          &.red {
+            background: #ce1515;
+            border: solid #ce1515;
+            color: white;
+          }
+          &.christmas {
+            background: green;
+            border: solid green;
+            color: white;
+          }
+          &.halloween {
+            background: rgb(255, 136, 0);
+            border: solid rgb(255, 136, 0);
+            color: black;
+          }
+          &.valentine {
+            background: #eec0da;
+            border: solid #eec0da;
+            color: #9b0f2e;
+          }
+        .guess-info {
+            margin-top: 5%;
+            width: 92%;
+            height: 12%;
+            padding: 2% 0 2% 0;
+            border-radius: 13px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .guess-count {
+                width: 97%;
+                text-align: center;
+                font: 500 16px/32px Roboto, "Helvetica Neue", sans-serif;
+              }
+            .hint-btn {
+                padding: 0px 5.5px 0px 5.5px;
+                height: 32px;
+                color: white;
+                background-color: #212e5b;
+                &.dark {
+                  background: #f1e5f1 !important;
+                  color: #212e5b !important;
+                }
+                &.red {
+                  background: #ff5a5a !important;
+                  color: white !important;
+                }
+                &.christmas {
+                  background: rgb(204, 0, 0) !important;
+                  color: white !important;
+                }
+                &.halloween {
+                  background: black !important;
+                  color: white !important;
+                }
+                &.valentine {
+                  background: #9b0f2e !important;
+                  color: white !important;
+                }
+                &:disabled {
+                  background-color: #5e5e5e !important;
+                  color: white !important;
+                  cursor: not-allowed;
+                }
+            }
+            
+        }
+        .guess-zone {
+            width: 92%;
+            height: 86%;
+            border-radius: 13px;
+            margin-bottom: 5%;
+        }
+        // .chat-wrapper {
+        //     border-radius: 13px;
+        //     height: 42%;
+        //     width: 95%;
+        // }
+    }
+}

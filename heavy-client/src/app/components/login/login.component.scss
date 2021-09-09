@@ -1,0 +1,72 @@
+.background {
+  min-height: 100%;
+  background-size: cover;
+  background-image: url("~src/assets/images/mountains.jpg");
+  justify-content: center;
+
+  .container {
+    height: 85vh;
+    color: #212e5b;
+    width: 45%;
+
+    .form-container {
+      background: rgb(255 255 255 / 50%);
+      border-radius: 20px;
+      height: 59%;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+
+      .form-width {
+        width: 50%;
+        background: rgb(255 255 255 / 0%);
+        box-shadow: none;
+        color: #212e5b;
+
+        .mb-15px {
+          margin-bottom: -15px;
+        }
+        .m-0 {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+        .max-width {
+          min-width: 100%;
+
+          .input-error {
+            font-size: x-small;
+          }
+        }
+        .right {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .forgot-psw {
+          font-size: smaller;
+          margin-bottom: 20px;
+          z-index: 1;
+          position: relative;
+        }
+        .example-margin {
+          margin: 0 12px;
+        }
+
+        .login-button {
+          border: 1px solid;
+        }
+      }
+    }
+  }
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

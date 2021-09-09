@@ -1,0 +1,99 @@
+<div class="whole">
+  <mat-card class="chatbox">
+    <div class="options-container">
+      <div class="game-title">
+        <div
+          *ngIf="
+            this.translate.currentLang.toString() === 'en' &&
+            router.url !== '/tutorial'
+          "
+        >
+          {{ lobbyName }}'s Chat
+        </div>
+        <div
+          *ngIf="
+            this.translate.currentLang.toString() === 'fr' &&
+            router.url !== '/tutorial'
+          "
+        >
+          Canal de {{ lobbyName }}
+        </div>
+        <div
+          *ngIf="
+            this.translate.currentLang.toString() === 'de' &&
+            router.url !== '/tutorial'
+          "
+        >
+          {{ lobbyName }}s Chat
+        </div>
+        <div
+          *ngIf="
+            this.translate.currentLang.toString() === 'en' &&
+            router.url === '/tutorial'
+          "
+        >
+          Tutorial's Chat
+        </div>
+        <div
+          *ngIf="
+            this.translate.currentLang.toString() === 'fr' &&
+            router.url === '/tutorial'
+          "
+        >
+          Canal de Tutoriel
+        </div>
+        <div
+          *ngIf="
+            this.translate.currentLang.toString() === 'de' &&
+            router.url === '/tutorial'
+          "
+        >
+          Tutorials Chat
+        </div>
+      </div>
+      <!-- <div
+        class="guess-count"
+        *ngIf="
+          router.url === '/workspace' &&
+          !gameService.isDrawing &&
+          gameService.activeTeam &&
+          !gameService.isGuessed &&
+          gameService.guessLimit - gameService.guessCount >= 0
+        "
+      >
+        {{ gameService.guessLimit - gameService.guessCount }} guesses left
+      </div> -->
+    </div>
+    <!-- <mat-divider></mat-divider> -->
+    <div #container class="container-msg" [ngClass]="themeService.theme">
+      <div
+        #currentUserMessage
+        class="chat-list"
+        [ngClass]="themeService.theme"
+      ></div>
+    </div>
+    <div class="input-container">
+      <mat-form-field class="chat-input" appearance="outline">
+        <input
+          matInput
+          type="text"
+          placeholder="{{ 'rooms.type' | translate }}"
+          [(ngModel)]="sentMessage"
+          (keyup.enter)="sendMessage()"
+          class="height"
+          #chatInput
+          autofocus
+        />
+        <button
+          [ngClass]="themeService.theme"
+          class="send-btn"
+          matSuffix
+          mat-icon-button
+          (click)="sendMessage()"
+        >
+          <mat-icon>send</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </mat-card>
+</div>

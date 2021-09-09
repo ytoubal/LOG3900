@@ -1,0 +1,68 @@
+div {
+    display: block;
+    /* position: center; */
+    /* align-content: center; */
+    /* padding: none; */
+    /* margin: 0 0 0 0; */
+}
+
+figure {
+    display: inline-block;
+    margin: 0 0 0 0;
+    padding: 10px;
+    /* align-items: center; */
+    /* align-content: center; */
+    /* position: center; */
+}
+
+figcaption {
+    /* position: center; */
+    /* display: flex; */
+    max-width: 45px;
+    font-size: 14px;
+    /* text-align: center; */
+}
+
+img {
+    vertical-align: top;
+    /* position: center;
+    padding: none;
+    margin: 0 0 0 0; */
+}
+
+.exportButton {
+    padding: 15px;
+}
+
+.canvas {
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+.container {
+    border-style: solid;
+    border-width: 3px;
+    overflow:hidden;
+    padding: none;
+}
+
+.container:hover, .active {
+    /* box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.2); */
+    border-color: rgb(160, 160, 160);
+}
+
+.notActive {
+    border-color: black;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.alert {
+    color: red;
+    font-size: 10px;
+}

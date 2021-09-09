@@ -1,0 +1,126 @@
+.background {
+  min-height: 100%;
+  background-size: cover;
+  background-image: url("~src/assets/images/mountains.jpg");
+  justify-content: center;
+
+  .container {
+    height: 800px;
+    color: #212e5b;
+    width: 600px;
+
+    .form-container {
+      background: rgb(255 255 255 / 50%);
+      border-radius: 14px;
+      height: 59%;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+
+      .form-width {
+        width: 500px;
+        background: rgb(255 255 255 / 0%);
+        box-shadow: none;
+        color: #212e5b;
+
+        .mb-15px {
+          margin-bottom: -15px;
+        }
+        .m-0 {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+        .max-width {
+          min-width: 100%;
+        }
+        .right {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 40px;
+        }
+
+        .left {
+          display: flex;
+          margin-top: 40px;
+          float: left;
+        }
+
+        .action-button {
+          border: 1px solid;
+        }
+      }
+    }
+  }
+}
+
+.pw-form {
+  height: 147px;
+}
+
+.images {
+  display: flex;
+  align-items: center;
+  margin-top: -8px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.gap {
+  width: 50px;
+}
+
+mat-horizontal-stepper {
+  background: rgb(255 255 255 / 0%);
+}
+
+.current-pfp {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  float: left;
+}
+
+.other-pfps {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.separation {
+  height: 11px;
+}
+// .options {
+//   grid-column: 2 / 3;
+//   grid-row: 3 / 4;
+
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+.second-step {
+  display: flex;
+  flex-direction: column;
+  padding-top: 29px;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

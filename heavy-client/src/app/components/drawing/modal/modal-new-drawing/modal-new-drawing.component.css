@@ -1,0 +1,29 @@
+.label {
+    float: right;
+    text-align: right;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+input[type=number]{
+    width: 45px;
+} 
+
+.colour {
+  width: 20px;
+}
+
+#boxDiv{
+  display: inline-flex;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+#colourDiv{
+  display: inline;
+}
+
+#sections {
+    padding-right: 20px;
+}

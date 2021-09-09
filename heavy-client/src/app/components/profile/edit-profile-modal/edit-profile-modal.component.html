@@ -1,0 +1,97 @@
+<div class="container">
+  <h2 mat-dialog-title>{{ "profile.edit" | translate }}</h2>
+
+  <div class="content">
+    <div class="avatar-section">
+      <div class="avatar-display">
+        <p>{{ "edit.avatar" | translate }}</p>
+        <div class="avatars">
+          <img class="current-pfp" #currentPfp src="{{ avatar.src }}" />
+          <ng-container *ngFor="let pfp of pfpOptions">
+            <img
+              class="other-pfps"
+              src="{{ pfp.src }}"
+              (click)="changeCurrentPfp(pfp)"
+            />
+          </ng-container>
+        </div>
+        <ng-container *ngIf="profileService.border">
+          <img
+            class="current-border"
+            #currentBorder
+            [src]="profileService.findBorder()"
+          />
+        </ng-container>
+      </div>
+      <div>
+        <p>{{ "edit.border" | translate }}</p>
+        <div class="border-container">
+          <ng-container
+            *ngFor="
+              let a of achievementOptions.slice(1, profileService.level);
+              let i = index
+            "
+          >
+            <!-- plus one because we start displaying the borders from LVL_ACHIEVEMENTS[1] -->
+            <img
+              class="border"
+              [src]="a.border.src"
+              (click)="changeCurrentBorder(i + 1)"
+            />
+          </ng-container>
+          <button mat-icon-button (click)="changeCurrentBorder(0)">
+            <mat-icon>block</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div>
+        <p>{{ "edit.title" | translate }}</p>
+        <mat-form-field appearance="outline">
+          <mat-select
+            [(ngModel)]="title"
+            [disabled]="profileService.level === 1"
+          >
+            <mat-option value="none">{{
+              "edit.no.title" | translate
+            }}</mat-option>
+            <mat-option
+              *ngFor="
+                let a of achievementOptions.slice(1, profileService.level)
+              "
+              [value]="a.title"
+            >
+              {{ a.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <p>{{ "fName" | translate }}</p>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="fName" />
+    </mat-form-field>
+    <p>{{ "lName" | translate }}</p>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="lName" />
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button
+        mat-flat-button
+        class="action-button"
+        color="primary"
+        mat-dialog-close
+        (click)="onSave()"
+      >
+        {{ "save" | translate }}
+      </button>
+      <button
+        mat-flat-button
+        class="action-button"
+        color="warn"
+        mat-dialog-close
+      >
+        {{ "cancel" | translate }}
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

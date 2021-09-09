@@ -1,0 +1,83 @@
+<h1 mat-dialog-title>Exporter un dessin</h1>
+
+<!-- <mat-dialog-content> -->
+  <div>
+    <img class="canvas" [src]="updateCanvasURL()" width="420">
+  </div><br>
+
+  <div>Filtres<br>
+    <!-- <figure (click)="resetFilters()">
+      <div class="container active" [ngClass]="{'notActive': filter!='0'}" (click)="filter='0'">
+        <img src="../../../../assets/img/Flowers.jpg" height="45px" width="45px">
+      </div>
+      <figcaption>Aucun</figcaption>
+    </figure>
+    
+    <figure (click)="applyFilter('blur(4px)')">
+      <div class="container" [ngClass]="{'active': filter==='1'}" (click)="filter='1'">
+        <img src="../../../../assets/img/Flowers.jpg" height="45px" width="45px" style="filter: blur(1px);">
+      </div>
+      <figcaption>Floue</figcaption>
+    </figure>
+    
+    <figure (click)="applyFilter('sepia(70%)')">
+      <div class="container" [ngClass]="{'active': filter==='2'}" (click)="filter='2'">
+        <img src="../../../../assets/img/Flowers.jpg" height="45px" width="45px" style="filter: sepia(70%);">
+      </div>
+      <figcaption>Sepia</figcaption>
+    </figure>
+    
+    <figure (click)="applyFilter('hue-rotate(300deg) saturate(30%) brightness(75%)')">
+      <div class="container" [ngClass]="{'active': filter==='3'}" (click)="filter='3'">
+        <img src="../../../../assets/img/Flowers.jpg" height="45px" width="45px" style="filter: hue-rotate(300deg) saturate(30%) brightness(75%);">
+      </div>
+      <figcaption>Emo</figcaption>
+    </figure>
+    
+    <figure (click)="applyFilter('invert(1)')">
+      <div class="container" [ngClass]="{'active': filter==='4'}" (click)="filter='4'">
+        <img src="../../../../assets/img/Flowers.jpg" height="45px" width="45px" style="filter: invert(1);">
+      </div>
+      <figcaption>Négatif</figcaption>
+    </figure>
+    
+    <figure (click)="applyFilter('grayscale(100%)')">
+      <div class="container" [ngClass]="{'active': filter==='5'}" (click)="filter='5'">
+        <img src="../../../../assets/img/Flowers.jpg" height="45px" width="45px" style="filter: grayscale(100%);">
+      </div>
+      <figcaption>Gris</figcaption>
+    </figure> -->
+  </div><br>
+
+  <div>
+    <form>
+      <label for="fname">Nom de fichier:
+        <input (keypress)="disableShortcuts($event)" [(ngModel)]="filename" type="text" [ngModelOptions]="{standalone: true}">
+      </label>
+    </form>
+    <form>
+      <label for="fname">Courriel:
+        <input type="text" (keypress)="disableShortcuts($event)" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email"name="email"
+        [(ngModel)]="email" ngModel #emailref="ngModel" [ngModelOptions]="{standalone: true}">
+          <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="alert alert-danger">
+            <div [hidden]="!emailref.errors?.pattern">
+              Adresse non-valide
+            </div> 
+          </div> 
+      </label>
+    </form>
+  </div><br>
+  
+<div>Type: 
+  <select [(ngModel)]="selectedType">
+    <option *ngFor="let f of filetypes">{{f}}</option>
+  </select>
+</div><br>
+
+<div mat-dialog-actions>
+  <button class="exportButton" mat-button (click)="cancel()">Annuler</button> 
+  <div class="divider"></div> 
+  <button class="exportButton" mat-button (click)="export()">Exporter</button>
+  <div class="divider"></div>
+  <button class="exportButton" mat-button (click)="mail()">Envoyer par courriel</button>
+</div>

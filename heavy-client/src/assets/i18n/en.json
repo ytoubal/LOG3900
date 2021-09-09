@@ -1,0 +1,236 @@
+{
+  "create": "Create",
+  "create.lobby": "Create Lobby",
+  "refresh.lobby": "Refresh Lobbies",
+  "refresh.room": "Refresh Rooms",
+  "new.room": "New Room",
+  "search.room": "Search Room",
+  "cancel": "Cancel",
+  "history": "History",
+  "save": "Save",
+  "fName": "First Name",
+  "lName": "Last Name",
+  "search": "Search",
+  "leave": "Leave",
+  "continue": "Continue",
+  "gallery": "Gallery",
+  "fetching": "Fetching drawings",
+  "color": "Color",
+  "size": "Size",
+  "back": "Back",
+  "next": "Next",
+  "tolerance": "Tolerance",
+  "generate": "Generate",
+  "preview": "Preview",
+  "any": "Any",
+  "delete": "Delete",
+  "close": "Close",
+  "yes": "Yes",
+  "of_label": "of",
+
+  "edit": {
+    "avatar": "Choose Avatar",
+    "border": "Choose border",
+    "title": "Choose title",
+    "no.title": "No title"
+  },
+
+  "levelup": {
+    "label": "LEVEL UP",
+    "unlock": "You have unlocked",
+    "title": "Title",
+    "border": "Border"
+  },
+
+  "login": {
+    "signin": "Sign In",
+    "username": "Username",
+    "username.charError": "Username must be under 10 characters",
+    "username.reqError": "Please enter a username",
+    "username.invalid": "Please enter a valid username",
+    "name.invalid": "Please enter a valid name",
+    "pw.invalid": "Please enter a valid password",
+    "pw": "Password",
+    "pw.reqError": "Please enter a password",
+    "pw.charError": "Password must contain at least 5 characters",
+    "login": "Login",
+    "createAcc": "Don't have an account?",
+    "signup": "Sign Up"
+  },
+
+  "signup": {
+    "acc.details": "Account Details",
+    "acc.avatar": "Choose Avatar",
+    "form.confPw": "Confirm Password",
+    "form.pwError": "Passwords do not match",
+    "form.create": "Create account",
+    "acc.exists": "Already a member"
+  },
+
+  "toolbar": {
+    "pairWI": "Create word-image pair",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "tutorial": "Tutorial",
+    "QA": "Q & A",
+    "logout": "Logout",
+    "settings": "Settings",
+    "back": "Back to menu"
+  },
+
+  "tutorial": {
+    "welcome.msg": "Welcome to the tutorial!",
+    "subtitle.msg": "Here, you will learn the basics during a game."
+  },
+
+  "lobby": {
+    "placeholder": "Lobby Name",
+    "diff.label": "Difficulty",
+    "create": "Create",
+    "drawing": "Drawing",
+    "diffs": [{ "name": "Easy" }, { "name": "Medium" }, { "name": "Hard" }],
+    "form.title": "Create Lobby",
+    "form.rounds": "Number of Rounds"
+  },
+
+  "settings": {
+    "theme": "Theme",
+    "tooltip.light": "Light",
+    "tooltip.dark": "Dark",
+    "tooltip.red": "Red",
+    "tooltip.christ": "Christmas",
+    "tooltip.hall": "Halloween",
+    "tooltip.val": "Valentine's Day",
+    "lang": "Languages",
+    "lang.options": [
+      { "name": "English - EN", "value": "en" },
+      { "name": "French - FR", "value": "fr" },
+      { "name": "German - DE", "value": "de" }
+    ]
+  },
+
+  "rooms": {
+    "title": "Rooms",
+    "joined": "Joined",
+    "quit": "Quit Room",
+    "noRoom": "No matching rooms",
+    "type": "Enter your message",
+    "create.title": "Create Room",
+    "create.placeholder": "Room Name",
+    "create.reqError": "Please enter a name",
+    "create.charError": "Name must be under 10 characters"
+  },
+
+  "profile": {
+    "win": "Victory",
+    "lost": "Defeat",
+    "tie": "Tie",
+    "activity": "Match History",
+    "played": "Played",
+    "winrate": "Winrate",
+    "classic": "Classic",
+    "edit": "Edit Profile",
+    "edit.select": "Select Avatar",
+    "connection.label": "Connection History",
+    "connection": "Connected",
+    "disconnection": "Disconnected",
+    "avg.time": "Average Time Per Game",
+    "tot.time": "Total Time Played"
+  },
+
+  "leaderboard": {
+    "title": "Leaderboard",
+    "level": "Level",
+    "no.drawing": "No drawings to display."
+  },
+
+  "waitingRoom": {
+    "team1": "Team 1",
+    "team2": "Team 2",
+    "loadingMsg": "Waiting for players...",
+    "start": "Start"
+  },
+
+  "game": {
+    "word.draw.label": "Word to draw",
+    "word.draw.guess": "Word to guess",
+    "times": "TIMES UP!",
+    "noGuesses": "NO MORE GUESSES LEFT! NEXT TEAM'S TURN.",
+    "guess.success": "GUESSED IT",
+    "guesses.msg": "guesses left",
+    "ask.hint": "Ask Hint",
+    "hint.none": "No hints left",
+    "left": "left",
+    "guessesLeft": "TO REPLY",
+    "opp.playing": "SPECTATING OPPONENT TEAM",
+    "round": "Round",
+    "of": "of",
+    "win.msg": "Congrats you won!",
+    "lose.msg": "Better luck next time!",
+    "tie.msg": "It's a tie!",
+    "score.label": "Score: ",
+    "reply": "1 GUESS RIGHT OF REPLY",
+    "points": "point(s)",
+    "point.s": "point",
+    "point.p": "points",
+    "exit": "Menu",
+    "save": "Save"
+  },
+
+  "wordImg": {
+    "word.label": "Word/Expression",
+    "word.placeholder": "ex. dog",
+    "mode.label": "Mode",
+    "modes": [
+      "Conventional",
+      "Panoramic Left to Right",
+      "Panoramic Right to Left",
+      "Panoramic Bottom to Top",
+      "Panoramic Top to Bottom",
+      "Centered Inwards to Outwards",
+      "Centered Outwards to Inwards",
+      "Random"
+    ],
+    "modesSliced": [
+      "Random",
+      "Panoramic Left to Right",
+      "Panoramic Right to Left",
+      "Panoramic Bottom to Top",
+      "Panoramic Top to Bottom",
+      "Centered Inwards to Outwards",
+      "Centered Outwards to Inwards"
+    ],
+    "hints.label": "Hints",
+    "hint": "Hint",
+    "hint.placeholder": "ex. it's a fruit",
+    "create.pair": "Create Pair",
+    "drawing.options": "Would you like to draw or upload a drawing?",
+    "opt.draw": "Draw",
+    "opt.upload": "Upload",
+    "upload.drag": "Drag your Image here",
+    "upload.or": "OR",
+    "upload.browse": "Browse File"
+  },
+
+  "attrib-panel": {
+    "color.prim": "Primary Color",
+    "color.sec": "Secondary Color",
+    "color.switch": "Switch Colors",
+    "color.modal.label": "Choose Color",
+    "color.modal.accept": "Accept",
+    "color.backgnd": "Change Background Color",
+    "opacity": "Opacity",
+    "show.grid": "Show Grid"
+  },
+
+  "warning": {
+    "leave.lobby.main": "Are you sure you want to quit the lobby?",
+    "leave.lobby.sub": "The lobby will be destroyed.",
+    "leave.tutorial.main": "Are you sure you want to leave the tutorial?",
+    "leave.tutorial.sub": "You will lose your progress.",
+    "delete.room.main": "Are you sure you want to permanently delete the room?",
+    "back.draw.main": "Are you sure you want to back?",
+    "leave.draw.main": "Are you sure you want to leave?",
+    "draw.sub": "Your drawing will not be saved."
+  }
+}

@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>{{ "lobby.form.title" | translate }}</h2>
+<div class="container" [ngClass]="themeService.theme">
+  <div class="form">
+    <mat-form-field [ngClass]="themeService.theme" appearance="outline">
+      <mat-label [ngClass]="themeService.theme">{{
+        "lobby.placeholder" | translate
+      }}</mat-label>
+      <input
+        matInput
+        [formControl]="lobbyNameFormControl"
+        [(ngModel)]="lobbyName"
+      />
+      <mat-error
+        *ngIf="
+          lobbyNameFormControl.hasError('required') ||
+          lobbyNameFormControl.hasError('whitespace')
+        "
+      >
+        {{ "rooms.create.reqError" | translate }}
+      </mat-error>
+      <mat-error *ngIf="lobbyNameFormControl.hasError('maxlength')">
+        {{ "rooms.create.charError" | translate }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "lobby.diff.label" | translate }}</mat-label>
+      <mat-select required [(ngModel)]="currentDiff">
+        <mat-option
+          *ngFor="let diff of 'lobby.diffs' | translate"
+          [value]="diff.name"
+        >
+          {{ diff.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ "lobby.form.rounds" | translate }}</mat-label>
+      <mat-select required [(ngModel)]="currentTurn">
+        <mat-option *ngFor="let turn of turns" [value]="turn">
+          {{ turn }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-dialog-actions>
+    <button
+      mat-flat-button
+      class="action-button create"
+      (click)="createLobby()"
+      [disabled]="
+        lobbyNameFormControl.hasError('maxlength') ||
+        lobbyNameFormControl.hasError('required') ||
+        lobbyNameFormControl.hasError('whitespace')
+      "
+    >
+      {{ "create" | translate }}
+    </button>
+    <button mat-flat-button class="action-button" color="warn" mat-dialog-close>
+      {{ "cancel" | translate }}
+    </button>
+  </mat-dialog-actions>
+</div>

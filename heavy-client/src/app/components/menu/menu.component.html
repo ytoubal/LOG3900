@@ -1,0 +1,157 @@
+<body>
+  <app-toolbar></app-toolbar>
+  <div class="whole">
+    <div class="lobby-section">
+      <div class="lobby-options">
+        <div class="other-actions">
+          <!-- <button mat-flat-button class="button" (click)="openCreateLobby()">
+            {{ "create" | translate }}
+          </button> -->
+          <button
+          [ngClass]="themeService.theme"
+          matTooltip="{{ 'create.lobby' | translate }}"
+          mat-icon-button
+          (click)="openCreateLobby()"
+        >
+          <mat-icon class="color" [ngClass]="themeService.theme">add</mat-icon>
+        </button>
+        <button
+        [ngClass]="themeService.theme"
+        matTooltip="{{ 'refresh.lobby' | translate }}"
+        mat-icon-button
+        (click)="refreshLobbies()"
+      >
+        <mat-icon class="color" [ngClass]="themeService.theme"
+          >refresh</mat-icon
+        >
+      </button>
+        </div>
+        <div class="main-actions">
+          <mat-form-field appearance="legacy" [ngClass]="themeService.theme">
+            <input
+              matInput
+              [ngClass]="themeService.theme"
+              [(ngModel)]="lobbyName"
+            />
+            <mat-placeholder [ngClass]="themeService.theme">{{ 'lobby.placeholder' | translate }}</mat-placeholder>
+          </mat-form-field>
+          <!-- <mat-form-field appearance="outline" class="difficulty">
+            <mat-label>{{ "lobby.diff.label" | translate }}</mat-label>
+            <mat-select [(ngModel)]="currentDiff">
+              <mat-option value="any">-</mat-option>
+              <mat-option
+                [ngClass]="themeService.theme"
+                *ngFor="let diff of 'lobby.diffs' | translate"
+                [value]="currentDiff"
+              >
+                {{ diff.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+          <button mat-button [matMenuTriggerFor]="menu" class="button">
+            <!-- <span *ngIf="!currentDiff">{{ "lobby.diff.label" | translate }}</span> -->
+            <span>{{ currentDiff }}</span>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [ngClass]="themeService.theme" (click)="chooseDiff('Any')">
+              {{ "any" | translate }}
+            </button>
+            <button
+              mat-menu-item
+              [value]="diff.name"
+              [ngClass]="themeService.theme"
+              (click)="chooseDiff(diff.name)"
+              *ngFor="let diff of 'lobby.diffs' | translate"
+            >
+              {{ diff.name }}
+            </button>
+          </mat-menu>
+          <button
+            [ngClass]="themeService.theme"
+            mat-icon-button
+            (click)="search()"
+          >
+            <mat-icon class="color" [ngClass]="themeService.theme"
+              >search</mat-icon
+            >
+          </button>
+          <!-- <button mat-flat-button class="button">
+            {{ "search" | translate }}
+          </button> -->
+
+        </div>
+
+      </div>
+      <div class="lobbies">
+        <mat-action-list>
+          <ng-container *ngFor="let singLobby of availableLobbies">
+            <mat-list-item
+              (click)="
+                joinLobby(
+                  singLobby.name,
+                  singLobby.owner,
+                  singLobby.difficulty,
+                  singLobby.rounds
+                )
+              "
+            >
+              <div class="lobby" [ngClass]="themeService.theme">
+                <div class="lobby-info">
+                  <div class="lobby-name">{{ singLobby.name }}</div>
+                  <ng-container
+                    *ngIf="translate.currentLang.toString() === 'en'"
+                  >
+                    <div class="lobby-diff">{{ singLobby.difficulty }}</div>
+                  </ng-container>
+                  <ng-container
+                    *ngIf="translate.currentLang.toString() === 'fr'"
+                  >
+                    <div class="lobby-diff">Facile</div>
+                  </ng-container>
+                  <ng-container
+                    *ngIf="translate.currentLang.toString() === 'de'"
+                  >
+                    <div class="lobby-diff">Einfach</div>
+                  </ng-container>
+                  <div class="lobby-diff">
+                    {{ singLobby.rounds }}
+                    <ng-container
+                      *ngIf="translate.currentLang.toString() === 'en'"
+                    >
+                      rounds
+                    </ng-container>
+                    <ng-container
+                      *ngIf="translate.currentLang.toString() === 'fr'"
+                    >
+                      parties
+                    </ng-container>
+                    <ng-container
+                      *ngIf="translate.currentLang.toString() === 'de'"
+                    >
+                      Runden
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="lobby-players">
+                  <!-- <div class="container"> -->
+                  <ng-container *ngFor="let player of singLobby.users">
+                    <div class="player">
+                      <img [src]="findAvatar(player.avatar)" />
+                      <div class="name">{{ player.username }}</div>
+                    </div>
+                  </ng-container>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-action-list>
+      </div>
+    </div>
+    <div class="chat-wrapper">
+      <app-message-list></app-message-list>
+    </div>
+  </div>
+</body>

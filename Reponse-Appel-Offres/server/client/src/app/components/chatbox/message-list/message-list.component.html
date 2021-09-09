@@ -1,0 +1,37 @@
+<body class="col">
+  <div class="navbar">
+    <a (click)="logout()">Logout</a>
+  </div>
+  <div class="outline">
+    <!-- <img src = "assets/images/mountains.jpg">  -->
+    <!-- should add a section at the top with the name of the person the user's communicating with -->
+
+    <mat-card class="chatbox">
+      <mat-card-header>
+        <mat-card-title>Private Chat</mat-card-title>
+      </mat-card-header>
+      <!-- add an *ngFor to display all the messages exchanged between two users -->
+      <!-- depending on the user, create two different classes to distinguish between each user -->
+      <div #container class="container">
+        <div #currentUserMessage class="chat-list"></div>
+      </div>
+      <!-- To prevent chat bubbles from overlapping with the input form -->
+      <div>
+        <mat-form-field class="chat-input" appearance="outline">
+          <input
+            #chatInput
+            matInput
+            type="text"
+            placeholder="Enter your message"
+            [(ngModel)]="sentMessage"
+            (keyup.enter)="sendMessage()"
+            autofocus
+          />
+          <button matSuffix mat-icon-button (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </mat-card>
+  </div>
+</body>

@@ -1,0 +1,139 @@
+h2{
+    text-align: center;
+    width: 99%;
+    background-color: #5d5d5d;
+    color: rgba(255, 255, 255, 0.897);
+    border-radius: 6px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-right: 2%;
+    white-space: pre-wrap;
+}
+
+.history{
+    display: inline-flex;
+    border: 1px solid black;
+    width: 15px;
+    height: 15px;
+    }
+
+.btnShapeContainer{
+    padding-bottom: 15%;
+}
+.btnShapes{
+    float:left;
+    width:30%;
+    height:100%;
+    margin-bottom: 5%;
+    padding: 5% 1% 5% 1%;
+    text-align: center;
+    color: white;
+    font-size: 80%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(110, 110, 110);
+    border: 0.5px solid rgb(0, 0, 0);
+    user-select: none;
+}
+
+.selected{
+    background-color: rgb(48, 48, 48);
+    color: rgba(204, 204, 204, 0.808);
+}
+
+.btnShapes:hover{
+    background-color: rgb(48, 48, 48);
+}
+
+.attributs{
+    padding-left: 2%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 90%;
+    color: rgb(33 46 91);
+}
+.attributContainer{
+    margin-top:5%;
+    margin-bottom: 10%;
+}
+
+
+.sliderDisabled{
+    opacity:0.5;
+}
+
+input:disabled{
+    background: rgba(255, 255, 255, 0.418);
+}
+
+.boxDiv{
+    display: inline-flex;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.slider {
+    width: 96%;
+}
+
+.titleDiv{
+    display: inline-flex;
+    padding-right: 10px;
+}
+
+.inputSides{
+    float:right;
+    margin-right:11%;
+    margin-left:5%;
+    width:2.5em;
+}
+
+.inputOrientation{
+    float:right;
+    width:25%;
+    margin-right: 5%;
+}
+
+.symbol{
+    float:right;
+    width:20%;
+    font-size:160%;
+}
+
+.button {
+    padding: 0 5.5px 0 5.5px;
+    color: white;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #212e5b;
+    
+    &.dark {
+        background: #f1e5f1 !important;
+        color: #212e5b !important;
+      }
+      &.red {
+        background: #ff5a5a !important;
+        color: white !important;
+      }
+      &.christmas {
+        background: rgb(204, 0, 0) !important;
+        color: white !important;
+      }
+      &.halloween {
+        background: black !important;
+        border: solid black !important;
+        color: white !important;
+      }
+      &.valentine {
+        background: #9b0f2e !important;
+        border: solid #9b0f2e !important;
+        color: white !important;
+      }
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

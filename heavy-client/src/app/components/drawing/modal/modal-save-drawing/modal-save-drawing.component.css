@@ -1,0 +1,51 @@
+label {
+    padding : 10px;
+}
+
+.tag {
+    font-size: 10px;
+    color:darkgrey;
+    border: solid darkgrey;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.tag:hover {
+    color: #555;
+    border: solid #555;
+}
+
+.btnTag {
+    margin-left: 4px;
+    border: solid#E8E8E8;
+    border-radius: 100%;
+    background-color: white;
+    color: 	#E8E8E8;
+}
+
+.valid {
+    color: darkgrey;
+    border: solid darkgrey;
+}
+
+.valid:hover {
+    color: #555;
+    border: solid #555
+}
+
+.selected {
+    color: #555;
+    border: solid #555;
+}
+
+.obligatoire {
+    color: darkgrey;
+    font-size: 9px;    
+}
+
+img {
+    max-width: 300px;
+    max-height: 300px;
+    border: solid 1px black;
+}

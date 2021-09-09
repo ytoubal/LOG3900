@@ -1,0 +1,149 @@
+<div class="toolbar">
+  <!-- <button class="back-button" mat-icon-button (click)="quitLobby()">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button> -->
+  <button
+    [ngClass]="themeService.theme"
+    (click)="quitLobby()"
+    mat-icon-button
+    class="button"
+  >
+    <mat-icon class="icon" svgIcon="back"></mat-icon>
+  </button>
+  <div class="present-members">
+    <div class="waiting-members">
+      <ng-container *ngFor="let m of neutralMembers; let i = index">
+        <ng-container *ngIf="displayWaitingMember(i)">
+          <div class="sgle-member">
+            <img class="waiting-img" [src]="findImgSrc(m.avatar)" />
+            <div>{{ m.username }}</div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <mat-card class="card">
+    <div class="left">
+      <div class="teams">
+        <div class="indiv-team">
+          <div class="header">
+            <h3>{{ "waitingRoom.team1" | translate }}</h3>
+            <button
+              mat-icon-button
+              [disabled]="isTeam1Full() || isAlreadyTeam1()"
+              (click)="joinTeam1()"
+            >
+              <mat-icon>add_circle</mat-icon>
+            </button>
+            <ng-container *ngIf="user.username == owner">
+              <button
+                [ngClass]="themeService.theme"
+                mat-icon-button
+                [disabled]="isTeam1Full() || botPresentTeam1()"
+                (click)="addVPTeam1()"
+              >
+                <mat-icon [ngClass]="themeService.theme">person_add</mat-icon>
+              </button>
+            </ng-container>
+          </div>
+
+          <div class="players" #team1>
+            <ng-container *ngFor="let m of team1Members; let i = index">
+              <ng-container *ngIf="!displayPlayerTeam1(i)">
+                <div class="empty"></div>
+              </ng-container>
+              <ng-container *ngIf="displayPlayerTeam1(i)">
+                <div class="player">
+                  <img class="pp" [src]="findImgSrc(m.avatar)" />
+                  <div>{{ m.username }}</div>
+                  <ng-container
+                    *ngIf="isVP(m.username) && user.username == owner"
+                  >
+                    <button
+                      mat-icon-button
+                      class="remove"
+                      (click)="removeVPTeam1(m.username)"
+                    >
+                      <mat-icon [ngClass]="themeService.theme">block</mat-icon>
+                    </button>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <div class="indiv-team">
+          <div class="header">
+            <h3>{{ "waitingRoom.team2" | translate }}</h3>
+            <button
+              mat-icon-button
+              [disabled]="isTeam2Full() || isAlreadyTeam2()"
+              (click)="joinTeam2()"
+            >
+              <mat-icon>add_circle</mat-icon>
+            </button>
+            <ng-container *ngIf="user.username == owner">
+              <button
+                mat-icon-button
+                [disabled]="isTeam2Full() || botPresentTeam2()"
+                (click)="addVPTeam2()"
+              >
+                <mat-icon [ngClass]="themeService.theme">person_add</mat-icon>
+              </button>
+            </ng-container>
+          </div>
+
+          <div class="players" #team2>
+            <ng-container *ngFor="let m of team2Members; let i = index">
+              <ng-container *ngIf="!displayPlayerTeam2(i)">
+                <div class="empty"></div>
+              </ng-container>
+              <ng-container *ngIf="displayPlayerTeam2(i)">
+                <div class="player">
+                  <img class="pp" [src]="findImgSrc(m.avatar)" />
+                  <div>{{ m.username }}</div>
+                  <ng-container
+                    *ngIf="isVP(m.username) && user.username == owner"
+                  >
+                    <button
+                      mat-icon-button
+                      class="remove"
+                      (click)="removeVPTeam2(m.username)"
+                    >
+                      <mat-icon [ngClass]="themeService.theme">block</mat-icon>
+                    </button>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="loading">
+        <h3 class="waiting-message">
+          {{ "waitingRoom.loadingMsg" | translate }}
+        </h3>
+        <img class="loading-animation" src="assets/gif/pepe_waiting.gif" />
+      </div>
+      <ng-container *ngIf="user.username == owner">
+        <div class="action">
+          <button
+            mat-flat-button
+            class="start-button"
+            [ngClass]="themeService.theme"
+            [disabled]="!isLobbyFull() || gameStarted"
+            (click)="startGame()"
+          >
+            {{ "waitingRoom.start" | translate }}
+          </button>
+        </div>
+      </ng-container>
+    </div>
+    <div class="right">
+      <app-chat></app-chat>
+    </div>
+  </mat-card>
+  <app-message-list></app-message-list>
+</div>

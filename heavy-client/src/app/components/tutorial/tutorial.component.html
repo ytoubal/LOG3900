@@ -1,0 +1,155 @@
+<body #doc>
+  <div class="top-wrapper">
+    <div
+      class="game-info"
+      *ngIf="!(tutorialService.step === 4 || tutorialService.step === 6)"
+    >
+      <div class="time-container">
+        <span> 01:20 </span>
+      </div>
+      <div *ngIf="tutorialService.step === 3" class="indication">
+        {{ "game.word.draw.label" | translate }}: <span> Apple</span>
+      </div>
+      <!--*ngIf="!gameService.isDrawing && !gameService.isGuessed" -->
+      <div class="indication" *ngIf="tutorialService.step === 5">
+        {{ "game.word.draw.guess" | translate }}: <span>_ _ _ _ _ _</span>
+      </div>
+      <!-- <div class="leave">
+        <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+          <button class="leave-btn" mat-button>Leave Game</button>
+        </ng-container>
+        <ng-container *ngIf="translate.currentLang.toString() !== 'en'">
+          <button class="leave-btn" mat-button>
+            {{ "leave" | translate }}
+          </button>
+        </ng-container>
+      </div> -->
+    </div>
+    <div
+      *ngIf="tutorialService.step === 4"
+      class="times-up"
+      [ngClass]="themeService.theme"
+    >
+      <span>Yanis {{ "game.guess.success" | translate }}</span>
+    </div>
+    <div
+      *ngIf="tutorialService.step === 6"
+      class="times-up"
+      [ngClass]="themeService.theme"
+    >
+      <span
+        >{{ authService.username }} {{ "game.guess.success" | translate }}</span
+      >
+    </div>
+  </div>
+  <div class="draw-wrapper">
+    <div
+      id="workspace"
+      #workspace
+      [style.width.px]="innerWidth"
+      oncontextmenu="return false;"
+    >
+      <div #toolbar id="toolbar">
+        <div class="team-wrapper container-color">
+          <div class="team-content">
+            <div class="title color">
+              {{ "game.round" | translate }} {{ currentRound }}
+              {{ "game.of" | translate }} {{ totalRounds }}
+            </div>
+            <div class="team-diviser color">
+              <div>
+                {{ "waitingRoom.team1" | translate }}:
+                <span>{{ score}} {{ "game.point.s" | translate }}</span>
+              </div>
+              <div class="player-wrapper" *ngFor="let player of team1">
+                <img class="avatar" [src]="findImgSrc(player.avatar)" />
+                <div class="username">{{ player.username }}</div>
+              </div>
+            </div>
+            <div class="team-diviser color">
+              <div>
+                {{ "waitingRoom.team2" | translate }}:
+                <span>0 {{ "game.point.s" | translate }}</span>
+              </div>
+              <div *ngFor="let player of team2" class="player-wrapper">
+                <img class="avatar" [src]="findImgSrc(player.avatar)" />
+                <div class="username">{{ player.username }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="flex-container">
+          <app-message-list></app-message-list>
+          <!-- <app-tools [panel]="panel"></app-tools> -->
+        </div>
+      </div>
+      <div
+        id="panel"
+        [ngClass]="themeService.theme"
+        #panel
+        [style.height.px]="innerHeight"
+      >
+        <div>
+          <app-tools [panel]="panel"></app-tools>
+        </div>
+        <app-attributs-panel></app-attributs-panel>
+      </div>
+      <app-canvas
+        id="canvas"
+        [workspace]="workspace"
+        [panel]="panel"
+        [toolbar]="toolbar"
+      ></app-canvas>
+    </div>
+
+    <div id="right-wrapper">
+      <div class="guess-info container-color">
+        <div class="guess-count color">
+          10 {{ "game.guesses.msg" | translate }}
+        </div>
+        <button mat-button class="hint-btn">
+          {{ "game.ask.hint" | translate }} (0 {{ "game.left" | translate }})
+        </button>
+      </div>
+      <div id="guess-zone">
+        <app-chat style="width: 100%"></app-chat>
+      </div>
+    </div>
+  </div>
+  <!-- <svg viewbox="0 0 1200 800">
+      <path d="M-9 -87 H1200 V800 H-100z M 1200 0 H 0 V 60 H 1200 Z"/>
+    </svg> -->
+  <div class="instruction">
+    <div class="text-wrapper" [innerHTML]="instructionText"></div>
+    <div class="btn-wrapper">
+      <button mat-button (click)="openWarning()">
+        {{ "leave" | translate }}
+      </button>
+      <div class="progress">
+        <!-- (tutorialService.step/7)*100 -->
+        <mat-progress-bar
+          [ngClass]="themeService.theme"
+          mode="determinate"
+          [value]="progressValue"
+        ></mat-progress-bar>
+      </div>
+      <div class="steps-btn">
+        <button
+          mat-icon-button
+          (click)="previousStep()"
+          [disabled]="tutorialService.step === 0"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="nextStep()"
+          [disabled]="!tutorialService.goNextStep"
+        >
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+<ngx-spinner></ngx-spinner>>

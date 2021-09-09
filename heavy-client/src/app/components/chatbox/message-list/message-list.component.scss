@@ -1,0 +1,520 @@
+.chat-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbox {
+  height: 100%;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 5px 5px;
+  background: #ffffffab;
+  box-shadow: none;
+  border-radius: 0px;
+
+  &.in-game {
+    background: #f2e7f3;
+    border-radius: 13px;
+    width: 94%;
+    &.dark {
+      background: #8f919a;
+    }
+    &.red {
+      background: #e78a8a;
+    }
+    &.halloween {
+      background-color: #ffc480;
+    }
+    &.valentine {
+      background: #f7e0ed;
+    }
+    &.christmas {
+      background: #db1212d8;
+    }
+  }
+  &.dark {
+    background: #1a2339a6;
+  }
+  &.red {
+    background: #ce1515bf;
+  }
+  &.christmas {
+    background: #137113d9;
+  }
+  &.halloween {
+    background: #ff8800d9;
+  }
+  &.valentine {
+    background: #eec0dad9;
+  }
+
+  .chat-wrapper {
+    height: 100%;
+    background: rgb(255 255 255 / 0%);
+
+    .options-container {
+      display: flex;
+      justify-content: space-between;
+      height: 8%;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 0;
+
+      .menu-option {
+        color: #212e5b !important;
+        &.dark {
+          color: #f1e5f1 !important;
+        }
+        &.christmas,
+        &.red {
+          color: white !important;
+        }
+        &.halloween {
+          color: black !important;
+        }
+        &.valentine {
+          color: #9b0f2e !important;
+        }
+      }
+
+      .room-title {
+        width: 63%;
+        text-align: center;
+        color: #212e5b;
+        font: 500 19px/32px Roboto, "Helvetica Neue", sans-serif;
+      }
+      .room-buttons {
+        padding: 0px 5.5px 0px 5.5px;
+        height: 32px;
+        color: white;
+        background-color: #212e5b;
+        margin-left: 9px;
+        &.in-game {
+          height: 22px;
+          margin-left: 5px;
+          margin-right: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: small;
+        }
+      }
+    }
+    .container-msg {
+      width: auto;
+      overflow-y: auto;
+      height: 80%;
+      padding: 2% 2% 0 2%;
+      border-bottom: 1px solid #ccc;
+      &.in-game {
+        height: 72%;
+      }
+    }
+    .input-container {
+      height: 10%;
+
+      .chat-input {
+        width: 100%;
+        height: 85%;
+        margin-top: -5px;
+      }
+    }
+  }
+  //ROOMS PAGE
+  .room-wrapper {
+    height: 100%;
+    header {
+      position: absolute;
+      top: 0;
+      z-index: 11;
+    }
+    .roomEdit {
+      background: none;
+      font-size: medium;
+      padding: 0;
+      height: 8%;
+      &.hidden {
+        opacity: 0;
+      }
+      .bar-wrapper {
+        justify-content: space-between;
+        padding: 0 5px;
+        color: #212e5b;
+        &.in-game {
+          height: 35px !important;
+        }
+        .game-btn {
+          width: 24px !important;
+          height: 24px !important;
+        }
+      }
+    }
+
+    .search-block {
+      display: none;
+      width: 0%;
+      right: 0;
+      background: #fff;
+      @extend header !optional;
+      &.in-game {
+        min-height: 30px !important;
+      }
+      &.active {
+        width: 100%;
+        display: flex;
+        width: 100%;
+        border-radius: 14px 14px 0 0;
+        box-shadow: none;
+        display: flex;
+        opacity: 53%;
+        .search-wrap {
+          padding: 0 5px;
+          &.in-game {
+            height: 38px !important;
+          }
+        }
+      }
+      .search-control {
+        flex: 1;
+        font-size: 1rem;
+        border: 0;
+        outline: none;
+        padding-left: 10px;
+
+        &.in-game {
+          width: 85px;
+        }
+      }
+    }
+
+    .rooms {
+      overflow-y: auto;
+      height: 86%;
+      &.in-game {
+        overflow-y: auto;
+        height: 84%;
+        position: absolute;
+        top: 40px;
+        padding: 0px;
+        width: 94%;
+      }
+      .roomList {
+        border-bottom: 1px solid #c4c4c4;
+        margin: 0;
+        color: #212e5b;
+
+        .roomName {
+          font-size: small;
+        }
+        .join-indication {
+          color: grey;
+          &.in-game {
+            font-size: small;
+            &.red {
+              color: #ffffffa6 !important;
+            }
+            &.halloween {
+              color: #04040459 !important;
+            }
+            &.christmas {
+              color: #00000091 !important;
+            }
+          }
+          &.red {
+            color: #ffffffa6 !important;
+          }
+          &.halloween {
+            color: #04040459 !important;
+          }
+          &.christmas {
+            color: #00000091 !important;
+          }
+        }
+        // .join-button {
+        //   height: 70%;
+        //   background-color: #f2e7f3;
+        //   font-size: small;
+        //   color: #212e5b;
+        //   border: 1px solid #212e5b;
+        // }
+      }
+    }
+  }
+}
+
+mat-card-header {
+  border-bottom: 1px solid rgb(165, 165, 165); // for example to remove the margin
+  margin-bottom: 10px;
+}
+::ng-deep mat-card-header mat-card-header-text {
+  margin: 0px !important;
+  display: none;
+}
+
+.notify {
+  // margin: 0 auto;
+  text-align: center;
+  color: #7d7d7d;
+  font-style: italic;
+  margin: 10px;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  &.in-game {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .username {
+    font-size: small;
+  }
+}
+
+.current-user-message {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+
+  .current-user-text {
+    background: #212e5b;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px #bdccd7;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 460px;
+    width: auto;
+    min-width: 100px;
+    margin-right: 10px;
+    height: auto;
+    overflow-wrap: break-word;
+    &.in-game {
+      min-width: 45px !important;
+      padding: 5px;
+      font-size: 11px;
+      white-space: pre-wrap;
+      margin-right: 3px;
+    }
+  }
+
+  .timeDiv {
+    font-size: 12px;
+    color: #7d7d7d;
+    margin: 5px 5px 0 0;
+    white-space: pre-wrap;
+    width: 63px;
+    text-align: right;
+    &.in-game {
+      font-size: 11px;
+      margin: 3px 3px 0 0; 
+    }
+  }
+}
+
+.divider {
+  height: 10px;
+}
+
+.other-user-message {
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+  margin-bottom: 10px;
+
+  .other-user-text {
+    background: #fff;
+    color: #2d313f;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px #bdccd7;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 21px;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    max-width: 460px;
+    width: auto;
+    min-width: 100px;
+    margin-left: 10px;
+    height: auto;
+    overflow-wrap: break-word;
+    &.in-game {
+      min-width: 49px !important;
+      padding: 5px;
+      font-size: 11px;
+      white-space: pre-wrap;
+      margin-left: 2px;
+    }
+  }
+  .timeDiv {
+    font-size: 12px;
+    color: #7d7d7d;
+    margin: 5px 0 0 5px;
+    width: 63px;
+    white-space: pre-wrap;
+    &.in-game {
+      font-size: 11px;
+      margin: 3px 3px 0 0;
+    }
+  }
+}
+.color {
+  color: #212e5b !important;
+
+  &.dark {
+    color: #f1e5f1;
+  }
+
+  &.christmas,
+  &.red {
+    color: white !important;
+  }
+  &.halloween {
+    color: black !important;
+  }
+  &.valentine {
+    color: #9b0f2e !important;
+  }
+}
+
+.disable-icon {
+  color: #80808085 !important;
+  &.red {
+    color: #50505094 !important;
+  }
+  &.halloween {
+    color: #04040459 !important;
+  }
+  &.christmas {
+    color: #b9b9b961 !important;
+  }
+}
+
+// tiré de https://github.com/MatejKustec/SpinThatShit
+@mixin loader(
+  $size: $loader-size,
+  $color: $loader-color,
+  $border-size: $loader-border-size,
+  $duration: $loader-animation-duration,
+  $align: null
+) {
+  width: $size;
+  height: $size;
+  border: $border-size solid transparent;
+  border-top-color: $color;
+  border-bottom-color: $color;
+  border-radius: 50%;
+  position: relative;
+  animation: loader-rotate $duration linear infinite;
+  @if ($align == center) {
+    margin: 0 auto;
+  }
+  @if ($align == middle) {
+    top: 50%;
+    margin: -$size / 2 auto 0;
+  }
+  @include loader-rotate;
+}
+
+@mixin loader-rotate {
+  @keyframes loader-rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.loading {
+  @include loader(30px, #e1bee7, 8px, 1s, null);
+  &.halloween {
+    @include loader(30px, black, 8px, 1s, null);
+  }
+  &.christmas {
+    @include loader(30px, rgb(233, 0, 0), 8px, 1s, null);
+  }
+  &.red {
+    @include loader(30px, white, 8px, 1s, null);
+  }
+  &.valentine {
+    @include loader(30px, #9b0f2e, 8px, 1s, null);
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 40%;
+}
+
+::ng-deep .mat-menu-content:not(:empty) {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+mat-form-field {
+  margin-top: 35px;
+}
+
+::ng-deep .mat-menu-panel {
+  background: #ffffff00 !important;
+}
+
+::ng-deep .mat-menu-item[disabled] {
+  cursor: not-allowed !important;
+  background: #cccccc !important;
+}
+
+:host
+  ::ng-deep
+  .mat-form-field-appearance-outline
+  .mat-form-field-outline-start {
+  border: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border: 0px !important;
+}
+
+::ng-deep .mat-menu-item {
+  &.dark {
+    background: #f1e5f1 !important;
+    color: black !important;
+  }
+  &.red {
+    background: #ff5a5a !important;
+  }
+  &.christmas {
+    background: green !important;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0) !important;
+  }
+  &.valentine {
+    background: #eec0da !important;
+  }
+}
+
+mat-placeholder.dark.ng-star-inserted {
+  color: #f1e5f1 !important;
+}
+mat-placeholder.red.ng-star-inserted {
+  color: white !important;
+}
+mat-placeholder.christmas.ng-star-inserted {
+  color: white !important;
+}

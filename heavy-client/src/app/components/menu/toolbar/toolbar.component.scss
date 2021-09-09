@@ -1,0 +1,122 @@
+.mat-toolbar {
+  background: #f1e5f1; //#262746 ?
+  color: #fff;
+  height: 70px;
+
+  &.dark {
+    background: #1e2235; 
+  }
+  &.red {
+    background: #ce1515;
+  }
+  &.christmas {
+    background: green;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0);
+  }
+  &.valentine {
+    background: #eec0da;
+  }
+}
+
+.logo-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-style: none;
+  background: #f1e5f1;
+  margin-left: 9%;
+  outline: 0;
+  &.dark {
+    background: #1e2235; 
+  }
+  &.red {
+    background: #ce1515;
+  }
+  &.christmas {
+    background: green;
+  }
+  &.halloween {
+    background: rgb(255, 136, 0);
+  }
+  &.valentine {
+    background: #eec0da;
+  }
+}
+
+.toolbar {
+  justify-content: space-between;
+}
+
+.icon {
+  width: 29px;
+  height: 29px;
+}
+
+.button {
+  // border: 1px solid #212e5b;
+  color: #212e5b;
+  background: none;
+  // border-radius: 10px;
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #a00606;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.animated {
+  font: 800 32px Roboto, "Helvetica Neue", sans-serif;
+  color: #212e5b;
+
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #a00606;
+  }
+  &.halloween {
+
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+  // -webkit-animation: animatedBackground_a 5s linear infinite alternate;
+  // background-clip: text;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: #0000;
+}
+
+@keyframes animatedBackground_a {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -500px 0;
+  }
+}
+
+// .middle {
+//   display: inline;
+//   float: left;
+// }

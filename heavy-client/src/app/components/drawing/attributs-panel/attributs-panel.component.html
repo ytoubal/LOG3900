@@ -1,0 +1,239 @@
+<div class="attributs">
+  <div
+    *ngIf="myTool.isActive == true && myTool.name != 'Grid'"
+    (click)="sendTool(myTool)"
+  >
+    <ng-container *ngIf="translate.currentLang.toString() === 'fr'">
+      <h2>{{ myTool.nameFR }}</h2>
+    </ng-container>
+    <ng-container *ngIf="translate.currentLang.toString() === 'de'">
+      <h2>{{ myTool.nameDE }}</h2>
+    </ng-container>
+    <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+      <h2>{{ myTool.name }}</h2>
+    </ng-container>
+
+    <p class="titleDiv" *ngIf="myTool.name == 'Pencil'">
+      {{ "color" | translate }}
+    </p>
+    <div class="boxDiv" *ngIf="myTool.name == 'Pencil'">
+      <svg
+        (click)="openColourModal(true)"
+        [style.backgroundColor]="primaryColour"
+      ></svg>
+    </div>
+    <!-- <br />
+    <p class="titleDiv">{{ "attrib-panel.color.sec" | translate }}</p>
+    <div class="boxDiv">
+      <svg
+        (click)="openColourModal(false)"
+        [style.backgroundColor]="secondaryColour"
+      ></svg>
+    </div> -->
+    <!-- <div>
+      <button (click)="this.paletteService.swapColours()">
+        {{ "attrib-panel.color.switch" | translate }}
+      </button>
+    </div>
+    <label *ngIf="paletteService.colourHistory.length > 0"
+      >{{ "history" | translate }}:
+    </label>
+    <br />
+    <div *ngFor="let colour of paletteService.colourHistory" class="history">
+      <svg
+        (click)="getHistoryColour(colour, true)"
+        (contextmenu)="getHistoryColour(colour, false)"
+        [style.backgroundColor]="colour"
+      ></svg>
+    </div>
+    <div class="attributContainer">
+      <button (click)="this.modalService.changeBackground()">
+        {{ "attrib-panel.color.backgnd" | translate }}
+      </button>
+    </div> -->
+
+    <!-- Shape choices -->
+    <!-- <div *ngIf="myTool.shape" class="btnShapeContainer">
+        <div *ngFor="let shape of myTool.shape" (click)="sendShape(myTool, shape)" [ngClass]="(myTool.attributs.shape == shape)? 'btnShapes selected':'btnShapes'">
+          {{shape}}
+        </div>
+      </div> -->
+
+    <div *ngFor="let attribut of myTool.attributs | keyvalue">
+      <!-- Polygone -->
+      <!-- <div
+        *ngIf="
+          myTool.attributs.shape == 'Polygone' && attribut.key === 'nbSides'
+        "
+      >
+        <label>Nombre de côtés: </label>
+        <input
+          #nbSides
+          (keypress)="disableShortcuts($event)"
+          [(ngModel)]="attribut.value"
+          (change)="validateInput(myTool, nbSides.value, attribut.key)"
+          class="inputSides"
+          min="3"
+          max="12"
+          type="number"
+        />
+      </div> -->
+
+      <!-- SELECT -->
+      <!-- Size, Width, Diameter, Tolerance, Jets per second -->
+      <div class="attributContainer">
+        <div
+          *ngIf="
+            attribut.key == 'size' ||
+            attribut.key == 'width' ||
+            attribut.key == 'diameter' ||
+            attribut.key == 'tolerance' ||
+            attribut.key == 'jetsPerSecond'
+          "
+        >
+          <label *ngIf="attribut.key == 'size'"
+            >{{ "size" | translate }}
+          </label>
+          <label *ngIf="attribut.key == 'width'">Longueur: </label>
+          <label *ngIf="attribut.key == 'diameter'">Diamètre: </label>
+          <label *ngIf="attribut.key == 'tolerance'">Tolérance: </label>
+          <label *ngIf="attribut.key == 'jetsPerSecond'"
+            >Émissions/seconde:
+          </label>
+
+          <span>{{ attribut.value }}</span>
+          <label
+            *ngIf="
+              attribut.key != 'jetsPerSecond' && attribut.key != 'tolerance'
+            "
+            >px</label
+          >
+          <label *ngIf="attribut.key == 'tolerance'">%</label>
+
+          <div class="attributContainer">
+            <input
+              *ngIf="
+                myTool.name == 'Feather' && attribut.key == 'size';
+                else sliderEnable
+              "
+              disabled="disabled"
+              class="sliderDisabled"
+              value="{{ attribut.value }}"
+              type="range"
+              min="1"
+              max="100"
+            />
+            <ng-template #sliderEnable>
+              <input
+                *ngIf="
+                  myTool.name != 'Eraser' && attribut.key != 'tolerance';
+                  else eraser
+                "
+                [(ngModel)]="attribut.value"
+                (change)="updateAttribut(myTool, attribut.value, attribut.key)"
+                class="slider"
+                type="range"
+                min="1"
+                max="100"
+              />
+            </ng-template>
+            <ng-template #eraser>
+              <input
+                *ngIf="attribut.key != 'tolerance'; else tolerance"
+                [(ngModel)]="attribut.value"
+                (change)="updateAttribut(myTool, attribut.value, attribut.key)"
+                class="slider"
+                type="range"
+                min="3"
+                max="100"
+              />
+            </ng-template>
+            <ng-template #tolerance>
+              <input
+                [(ngModel)]="attribut.value"
+                (change)="updateAttribut(myTool, attribut.value, attribut.key)"
+                class="slider"
+                type="range"
+                min="0"
+                max="100"
+              />
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jonction type  -->
+      <div *ngIf="attribut.key == 'typeJonction'">
+        <label>Type de jonction: </label>
+        <div class="attributContainer">
+          <select
+            [(ngModel)]="attribut.value"
+            (change)="updateAttribut(myTool, attribut.value, attribut.key)"
+          >
+            <option value="normal">Normal</option>
+            <option value="dots">Avec point</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Orientation -->
+      <div *ngIf="attribut.key === 'orientation'">
+        <label>Orientation: </label>
+        <label class="symbol">°</label>
+        <input
+          (keypress)="disableShortcuts($event)"
+          [(ngModel)]="attribut.value"
+          (change)="updateAttribut(myTool, attribut.value, attribut.key)"
+          class="inputOrientation"
+          min="-360"
+          max="360"
+          type="number"
+        />
+      </div>
+    </div>
+  </div>
+  <div *ngIf="myTool.name == 'Grid'" class="center" (click)="sendTool(myTool)">
+    <ng-container *ngIf="translate.currentLang.toString() === 'fr'">
+      <h2>{{ myTool.nameFR }}</h2>
+    </ng-container>
+    <ng-container *ngIf="translate.currentLang.toString() === 'de'">
+      <h2>{{ myTool.nameDE }}</h2>
+    </ng-container>
+    <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+      <h2>{{ myTool.name }}</h2>
+    </ng-container>
+    <button class="button" mat-button (click)="gridService.setGrid()">
+      {{ "attrib-panel.show.grid" | translate }}
+    </button>
+    <div *ngFor="let attribut of myTool.attributs | keyvalue">
+      <div *ngIf="attribut.key == 'opacity'" class="attributContainer">
+        <label>{{ "attrib-panel.opacity" | translate }}: </label>
+        <span>{{ attribut.value }}</span>
+        <br />
+        <input
+          id="opacitySlider"
+          [(ngModel)]="attribut.value"
+          (change)="gridService.updateGrid(attribut.value, false)"
+          class="slider"
+          type="range"
+          min="10"
+          max="100"
+        />
+      </div>
+      <div *ngIf="attribut.key == 'size'" class="attributContainer">
+        <label>{{ "size" | translate }}: </label>
+        <span>{{ attribut.value }}</span>
+        <br />
+        <input
+          id="sizeSlider"
+          [(ngModel)]="attribut.value"
+          (change)="gridService.updateGrid(attribut.value, true)"
+          class="slider"
+          type="range"
+          min="5"
+          max="100"
+        />
+      </div>
+    </div>
+  </div>
+</div>

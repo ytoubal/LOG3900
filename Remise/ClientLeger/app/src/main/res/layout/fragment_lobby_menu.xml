@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout8"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="70dp"
+    android:layout_marginRight="20dp"
+    android:foregroundGravity="left|center_horizontal"
+    android:orientation="vertical"
+    app:layout_constraintEnd_toStartOf="@+id/chat_container">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="?attr/colorSecondary"
+        android:gravity="center"
+        android:text="@string/lobbies_menu_title"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="30dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="?attr/colorSecondary">
+
+        <ImageView
+            android:id="@+id/create_lobby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_baseline_add_24"
+            android:backgroundTint="?attr/colorPrimary" />
+
+        <ImageView
+            android:id="@+id/refresh_lobbies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_baseline_refresh_24"
+
+            android:backgroundTint="?attr/colorPrimary" />
+
+
+        <EditText
+            android:id="@+id/search_lobby_name"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:hint="@string/lobby_name_search"
+            android:textColor="?attr/colorPrimary" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/difficulty_wrapper"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:hint="@string/difficulty_lobby"
+            app:counterTextColor="?attr/colorPrimary"
+            app:hintTextColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.119"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_lobby_name">
+            android:layout_width="224dp"
+            android:layout_height="76dp"
+            android:layout_marginBottom="264dp"
+            android:hint="GameMode"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.113"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/lobby_difficulty_selection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:textColor="?attr/colorPrimary" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/lobby_filter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="@string/search_lobby" />
+
+        <LinearLayout
+            android:id="@+id/create_lobby_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical|end"
+            android:orientation="horizontal"
+            android:text="@string/create_lobby">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/column_lobby_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/lobby_col_name"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/column_lobby_difficulty"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/lobby_col_diff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/column_lobby_player1"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/lobby_col_player1"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/column_lobby_player2"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/lobby_col_player2"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/column_lobby_player3"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/lobby_col_player3"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/column_lobby_player4"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/lobby_col_player4"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lobby_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSecondary" />
+
+</LinearLayout>

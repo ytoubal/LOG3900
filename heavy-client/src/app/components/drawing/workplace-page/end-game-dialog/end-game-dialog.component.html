@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <h2 class="title" [ngClass]="themeService.theme" *ngIf="teamWon && !tie">
+    {{ "game.win.msg" | translate }}
+  </h2>
+  <h2 class="title" [ngClass]="themeService.theme" *ngIf="!teamWon && !tie">
+    {{ "game.lose.msg" | translate }}
+  </h2>
+  <h2 class="title" [ngClass]="themeService.theme" *ngIf="!teamWon && tie">
+    {{ "game.tie.msg" | translate }}
+  </h2>
+  <div class="info-wrapper" [ngClass]="themeService.theme">
+    <div>
+      {{ "game.score.label" | translate }}
+      <span>
+        <span>{{ gameService.scores[this.teamPos] }}-{{ gameService.scores[(this.teamPos+1)%2] }}</span
+        >
+        <ng-container *ngIf="translate.currentLang.toString() !== 'en'">
+          {{
+            gameService.scores[this.teamPos]
+              | i18nPlural: pluralMapping
+              | translate
+          }}.
+        </ng-container>
+        <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+          {{
+            gameService.scores[this.teamPos]
+              | i18nPlural: engPluralMapping
+              | translate
+          }}.
+        </ng-container>
+      </span>
+    </div>
+    <button mat-flat-button class="button" [ngClass]="themeService.theme" (click)="closeDialog()">
+      {{ "game.exit" | translate }}
+    </button>
+  </div>
+  <div class="drawings">
+    <div
+      class="indiv-drawing"
+      *ngFor="let drawing of saveDrawingService.savedDrawings; index as i"
+    >
+      <div>
+        {{ saveDrawingService.savedWords[i] }}
+      </div>
+      <img [src]="drawing" />
+      <button
+      [ngClass]="themeService.theme"
+        mat-flat-button
+        class="button"
+        [disabled] = "saveDrawingService.isSaved(i)"
+        (click)="
+          saveDrawingService.saveToAlbum(
+            drawing,
+            saveDrawingService.savedWords[i], i
+          )
+        "
+      >
+        {{ "save" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout12"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="60dp"
+    android:background="@drawable/border"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/rooms_title"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/newRoom"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_baseline_add_24"
+            android:backgroundTint="?attr/colorPrimary"
+            android:contentDescription="@string/icon_tutorial" />
+
+        <ImageButton
+            android:id="@+id/refresh_rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_baseline_refresh_24"
+            android:backgroundTint="?attr/colorPrimary"
+            android:contentDescription="@string/icon_tutorial" />
+
+        <EditText
+            android:id="@+id/chat_name_input"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:ems="10"
+            android:hint="@string/chatroom_create_hint"
+            android:inputType="textPersonName"
+            android:textColor="?attr/colorPrimary" />
+
+        <Button
+            android:id="@+id/search_rooms_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/search_room_button" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/black" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/room_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="5dp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+</LinearLayout>

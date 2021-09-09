@@ -1,0 +1,238 @@
+<div class="top-wrapper">
+  <div
+    class="game-info"
+    *ngIf="
+      timeLeft !== 0 &&
+      !gameService.isGuessed &&
+      gameService.activeTeam &&
+      gameService.guessCount < gameService.guessLimit
+    "
+  >
+    <div class="time-container">
+      <span> {{ min }}:{{ sec }} </span>
+    </div>
+    <div *ngIf="gameService.isDrawing" class="indication">
+      {{ "game.word.draw.label" | translate }}: <span> {{ word }}</span>
+    </div>
+    <div
+      *ngIf="!gameService.isDrawing && !gameService.isGuessed"
+      class="indication"
+    >
+      <span style="margin-right: 1%" *ngIf="gameService.isReply"
+        >{{ "game.reply" | translate }}!
+      </span>
+      {{ "game.word.draw.guess" | translate }}: <span>{{ word }}</span>
+    </div>
+    <!-- <div class="leave" [ngClass]="themeService.theme" (click)="goMenu()">
+      <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+        <button class="leave-btn" mat-button>Leave Game</button>
+      </ng-container>
+      <ng-container *ngIf="translate.currentLang.toString() !== 'en'">
+        <button class="leave-btn" mat-button>
+          {{ "leave" | translate }}
+        </button>
+      </ng-container>
+    </div> -->
+  </div>
+  <div
+    *ngIf="timeLeft === 0 && !gameService.isGuessed"
+    class="times-up"
+    [ngClass]="themeService.theme"
+  >
+    <span> {{ "game.times" | translate }}</span>
+  </div>
+  <div
+    *ngIf="gameService.isGuessed"
+    [ngClass]="themeService.theme"
+    class="times-up"
+  >
+    <span>{{ successMsg }}</span>
+  </div>
+  <div
+    [ngClass]="themeService.theme"
+    *ngIf="
+      !gameService.hasGuessed &&
+      gameService.guessCount >= gameService.guessLimit
+    "
+    class="times-up"
+  >
+    <span>
+      {{ "game.noGuesses" | translate }}
+      <span *ngIf="gameService.isReply">
+        {{ "game.guessesLeft" | translate }}</span
+      ></span
+    >
+  </div>
+  <div
+    class="times-up"
+    [ngClass]="themeService.theme"
+    *ngIf="
+      !gameService.activeTeam &&
+      timeLeft !== 0 &&
+      (gameService.currentAction != getPlayerActionEnum('humanDraw') ||
+        gameService.currentAction != getPlayerActionEnum('humanGuess'))
+    "
+  >
+    <span> {{ "game.opp.playing" | translate }}</span>
+  </div>
+  <!-- <div
+    class="leave not-active"
+    [ngClass]="themeService.theme"
+    *ngIf="!gameService.activeTeam"
+    (click)="goMenu()"
+  >
+    <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+      <button class="leave-btn not-active" mat-button>Leave Game</button>
+    </ng-container>
+    <ng-container *ngIf="translate.currentLang.toString() !== 'en'">
+      <button class="leave-btn not-active" mat-button>
+        {{ "leave" | translate }}
+      </button>
+    </ng-container>
+  </div> -->
+</div>
+<div class="draw-wrapper">
+  <div
+    id="workspace"
+    #workspace
+    [style.width.px]="innerWidth"
+    oncontextmenu="return false;"
+  >
+    <div #toolbar id="toolbar">
+      <div class="team-wrapper container-color">
+        <div class="team-content">
+          <div class="title color">
+            {{ "game.round" | translate }} {{ gameService.currentRound }}
+            {{ "game.of" | translate }} {{ lobbyService.rounds }}
+          </div>
+          <div class="team-diviser color">
+            <div>
+              {{ "waitingRoom.team1" | translate }}:
+              <span
+                >{{ this.gameService.scores[0] }}
+                <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+                  {{
+                    this.gameService.scores[0]
+                      | i18nPlural: engPluralMapping
+                      | translate
+                  }}
+                </ng-container>
+                <ng-container *ngIf="translate.currentLang.toString() !== 'en'">
+                  {{
+                    this.gameService.scores[0]
+                      | i18nPlural: pluralMapping
+                      | translate
+                  }}
+                </ng-container>
+              </span>
+            </div>
+            <div
+              class="player-wrapper"
+              *ngFor="let player of lobbyService.team1"
+            >
+              <img class="avatar" [src]="findImgSrc(player.avatar)" />
+              <div class="username">{{ player.username }}</div>
+            </div>
+          </div>
+          <div class="team-diviser color">
+            <div>
+              {{ "waitingRoom.team2" | translate }}:
+              <span
+                >{{ this.gameService.scores[1] }}
+                <ng-container *ngIf="translate.currentLang.toString() !== 'en'">
+                  {{
+                    this.gameService.scores[1]
+                      | i18nPlural: pluralMapping
+                      | translate
+                  }}
+                </ng-container>
+                <ng-container *ngIf="translate.currentLang.toString() === 'en'">
+                  {{
+                    this.gameService.scores[1]
+                      | i18nPlural: engPluralMapping
+                      | translate
+                  }}
+                </ng-container>
+              </span>
+            </div>
+            <div
+              class="player-wrapper"
+              *ngFor="let player of lobbyService.team2"
+            >
+              <img class="avatar" [src]="findImgSrc(player.avatar)" />
+              <div class="username">{{ player.username }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-container">
+        <app-message-list></app-message-list>
+        <!-- <app-tools [panel]="panel"></app-tools> -->
+      </div>
+    </div>
+    <div
+      id="panel"
+      [ngClass]="themeService.theme"
+      #panel
+      [style.height.px]="innerHeight"
+    >
+      <div>
+        <app-tools [panel]="panel"></app-tools>
+      </div>
+      <app-attributs-panel></app-attributs-panel>
+    </div>
+    <app-canvas
+      [workspace]="workspace"
+      [panel]="panel"
+      [toolbar]="toolbar"
+    ></app-canvas>
+  </div>
+
+  <div class="right-wrapper">
+    <div class="guess-info container-color">
+      <!-- removed dans le ngif du guessCount:  -->
+      <div
+        class="guess-count color"
+        *ngIf="
+          !gameService.isDrawing &&
+          gameService.activeTeam &&
+          !gameService.isGuessed &&
+          gameService.guessLimit - gameService.guessCount >= 0
+        "
+      >
+        {{ gameService.guessLimit - gameService.guessCount }}
+        {{ "game.guesses.msg" | translate }}
+      </div>
+      <button
+        mat-button
+        class="hint-btn"
+        [ngClass]="themeService.theme"
+        *ngIf="!(this.gameService.teamStates === getTeamState('h'))"
+        [disabled]="
+          gameService.hintCount === 0 ||
+          !gameService.activeTeam ||
+          gameService.isGuessed
+        "
+        (click)="askHint()"
+      >
+        {{ "game.ask.hint" | translate }} ({{ gameService.hintCount }}
+        {{ "game.left" | translate }})
+      </button>
+      <button
+        mat-button
+        class="hint-btn"
+        *ngIf="this.gameService.teamStates === getTeamState('h')"
+        [disabled]="this.gameService.teamStates === getTeamState('h')"
+      >
+        {{ "game.hint.none" | translate }}
+      </button>
+    </div>
+    <div class="guess-zone">
+      <app-chat style="width: 100%"></app-chat>
+    </div>
+    <!-- <div class="chat-wrapper">
+            <app-message-list></app-message-list>
+        </div> -->
+  </div>
+</div>
+<ngx-spinner></ngx-spinner>

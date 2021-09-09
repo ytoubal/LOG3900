@@ -1,0 +1,106 @@
+.title {
+  color: #212e5b;
+  font-size: larger;
+  font-weight: 500;
+
+  &.dark {
+    color: white;
+  }
+  &.red {
+    color: white;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: rgb(255, 136, 0);
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+.room-name {
+  width: 100%;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 19px;
+
+  .button:not([disabled]) {
+    width: 47%;
+    background-color: #212e5b;
+    color: white;
+  }
+  .button:disabled {
+    width: 47%;
+    color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.12);
+
+    &.halloween {
+      color: rgb(255 255 255 / 27%);
+      background-color: rgb(214 214 214 / 12%);
+    }
+  }
+}
+::ng-deep .mat-dialog-container {
+  // background: #343e61;
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+::ng-deep .mat-flat-button.mat-primary {
+  &.dark,
+  &.light,
+  &.red,
+  &.christmas,
+  &.halloween,
+  &.valentine {
+    background: #212e5b !important;
+    color: white;
+  }
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #212e5b !important;
+}
+
+::ng-deep .mat-form-field-placeholder {
+  &.halloween {
+    color: #b48c5e !important;
+  }
+}
+
+::ng-deep .mat-focused .mat-form-field-placeholder {
+  &.halloween {
+    color: #b48c5e !important;
+  }
+}
+
+::ng-deep .mat-focused .placeholder {
+  color: #b48c5e !important;
+}
+
+mat-placeholder.dark.ng-star-inserted {
+  color: #f1e5f1 !important;
+}
+mat-placeholder.red.ng-star-inserted {
+  color: white !important;
+}
+mat-placeholder.christmas.ng-star-inserted {
+  color: white !important;
+}
+mat-placeholder.halloween.ng-star-inserted {
+  color: white !important;
+}

@@ -1,0 +1,68 @@
+<div class="background">
+  <app-toolbar style="width: 100%"></app-toolbar>
+  <div class="row">
+    <div class="center wrapper">
+      <div class="container theme-option center">
+        <div class="title">{{ "settings.theme" | translate }}</div>
+        <div class="preview-wrapper row">
+          <div
+            class="preview center"
+            matTooltip="{{ 'settings.tooltip.light' | translate }}"
+            (click)="themeService.getTheme(0)"
+          >
+            <img [src]="getThemePreview('light')" class="image" />
+          </div>
+          <div
+            class="preview center"
+            matTooltip="{{ 'settings.tooltip.dark' | translate }}"
+            (click)="themeService.getTheme(1)"
+          >
+            <img [src]="getThemePreview('dark')" class="image" />
+          </div>
+          <div
+            class="preview center"
+            matTooltip="{{ 'settings.tooltip.red' | translate }}"
+            (click)="themeService.getTheme(2)"
+          >
+            <img [src]="getThemePreview('red')" class="image" />
+          </div>
+          <div
+            class="preview center"
+            matTooltip="{{ 'settings.tooltip.christ' | translate }}"
+            (click)="themeService.getTheme(3)"
+          >
+            <img [src]="getThemePreview('christmas')" class="image" />
+          </div>
+          <div
+            class="preview center"
+            matTooltip="{{ 'settings.tooltip.hall' | translate }}"
+            (click)="themeService.getTheme(4)"
+          >
+            <img [src]="getThemePreview('halloween')" class="image" />
+          </div>
+          <div
+            class="preview center"
+            matTooltip="{{ 'settings.tooltip.val' | translate }}"
+            (click)="themeService.getTheme(5)"
+          >
+            <img [src]="getThemePreview('valentine')" class="image" />
+          </div>
+        </div>
+      </div>
+      <div class="container language">
+        <div class="title">{{ "settings.lang" | translate }}</div>
+        <mat-radio-group [(ngModel)]="currLang">
+          <mat-radio-button
+            *ngFor="let lang of 'settings.lang.options' | translate"
+            (change)="switchLang($event)"
+            [value]="lang.value"
+            >{{ lang.name }}</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="chat-wrapper">
+      <app-message-list></app-message-list>
+    </div>
+  </div>
+</div>

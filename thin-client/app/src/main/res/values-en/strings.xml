@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">thin_client</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="login_button">Login</string>
+    <string name="previous">Previous</string>
+
+    <string name="app_title" translatable="false">PAINseau</string>
+    <string name="login_username">Username</string>
+    <string name="chat_enter_message">Enter your message</string>
+    <string name="chat_send_message">Send</string>
+    <string name="chat_other_msg_username" translatable="false">username</string>
+    <string name="chat_other_msg_message" translatable="false">message</string>
+    <string name="chat_other_msg_time" translatable="false">timestamp</string>
+    <string name="chat_other_msg_logo_descr" translatable="false">Avatar</string>
+    <string name="chat_own_msg_username" translatable="false">username</string>
+    <string name="chat_own_msg_message" translatable="false">message</string>
+    <string name="chat_own_msg_time" translatable="false">timestamp</string>
+    <string name="chat_user_update_message" translatable="false">update</string>
+    <string name="chat_own_msg_image_descr" translatable="false">Avatar</string>
+    <string name="login_password">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="icon_back_description">Logout</string>
+    <string name="icon_profile_description">Profil</string>
+    <string name="icon_settings_description">Settings</string>
+    <string name="icon_tutorial">Tutorial</string>
+    <string name="icon_leaderboard_description">Leaderboard</string>
+    <string name="sign_up_message">Don\'t have an account?</string>
+    <string name="register_link"><u>Sign Up</u></string>
+    <string name="register_first_name">First Name*</string>
+    <string name="register_last_name">Last Name*</string>
+    <string name="register_confirm_password">Confirm Password*</string>
+    <string name="register_username">Username*</string>
+    <string name="register_password">Password*</string>
+    <string name="create_lobby">Create</string>
+    <string name="rooms_chat">Rooms</string>
+    <string name="leave_chat">Leave</string>
+    <string name="create_account">Create Account</string>
+    <string name="round_number_game">Round 1 of 3</string>
+    <string name="team_1_game">Team 1</string>
+    <string name="team_2_game">Team 2</string>
+    <string name="players_lobby">Players</string>
+    <string name="start_game_lobby">Start Game</string>
+    <string name="search_lobby">Search</string>
+    <string name="refresh_rooms">Refresh</string>
+    <string name="apply_settings1">Apply and restart</string>
+    <string name="apply_settings2">Apply and Logout</string>
+    <string name="load_previous_messages">Load previous messages</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_room">New Room</string>
+    <string name="join_team1_lobby">Join Team 1</string>
+    <string name="join_team2_lobby">Join Team 2</string>
+    <string name="lobby_name_search">Lobby Name</string>
+    <string name="difficulty_lobby">Difficulty</string>
+    <string name="lobby_rounds">Rounds</string>
+    <string name="language_settings">Language</string>
+    <string name="theme_settings">Theme</string>
+    <string name="step1_register">Account Details</string>
+    <string name="step2_register">Choose Avatar</string>
+    <string name="join_lobby">Join</string>
+    <string name="join_message">has joined the room</string>
+    <string name="leave_message">has left the room</string>
+    <string name="join_room">Join</string>
+    <string name="open_room">Open</string>
+    <string name="delete_room">Delete</string>
+    <string name="role_drawing">Drawing</string>
+    <string name="role_guessing">Guessing</string>
+    <string name="role_spectating">Spectating</string>
+    <string name="add_bot">Add Bot</string>
+    <string name="remove_bot">Remove Bot</string>
+    <string name="win_game">Congrats! You won!</string>
+    <string name="lost_game">Better luck next time!</string>
+    <string name="tie_game">Tie game!</string>
+    <string name="chatroom_create_hint">Room Name</string>
+    <string name="role_replying">Replying</string>
+
+    <string name="search_room_button">Search</string>
+    <string name="search_room_text">Room Name</string>
+
+    <string name="tutorial1">This top bar indicates what you are supposed to do throughout the game.</string>
+    <string name="tutorial2">In this section, you can consult the scores. You can also see the teams and their members.</string>
+    <string name="tutorial3">This is where you select your tools. They are hidden when it is not your turn to draw. You\'ll be able to try them out with a drawing!</string>
+    <string name="tutorial4">Now try and draw the word displayed on the top bar with what you\'ve learned so far!</string>
+    <string name="tutorial5">Congrats, your teammate guessed your drawing! Your team has gained 1 point!</string>
+    <string name="tutorial6">Now try and guess what Yanis is drawing… Watch out for your number of guesses! Each time you fail you lose a guess.</string>
+    <string name="tutorial7">Congrats, you guessed right! Usually, if the time ran out or if you used all the number of guess, the other team has a right of reply to steal the point. The tutorial is completed!</string>
+    <string name="tutorial0">Welcome to the tutorial.</string>
+    <string name="tutorial_label">Welcome to the tutorial</string>
+    <string name="tutorial_question">Here you will learn basics of the game</string>
+    <string name="tutorial_start">Start</string>
+    <string name="tutorial_skip">Skip</string>
+    <string name="generic_error_message">An unexpected error occured! Try again later.</string>
+
+    <string name="sign_up_string">Already a member?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_link"><u>Sign In</u></string>
+    <string name="no_lobby_found">No lobby found</string>
+    <string name="quit_lobby_label">Leaving lobby</string>
+    <string name="quit_lobby_question">Are you sure you want to quit? The lobby will be destroyed.</string>
+    <string name="quit_tutorial_label">Leave tutorial</string>
+    <string name="qui_tutorial_question">Are you sure you want to leave the tutorial? You will lose your progress.</string>
+    <string name="delete_room_question">Are you sure you want to permanently delete the room?</string>
+    <string name="delete_room_label">Delete room</string>
+    <string name="finish">Finish</string>
+    <string name="leaderboard_title">Leaderboard</string>
+    <string name="rooms_title">Rooms</string>
+    <string name="level">Level</string>
+    <string name="create_room_title">Create Room</string>
+    <string name="create_lobby_title">Create Lobby</string>
+    <string name="lobbies_menu_title">Lobbies</string>
+    <string name="lobby_col_name">Name</string>
+    <string name="lobby_col_diff">Difficulty</string>
+    <string name="lobby_col_player1">Player1</string>
+    <string name="lobby_col_player2">Player2</string>
+    <string name="lobby_col_player3">Player3</string>
+    <string name="lobby_col_player4">Player4</string>
+    <string name="profile_games_played">Games Played</string>
+    <string name="profile_win_pourcentage">Win %</string>
+    <string name="profile_average_time_per_game">Average Time Per Game:</string>
+    <string name="profile_total_time_played">Total Time Played:</string>
+    <string name="match_victory">Victory</string>
+    <string name="match_defeat">Defeat</string>
+    <string name="match_tie">Tie</string>
+    <string name="profile_match_history">Match History</string>
+    <string name="profile_connection_history">Connection History</string>
+    <string name="profile_connection">Connection</string>
+    <string name="profile_disconnection">Disconnection</string>
+    <string name="save">Save</string>
+    <string name="lobby_join_team1">Join Team1</string>
+    <string name="lobby_join_team2">Join Team2</string>
+    <string name="start_tutorial">Start</string>
+    <string name="start_tutorial_title">Tutorial</string>
+    <string name="game_user_left">A user has left!</string>
+    <string name="round">Round </string>
+    <string name="of">of</string>
+    <string name="game_team1_guessed">Team 1 guessed correctly!</string>
+    <string name="game_team2_guessed">Team 2 guessed correctly!</string>
+    <string name="owner_left_lobby">The owner has left the lobby.</string>
+    <string name="level_up_title">LEVEL UP</string>
+    <string name="level_up_unlock">You have unlocked:</string>
+    <string name="level_up_title_unlocked">Title</string>
+    <string name="level_up_border_unlocked">Border</string>
+    <string name="game_summary_title">Game Summary</string>
+    <string name="edit_profile_dialog_title">Edit Profile</string>
+
+    <string name="edit_profile_border">Borders</string>
+    <string name="edit_profile_name">Name</string>
+    <string name="titles">Titles</string>
+    <string name="welcome_message_title">Welcome to the drawing game <b>PAINseau </b></string>
+    <string name="welcome_message_description">Do you wish to consult the tutorial of the game? *Note that you can access the tutorial anytime from the navigation bar</string>
+    <string name="welcome_message_start">Start tutorial</string>
+    <string name="welcome_message_skip">Not for now</string>
+    <string name="game_ask_hint">Ask Hint</string>
+    <string name="game_guess_word">Chosen Word</string>
+    <string name="game_team_guess">Team 1 guessed correctly!</string>
+
+
+</resources>
+

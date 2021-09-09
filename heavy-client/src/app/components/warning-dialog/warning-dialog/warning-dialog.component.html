@@ -1,0 +1,48 @@
+<div class="whole">
+  <h2 class="title">
+    <ng-container *ngIf="isLobby">
+      {{ "warning.leave.lobby.main" | translate }}
+    </ng-container>
+    <ng-container *ngIf="isTutorial">
+      {{ "warning.leave.tutorial.main" | translate }}
+    </ng-container>
+    <ng-container *ngIf="isRoom">
+      {{ "warning.delete.room.main" | translate }}
+    </ng-container>
+    <ng-container *ngIf="isLeaveDraw">
+      {{ "warning.leave.draw.main" | translate }}
+    </ng-container>
+    <ng-container *ngIf="isBackDraw">
+      {{ "warning.back.draw.main" | translate }}
+    </ng-container>
+  </h2>
+  <ng-container *ngIf="!isRoom">
+    <div mat-dialog-content [ngClass]="themeService.theme" class="color">
+      <ng-container *ngIf="isLobby">
+        {{ "warning.leave.lobby.sub" | translate }}
+      </ng-container>
+      <ng-container *ngIf="isTutorial">
+        {{ "warning.leave.tutorial.sub" | translate }}
+      </ng-container>
+      <ng-container *ngIf="isLeaveDraw || isBackDraw">
+        {{ "warning.draw.sub" | translate }}
+      </ng-container>
+    </div>
+  </ng-container>
+  <div mat-dialog-actions class="button-container" mat-dialog-close>
+    <button mat-flat-button (click)="leave()">
+      <ng-container *ngIf="!isRoom && !isBackDraw">
+        {{ "leave" | translate }}
+      </ng-container>
+      <ng-container *ngIf="isBackDraw">
+        {{ "yes" | translate }}
+      </ng-container>
+      <ng-container *ngIf="isRoom">
+        {{ "delete" | translate }}
+      </ng-container>
+    </button>
+    <button mat-flat-button style="background: #f44336" mat-dialog-close>
+      Cancel
+    </button>
+  </div>
+</div>

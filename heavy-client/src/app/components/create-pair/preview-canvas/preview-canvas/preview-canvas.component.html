@@ -1,0 +1,17 @@
+<div
+  #scrollableWindow
+  [style.width.px]="widthView"
+  [style.height.px]="heightView"
+  id="drawingDiv"
+>
+  <svg
+    #drawingboard
+    onchange="hasChanged()"
+    (click)="onClick()"
+    [ngClass]="{ disable: gameService.isGuessed }"
+    [style.backgroundColor]="backgroundColor"
+    [style.width.px]="width"
+    [style.height.px]="height"
+    id="drawingboard"
+  ></svg>
+</div>

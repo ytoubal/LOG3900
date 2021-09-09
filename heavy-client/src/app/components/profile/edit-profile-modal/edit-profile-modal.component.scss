@@ -1,0 +1,124 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #961f1f;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+.current-pfp {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  float: left;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatars {
+  position: relative;
+  z-index: 10;
+}
+
+.avatar-display {
+  height: 200px;
+}
+
+.current-border {
+  position: relative;
+  z-index: 20;
+  top: -150px;
+  left: -188px;
+  width: 223px;
+  height: 184px;
+}
+
+.other-pfps {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-button {
+  width: 47%;
+}
+
+::ng-deep .mat-dialog-container {
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+
+::ng-deep .mat-dialog-title {
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red {
+    color: #961f1f;
+  }
+  &.christmas {
+    color: white;
+  }
+  &.halloween {
+    color: orange;
+  }
+  &.valentine {
+    color: #eec0da;
+  }
+}
+
+::ng-deep .mat-flat-button.mat-primary {
+  &.dark, &.light, &.red, &.christmas, &.halloween, &.valentine {
+    background: #212e5b !important;
+    color: white;
+  }
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #212e5b !important;
+}
+
+.border-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.border {
+  height: 50px;
+  cursor: pointer;
+}

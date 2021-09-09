@@ -1,0 +1,591 @@
+.background {
+  min-height: 100%;
+  background-size: cover;
+  background-image: url("~src/assets/images/mountains.jpg");
+
+  overflow-y: hidden !important; /* Hide vertical scrollbar */
+  overflow-x: hidden !important; /* Hide horizontal scrollbar */
+  &.dark {
+    background-image: url("~src/assets/images/dark_mountains.png");
+  }
+  &.red {
+    background-image: url("~src/assets/images/red_mountains.png");
+  }
+  &.christmas {
+    background-image: url("~src/assets/images/xmas_mountains.png");
+  }
+  &.halloween {
+    background-image: url("~src/assets/images/spooky_mountains.png");
+  }
+  &.valentine {
+    background-image: url("~src/assets/images/valentine_mountains.png");
+  }
+}
+
+.username {
+  display: flex;
+  height: 50px;
+}
+
+.info {
+  position: relative;
+  top: 170px;
+}
+
+.pp {
+  position: relative;
+  z-index: 10;
+  top: -135px;
+  margin-left: 10px;
+}
+
+.bio {
+  position: relative;
+  z-index: 10;
+  top: -450px;
+  left: 160px;
+  width: 400px;
+  font-size: 0.9rem;
+  &.dark {
+    color: #1e2235;
+  }
+  &.red {
+    color: #cc0000;
+  }
+  &.christmas {
+    color: #cc0000;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+.pp-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.container {
+  background: rgba(236, 236, 236, 0.58);
+  margin: 28px 1.5% 27px 1.5%;
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-bottom: 60px;
+  padding-right: 15px;
+  padding-top: 15px;
+  min-height: calc(100vh - 220px);
+  width: 66%;
+
+  &.dark {
+    background: #0000008f;
+  }
+  &.red {
+    background: #ff00009e;
+  }
+  &.christmas {
+    background: rgb(255 0 0 / 58%);
+  }
+  &.halloween {
+    background: rgb(255 137 53 / 58%);
+  }
+  &.valentine {
+    background: #ffe0f28a;
+  }
+}
+
+::ng-deep .cdk-global-scrollblock {
+  position: static;
+  overflow: hidden !important;
+}
+::ng-deep .mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
+}
+
+.profile-banner {
+  background: rgba(white, 0.5);
+  height: 150px;
+  &.dark {
+    background: rgb(30 34 53);
+  }
+}
+
+.level {
+  border-radius: 50%;
+  border: 3px solid #e5cfe6;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  justify-content: center;
+  line-height: 20px;
+  position: relative;
+  z-index: 20;
+  top: -340px;
+  left: 100px;
+  background: white;
+}
+
+::ng-deep .mat-tooltip {
+  font-size: 15px;
+}
+
+.edit {
+  position: relative;
+  z-index: 20;
+  top: -520px;
+  left: 400px;
+  &.dark {
+    color: #1e2235;
+  }
+  &.red {
+    color: #cc0000;
+  }
+  &.christmas {
+    color: #cc0000;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+.top {
+  height: 150px;
+}
+
+.tabs {
+  width: 70%;
+  height: 110%;
+  font-size: 0.9rem;
+
+  .activities {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+
+    &.dark {
+      color: #f1e5f1;
+    }
+    &.red,
+    &.christmas {
+      color: white;
+    }
+
+    .indiv-activity {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2%;
+
+      .other-infos {
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .details {
+          display: flex;
+          flex-direction: column;
+          width: 39%;
+        }
+
+        .score {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 43%;
+        }
+      }
+
+      .players {
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        // grid-template-rows: 1fr 1fr;
+        width: 59%;
+
+        .team {
+          display: flex;
+          align-items: center;
+
+          .team-num {
+            margin-right: 12px;
+          }
+        }
+
+        .indiv-player {
+          display: flex;
+          align-items: center;
+          width: 115px;
+
+          .hist-avatar {
+            width: 30px;
+            border-radius: 50%;
+            height: 30px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .gallery {
+    display: flex;
+    height: 110%;
+    flex-direction: column;
+
+    &.dark {
+      color: #f1e5f1;
+    }
+    &.red,
+    &.christmas {
+      color: white;
+    }
+
+    .gal-images {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      width: 100%;
+    }
+
+    .indiv-drawing {
+      margin-left: 5px;
+      height: 50%;
+      margin-right: 5px;
+      margin-bottom: -3px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .button-container {
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+
+      &.dark {
+        color: #f1e5f1;
+      }
+      &.red,
+      &.christmas {
+        color: white;
+      }
+    }
+
+    .gal-img {
+      background: white;
+      height: 98px;
+      width: 98px;
+    }
+  }
+
+  .history {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &.dark {
+      color: #f1e5f1;
+    }
+    &.red,
+    &.christmas {
+      color: white;
+    }
+
+    .indiv-hist {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2%;
+    }
+  }
+}
+
+.stats {
+  width: 28%;
+  display: flex;
+  padding-top: 5.4%;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 95%;
+}
+
+.general-stats {
+  background: rgba(255, 255, 255, 0.5);
+  height: 125px;
+}
+
+.time-stats {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+:host ::ng-deep .gen-stats.mat-tab-group .mat-tab-header,
+:host ::ng-deep .time-stats.mat-tab-group .mat-tab-header {
+  display: none;
+}
+
+.g-stat {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.time {
+  font-size: 1.1em;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.game-stats {
+  font-size: 0.9rem;
+  padding: 5%;
+}
+
+.specs {
+  margin-top: 40px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: calc(100vh - 350px);
+}
+
+.row {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  overflow: hidden;
+  border-color: rgba(103, 58, 183, 0.12);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 10px;
+}
+
+.stat-circle-text {
+  position: relative;
+  left: -1px;
+}
+
+.stat-circle-win {
+  position: relative;
+  left: 4px;
+}
+
+.stat-label {
+  margin-top: 2px;
+}
+
+:host ::ng-deep .row {
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+.specs {
+  font-size: 20px;
+  padding: 10px;
+  background: white;
+}
+
+.indiv-spec {
+  display: flex;
+  justify-content: row;
+  align-items: center;
+}
+
+::ng-deep .mat-tab-header-pagination {
+  display: none !important;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: white;
+}
+
+::ng-deep .mat-progress-bar {
+  border-radius: 2px;
+}
+
+::ng-deep .mat-tab-group {
+  height: 100%;
+}
+
+::ng-deep .mat-paginator {
+  background: transparent;
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red,
+  &.christmas {
+    color: white;
+  }
+}
+
+::ng-deep .mat-tab-body-wrapper {
+  height: 100%;
+  &.dark {
+    color: #e5cfe6;
+  }
+  &.red {
+    color: #ffffff;
+  }
+  &.christmas {
+    color: #fff;
+  }
+  &.halloween {
+    color: black;
+  }
+  &.valentine {
+    color: #9b0f2e;
+  }
+}
+
+.progress {
+  position: relative;
+  z-index: 20;
+  top: -440px;
+  left: 160px;
+  width: 30%;
+  display: flex;
+}
+
+.progress-text {
+  position: relative;
+  z-index: 20;
+  top: -455px;
+  left: 520px;
+  width: 40%;
+}
+
+.border-img {
+  width: 200px;
+  height: 170px;
+  position: relative;
+  z-index: 20;
+  top: -285px;
+  left: -30px;
+}
+
+.whole {
+  display: flex;
+}
+
+app-message-list {
+  width: 28.2%;
+  height: 87.3vh;
+}
+
+// tiré de https://github.com/MatejKustec/SpinThatShit
+@mixin loader(
+  $size: $loader-size,
+  $color: $loader-color,
+  $border-size: $loader-border-size,
+  $duration: $loader-animation-duration,
+  $align: null
+) {
+  width: $size;
+  height: $size;
+  border: $border-size solid transparent;
+  border-top-color: $color;
+  border-bottom-color: $color;
+  border-radius: 50%;
+  position: relative;
+  animation: loader-rotate $duration linear infinite;
+  @if ($align == center) {
+    margin: 0 auto;
+  }
+  @if ($align == middle) {
+    top: 50%;
+    margin: -$size / 2 auto 0;
+  }
+  @include loader-rotate;
+}
+
+@mixin loader-rotate {
+  @keyframes loader-rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.loading {
+  @include loader(30px, #e1bee7, 8px, 1s, null);
+  &.halloween {
+    @include loader(30px, black, 8px, 1s, null);
+  }
+  &.christmas {
+    @include loader(30px, rgb(233, 0, 0), 8px, 1s, null);
+  }
+  &.red {
+    @include loader(30px, white, 8px, 1s, null);
+  }
+  &.valentine {
+    @include loader(30px, #9b0f2e, 8px, 1s, null);
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: none;
+}
+
+.empty-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+
+  &.dark {
+    color: #f1e5f1;
+  }
+  &.red,
+  &.christmas {
+    color: white;
+  }
+}
+
+span {
+  &.dark.ng-star-inserted,
+  &.halloween.ng-star-inserted,
+  &.christmas.ng-star-inserted {
+    color: white !important;
+  }
+  &.valentine.ng-star-inserted {
+    color: #71051d !important;
+  }
+}

@@ -1,0 +1,14 @@
+.color-palette:hover {
+    cursor: pointer;
+  }
+  
+  :host {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+  }
+
+  canvas {
+    display:inline-block;
+    border: 1px solid black;
+}  

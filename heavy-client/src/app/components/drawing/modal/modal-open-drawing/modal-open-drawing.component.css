@@ -1,0 +1,144 @@
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.container button {
+    position: absolute;
+    top: 10%;
+    left: 84%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: darkgrey;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 80px;
+    text-align: center;
+}
+
+.container button:hover {
+    background-color: #555;
+}
+
+.caption {
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+} 
+
+.element {
+    float: left;
+    position: relative;
+    width: 124px;
+    height: 204px;
+}
+
+.dessin:hover {
+    border: solid #555;
+}
+
+.dessin {
+    border: solid darkgrey;
+}
+
+.btnTag {
+    margin-left: 4px;
+    border: solid#E8E8E8;
+    border-radius: 100%;
+    background-color: white;
+    color: 	#E8E8E8;
+}
+
+.valid {
+    color: darkgrey;
+    border: solid darkgrey;
+}
+
+.valid:hover {
+    color: #555;
+    border: solid #555
+}
+
+.tag {
+    font-size: 10px;
+    color:darkgrey;
+    border: solid darkgrey;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.tags {
+    font-size: 10px;
+    color:darkgrey;
+    margin: 3px;
+}
+
+.tag:hover {
+    color: #555;
+    border: solid #555;
+}
+
+.selected {
+    color: #555;
+    border: solid #555;
+}
+
+div {
+    float: left;
+}
+
+button {
+    margin: 5px;
+}
+
+.col1 {
+    width: 75%;
+}
+
+.col2 {
+    width: 10%;
+    border-left: solid darkgrey;
+    margin: 3px;
+}
+
+.extraTags:hover {
+    color: #555;
+}
+
+.extraTags {
+    position: absolute;
+    display: inline-block;
+  }
+
+.extraTags .extraTagsText {
+    visibility: hidden;
+    width: 120px;
+    background-color: darkgrey;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 7px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 120%;
+  }
+
+  .only:hover .extraTagsText {
+    visibility: visible;
+    white-space: pre-line;
+  }
+
+  .spaced {
+      padding: 3px;
+  }

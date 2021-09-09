@@ -1,0 +1,239 @@
+{
+  "create": "Erstellen",
+  "create.lobby": "Lobby estellen",
+  "refresh.lobby": "Lobbys auffrischen",
+  "refresh.room": "Chaträume auffrischen",
+  "new.room": "Neuer Chatraum",
+  "search.room": "Suche Chatraum",
+  "cancel": "Abbrechen",
+  "history": "Historisch",
+  "save": "Sparen",
+  "fName": "Vorname",
+  "lName": "Nachame",
+  "search": "Suche",
+  "leave": "Verlassen",
+  "continue": "Fortsetzen",
+  "gallery": "Album",
+  "fetching": "Warten Sie mal",
+  "color": "Farbe",
+  "size": "Größe",
+  "back": "Zurück",
+  "next": "Nächster",
+  "tolerance": "Toleranz",
+  "generate": "Erzeugen",
+  "preview": "Vorschau",
+  "any": "Alle",
+  "delete": "Löschen",
+  "close": "Schließen",
+  "yes": "Ja",
+  "of_label": "von",
+
+  "edit": {
+    "avatar": "Wähle einen Avatar aus",
+    "border": "Wählen Sie einen Rand",
+    "title": "Wählen Sie einen Titel",
+    "no.title": "kein Titel"
+  },
+
+  "levelup": {
+    "label": "Niveau",
+    "unlock": "Sie haben freigeschalteté",
+    "title": "Ein Titel",
+    "border": "Eine Grenze"
+  },
+
+  "tutorial": {
+    "welcome.msg": "Willkommen zum Tutorial!",
+    "subtitle.msg": "Hier lernen Sie die Grundlagen für ein Spiel."
+  },
+
+  "login": {
+    "signin": "Anmelden",
+    "username": "Nutzername",
+    "username.charError": "Benutzername muss unter 10 Zeichen sein",
+    "username.reqError": "Bitte geben Sie einen Benutzernamen ein",
+    "username.invalid": "Bitte geben Sie einen gültigen Benutzername ein",
+    "name.invalid": "Bitte geben Sie einen gültigen Namen ein",
+    "pw.invalid": "Bitte geben Sie ein gültiges Passwort ein",
+    "pw": "Passwort",
+    "pw.reqError": "Bitte geben Sie Ihr Passwort ein",
+    "pw.charError": "Das Passwort muss mehr als 5 Zeichen enthalten",
+    "login": "Einloggen",
+    "createAcc": "Sie haben noch keinen Account?",
+    "signup": "Anmelden"
+  },
+
+  "signup": {
+    "acc.details": "Kontodetails",
+    "acc.avatar": "Wähle einen Avatar",
+    "form.confPw": "Passwort bestätigen",
+    "form.pwError": "Passwörter stimmen nicht überein",
+    "form.create": "Konto anlegen",
+    "acc.exists": "Schon ein Mitglied"
+  },
+
+  "toolbar": {
+    "pairWI": "Wort-Bild-Paar erstellen",
+    "leaderboard": "Bestenliste",
+    "profile": "Profil",
+    "tutorial": "Lernprogramm",
+    "QA": "HgF",
+    "logout": "Ausloggen",
+    "settings": "Einstellungen",
+    "back": "Zurück Menü"
+  },
+
+  "lobby": {
+    "placeholder": "Name der Lobby",
+    "diff.label": "Schwierigkeit",
+    "drawing": "Drawing",
+    "diffs": [
+      { "name": "Einfach" },
+      { "name": "Mittlere" },
+      { "name": "Schwierig" }
+    ],
+    "form.title": "Lobby erstellen",
+    "form.rounds": "Anzahl der Runden"
+  },
+
+  "settings": {
+    "theme": "Navigationsthema",
+    "tooltip.light": "Licht",
+    "tooltip.dark": "Dunkles",
+    "tooltip.red": "Rotes",
+    "tooltip.christ": "Weihnachten",
+    "tooltip.hall": "Halloween",
+    "tooltip.val": "Valentinstag",
+    "lang": "Sprache",
+    "lang.options": [
+      { "name": "Englisch - EN", "value": "en" },
+      { "name": "Französisch - FR", "value": "fr" },
+      { "name": "Deutsche - DE", "value": "de" }
+    ]
+  },
+
+  "rooms": {
+    "title": "Chatraum",
+    "joined": "Trat ",
+    "quit": "Verlasse Raum",
+    "noRoom": "Keine passenden Raumen",
+    "type": "Schreibe deine Nachricht",
+    "create.title": "Platz schaffen",
+    "create.placeholder": "Raumname",
+    "create.reqError": "Bitte geben Sie einen Namen ein",
+    "create.charError": "Name muss weniger als 10 Zeichen umfassen"
+  },
+
+  "profile": {
+    "win": "Sieg",
+    "lost": "Niederlage",
+    "tie": "Gleichberechtigung",
+    "activity": "Spielverlauf",
+    "played": "Gespielt",
+    "winrate": "Win-Rate",
+    "classic": "Klassisch",
+    "edit": "Profil bearbeiten",
+    "edit.select": "Wählen Sie Avatar",
+    "connection.label": "Verbindungsverlauf",
+    "connection": "Verbindung",
+    "disconnection": "Trennung",
+    "avg.time": "Durchschnittliche Zeit pro Spiel",
+    "tot.time": "Gesamtzeit gespielt"
+  },
+
+  "leaderboard": {
+    "title": "Bestenliste",
+    "level": "Niveau",
+    "no.drawing": "Der Benutzer hat keine Zeichnungen mehr."
+  },
+
+  "waitingRoom": {
+    "team1": "Team 1",
+    "team2": "Team 2",
+    "loadingMsg": "Warten auf Spieler...",
+    "start": "Anfang"
+  },
+
+  "game": {
+    "word.draw.label": "Wort zum Zeichnen",
+    "word.draw.guess": "Wort zu erraten",
+    "times": "DIE ZEIT IST UM!",
+    "noGuesses": "ES GIBT KEINE VERSUCHE MEHR! ES IST DIE WENDUNG DES GEGNERISCHEN TEAMS.",
+    "guess.success": "hat es erraten",
+    "guesses.msg": "Vermutungen",
+    "ask.hint": "Hinweis",
+    "hint.none": "Keine Hinweise mehr",
+    "left": "links",
+    "guessesLeft": "ANTWORTEN",
+    "opp.playing": "ZUSCHAUER DER GEGNERISCHEN MANNSCHAFT",
+    "round": "Runde",
+    "of": "von",
+    "win.msg": "Herzlichen Glückwunsch, Sie haben gewonnen!",
+    "lose.msg": "Viel Glück beim nächsten Mal!",
+    "tie.msg": "Das Spiel ist ein Unentschieden!",
+    "score.label": "Ergebnis: ",
+    "reply": "EIN VERSUCH ZU ANTWORTEN",
+    "points": "Punkt(e)",
+    "point.s": "Punkt",
+    "point.p": "Punkte",
+    "exit": "Menü"
+  },
+
+  "wordImg": {
+    "word.label": "Wort / Ausdruck",
+    "word.placeholder": "z.B. Hund",
+    "mode.label": "Modus",
+    "modes": [
+      "Konventioneller",
+      "Panoramamodus von links nach rechts",
+      "Panoramamodus von rechts nach links",
+      "Panoramamodus von unten nach oben",
+      "Panoramamodus von oben nach unten",
+      "Zentrierter nach innen nach außen",
+      "Zentrierter nach außen nach innen",
+      "Zufallsmodus"
+    ],
+    "modesSliced": [
+      "Zufallsmodus",
+      "Panoramamodus von links nach rechts",
+      "Panoramamodus von rechts nach links",
+      "Panoramamodus von unten nach oben",
+      "Panoramamodus von oben nach unten",
+      "Zentrierter nach innen nach außen",
+      "Zentrierter nach außen nach innen"
+    ],
+    "hints.label": "Hinweise",
+    "hint": "Hinweis",
+    "hint.placeholder": "z.B. Es ist eine Frucht",
+    "create.pair": "Paar erstellen",
+    "drawing.options": "Möchten Sie eine Zeichnung zeichnen oder hochladen?",
+    "opt.draw": "Zeichnen",
+    "opt.upload": "Hochladen",
+    "upload.drag": "Ziehen Sie Ihr Bild hierher",
+    "upload.or": "ODEN",
+    "upload.browse": "Datei durchsuchen"
+  },
+
+  "attrib-panel": {
+    "color.prim": "Primärfarbe",
+    "color.sec": "Sekundäre Farbe",
+    "color.switch": "Farben wechseln",
+    "color.modal.label": "Wähle eine Farbe",
+    "color.modal.accept": "Akzeptieren",
+    "size": "Größe",
+    "color.backgnd": "Hintergrundfarbe ändern",
+    "opacity": "Opazität",
+    "show.grid": "Raster anzeigen"
+  },
+
+  "warning": {
+    "leave.lobby.main": "Sind Sie sicher, dass Sie die Lobby verlassen möchten?",
+    "leave.lobby.sub": "Die Lobby wird zerstört.",
+    "leave.tutorial.main": "Möchten Sie das Tutorial wirklich verlassen?",
+    "leave.tutorial.sub": "Sie werden Ihren Fortschritt verlieren.",
+    "delete.room.main": "Möchten Sie den Raum wirklich dauerhaft löschen?",
+    "back.draw.main": "Bist du sicher, dass du zurück gehst?",
+    "leave.draw.main": "Bist du sicher, dass du gehst?",
+    "draw.sub": "Bist du sicher, dass du gehst?"
+  }
+}

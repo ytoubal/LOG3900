@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .text-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font: 450 16px/32px Roboto, "Helvetica Neue", sans-serif;
+    &.dark {
+      color: #f1e5f1;
+    }
+    &.red {
+      color: #961f1f;
+    }
+    &.christmas {
+      color: white;
+    }
+    &.halloween {
+      color: orange;
+    }
+    &.valentine {
+      color: #eec0da;
+    }
+    .intro {
+      font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+    }
+    .note {
+      font: 350 15px/32px Roboto, "Helvetica Neue", sans-serif;
+    }
+  }
+
+  .btn-container {
+    button {
+      padding: 0px 9.5px 0px 9.5px;
+      height: 32px;
+      color: white;
+      background-color: #212e5b;
+    }
+  }
+}
+
+::ng-deep .mat-dialog-container {
+  &.dark {
+    background: #343e61;
+  }
+  &.red {
+    background: #ff5a5a;
+  }
+  &.christmas {
+    background: #a00606;
+  }
+  &.halloween {
+    background: black;
+  }
+  &.valentine {
+    background: #9b0f2e;
+  }
+}
+
